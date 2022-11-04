@@ -3,27 +3,25 @@ const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 const sqlite3 = require('sqlite3').verbose();
-const DBPATH = '../data/dbUser.db';
+const DBPATH = '../data/modeloFisico.db'; // dois pontos barra sobe um nível + o nome da pasta entra nela
 
 const hostname = '127.0.0.1';
 const port = 3001;
-const app = express(); //framework que vai utilizar
+const app = express();
 
 /* Colocar toda a parte estática no frontend */
 app.use(express.static("../frontend/"));
 
-/* Definição dos endpoints */
+/* Definição dos endpoints das OBRAS*/
 /******** CRUD ************/
 app.use(express.json());
 
-
-
 // Retorna todos registros (é o R do CRUD - Read)
-app.get('/usuarios', (req, res) => {
+app.get('/obras', (req, res) => {
     res.statusCode = 200;
-    res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+    res.setHeader('Access-Control-Allow-Origin', '*');
     var db = new sqlite3.Database(DBPATH); // Abre o banco
-    var sql = 'SELECT * FROM tbUser ORDER BY title COLLATE NOCASE'; //collate nocase = não sensitive
+    var sql = 'SELECT * FROM obras';
     db.all(sql, [], (err, rows) => {
         if (err) {
             throw err;
@@ -34,46 +32,134 @@ app.get('/usuarios', (req, res) => {
 });
 
 // Insere um registro (é o C do CRUD - Create)
-app.post('/insereUsuario', urlencodedParser, (req, res) => { //MÉTODO POST NÃO VISUALZA DIRETO NA URL
+app.post('/insereObra', urlencodedParser, (req, res) => {
     res.statusCode = 200;
-    res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
+    res.setHeader('Access-Control-Allow-Origin', '*');
     var db = new sqlite3.Database(DBPATH); // Abre o banco
-    //INSERE no banco de dados colocados no FORMS
-    sql = "INSERT INTO tbUser (title, id, completed) VALUES ('" + req.body.title + "', 33, " + req.body.completed + ")";
+    sql = "INSERT INTO obras (nome, endereco, dataInicio, dataFim, descricao) VALUES ('" + req.body.nome + "', '" + req.body.endereco + "', '" + req.body.dataInicio + "', '" + req.body.dataFim + "', '" + req.body.descricao + "')";
     console.log(sql);
     db.run(sql, [], err => {
         if (err) {
             throw err;
         }
-
     });
-    res.write('<a href="/listar.html">VOLTAR</a>');
+    res.write('<p>OBRA INSERIDA COM SUCESSO!</p><a href="/">VOLTAR</a>'); //hiperlink volta
     db.close(); // Fecha o banco
     res.end();
+});
+
+// Monta o formulário para o update (é o U do CRUD - Update)
+app.get('/atualizaObra', (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    sql = `SELECT * FROM obras WHERE obra_id = ${req.query.obra_id}`;
+    console.log(sql);
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close(); // Fecha o banco
+});
+
+// Atualiza um registro (é o U do CRUD - Update)
+app.post('/atualizaObra', urlencodedParser, (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    sql = "UPDATE obras SET nome='" + req.body.nome + "', endereco='" + req.body.endereco + "', dataInicio = '" + req.body.dataInicio + "' , dataFim = '" + req.body.dataFim + "', descricao = '" + req.body.descricao + "' WHERE obra_id='" + req.body.obra_id + "'";
+    console.log(sql);
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    db.run(sql, [], err => {
+        if (err) {
+            throw err;
+        }
+        res.end();
+    });
+    res.write('<p>OBRAS ATUALIZADAS COM SUCESSO!</p><a href="/">VOLTAR</a>');
+    db.close(); // Fecha o banco
+});
+
+// Exclui um registro (é o D do CRUD - Delete)
+app.get('/removeObra', urlencodedParser, (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    sql = "DELETE FROM obras WHERE obra_id='" + req.query.obra_id + "'"; //
+    console.log(sql);
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    db.run(sql, [], err => {
+        if (err) {
+            throw err;
+        }
+        res.write('<p>OBRAS REMOVIDO COM SUCESSO!</p><a href="/">VOLTAR</a>');
+        res.end();
+    });
+    db.close(); // Fecha o banco
+});
+
+
+
+app.listen(port, hostname, () => {
+    console.log(`Servidor rodando em http://${hostname}:${port}/`);
+});
+
+/* Definição dos endpoints dos USUARIOS*/
+/******** CRUD ************/
+app.get('/usuario', (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    var sql = 'SELECT * FROM usuarios';
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close(); // Fecha o banco
+});
+
+// Insere um registro (é o C do CRUD - Create)
+app.post('/insereUsuario', urlencodedParser, (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    sql = "INSERT INTO usuarios (nomeFantasia, CNPJ, senha, email, contato1, contato2)";
+    console.log(sql);
+    db.run(sql, [], err => {
+        if (err) {
+            throw err;
+        }
+    });
+    res.write('<p>USUARIO INSERIDA COM SUCESSO!</p><a href="/">VOLTAR</a>'); //hiperlink volta
+    db.close(); // Fecha o banco
+    res.end();
+});
+
+// Monta o formulário para o update (é o U do CRUD - Update)
+app.get('/atualizaUsuario', (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    sql = `SELECT * FROM usuarios WHERE usuario_id = 1`;;
+    console.log(sql);
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close(); // Fecha o banco
 });
 
 // Atualiza um registro (é o U do CRUD - Update)
 app.post('/atualizaUsuario', urlencodedParser, (req, res) => {
     res.statusCode = 200;
-    //res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
-
-    sql = "";
-    var db = new sqlite3.Database(DBPATH); // Abre o banco
-    db.run(sql, [], err => {
-        if (err) {
-            throw err;
-        }
-        res.end();
-    });
-    db.close(); // Fecha o banco
-});
-
-// Exclui um registro (é o D do CRUD - Delete)
-app.post('/removeUsuario', urlencodedParser, (req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
-
-    sql = "DELETE FROM tbUser WHERE userId='" + req.body.userId + "'";
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    sql = "UPDATE usuarios SET nomeFantasia='" + req.body.nomeFantasia + "', cnpj='" + req.body.cnpj + "', email = '" + req.body.email + "' , contato1 = '" + req.body.contato1 + "', contato2 = '" + req.body.contato2 + "' WHERE usuario_id='" + req.body.usuario_id + "'";
     console.log(sql);
     var db = new sqlite3.Database(DBPATH); // Abre o banco
     db.run(sql, [], err => {
@@ -82,9 +168,21 @@ app.post('/removeUsuario', urlencodedParser, (req, res) => {
         }
         res.end();
     });
+    res.write('<p>USUARIO ATUALIZADO COM SUCESSO!</p><a href="/">VOLTAR</a>');
     db.close(); // Fecha o banco
 });
 
-app.listen(port, hostname, () => {
-    console.log(`Page server running at http://${hostname}:${port}/`);
+///// JOIN DAS TABELAS ///////
+app.get('/obraMaisUsuario', (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    var sql = 'SELECT obras.nome, usuarios.nomeFantasia, obras.nome FROM obras FULL OUTER JOIN usuarios ON obras.obra_id=usuarios.usuario_id';
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close(); // Fecha o banco
 });
