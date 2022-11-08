@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Obras: <div id="nomesDasObras"></div>
+    <script>
+
+        const url = '/obras';
+
+        fetch(url)
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                let obras = data;
+                let saida = '';
+                obras.map(function (obras) {
+                    saida += '<strong> ' + `${obras.nome}` + '</br>';
+                });
+                document.getElementById('nomesDasObras').innerHTML = saida;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    </script>
+</body>
+</html>

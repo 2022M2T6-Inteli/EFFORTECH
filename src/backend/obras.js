@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width" />
-    <title>CRUD</title>
-</head>
-<h1>Listagem de Obras</h1>
-<p><a href="/inserir.html">INSERIR NOVA OBRA</a></p>
-<p><a href="/obras.html">PAGINA DE OBRAS</a></p>
-
-<script>
-    const url = '/obras';
+const url = '/obras';
 
     fetch(url)
         .then((response) => {
@@ -26,17 +12,8 @@
                 saida += ' - <a href="/atualizar.html?obra_id=' + `${obras.obra_id}` + '">EDITAR</a>';
                 saida += ' | <a href="/removeObra?obra_id=' + `${obras.obra_id}` + '">REMOVER</a></br>';
             });
-            document.getElementById('resultado').innerHTML = saida;
+            document.getElementById('nomesDasObras').innerHTML = saida;
         })
         .catch(function (error) {
             console.log(error);
         });
-
-
-</script>
-
-<body>
-    <div id="resultado"></div>
-</body>
-
-</html>
