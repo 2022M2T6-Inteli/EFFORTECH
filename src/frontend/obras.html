@@ -9,11 +9,13 @@
 <body>
     <label for="cidade">Cidade</label>
     <select id="cidade" name="cidade"></select>
-    <div id="cidades"></div>
     Obras: <div id="nomesDasObras"></div>
     <script>
 
         const url = '/obras';
+        const selectCidades = document.getElementById('cidade'); 
+        let cidades = [];
+        let saidaCidades = '';
 
         fetch(url)
             .then((response) => {
@@ -21,15 +23,24 @@
             })
             .then((data) => {
                 let obras = data;
-                let saida = '';
+                let saidaGet = '';
                 obras.map(function (obras) {
-                    saida += '<strong> ' + `${obras.nome}` + '</br>';
+                    if (!(cidades.includes(obras.cidade))){
+                        cidades.push(obras.cidade);
+                    }
+                    saidaGet += '<strong> ' + `${obras.nome}` + '</br>';
                 });
-                document.getElementById('nomesDasObras').innerHTML = saida;
+                for (let cidade of cidades) {
+                    console.log(cidade);
+                    let novaCidade = new Option(cidade, cidade);
+                    selectCidades.add(novaCidade);
+                }
+                document.getElementById('nomesDasObras').innerHTML = saidaGet;
             })
             .catch(function (error) {
                 console.log(error);
             });
+
     </script>
 </body>
 </html>
