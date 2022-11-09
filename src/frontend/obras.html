@@ -7,16 +7,23 @@
     <title>Document</title>
 </head>
 <body>
+    <label for="estado">Selecione o estado</label>
+    <select id="estado" name="estado" onchange="definirCidades()">
+        <option value="todos">Todos</option>
+    </select></br>
     <label for="cidade">Cidade</label>
-    <select id="cidade" name="cidade"></select></br>
-    <button onclick="mostrarObrasFiltradas()">Calcular</button></br></br>
+    <select id="cidade" name="cidade">
+        <option value="todos">Todas</option>
+    </select></br>
+    <button onclick="filtroRegional()">Calcular</button></br></br>
     Obras: <div id="nomesDasObras"></div>
     <script>
 
         const url = '/obras';
+        const selectEstados = document.getElementById('estado'); 
         const selectCidades = document.getElementById('cidade'); 
         let cidades = [];
-        let saidaCidades = '';
+        let estados = [];
         let obras;
 
         fetch(url)
@@ -27,6 +34,9 @@
                 obras = data;
                 let saidaGet = '';
                 obras.map(function (obras) {
+                    if (!(estados.includes(obras.estado))){
+                        estados.push(obras.estado);
+                    }
                     if (!(cidades.includes(obras.cidade))){
                         cidades.push(obras.cidade);
                     }
@@ -34,6 +44,10 @@
                     saidaGet += '<strong> ' + `${obras.nome}` + '</br>';
                 });
 
+                for (let estado of estados) {
+                    let novoEstado = new Option(estado, estado);
+                    selectEstados.add(novoEstado);
+                }
                 for (let cidade of cidades) {
                     let novaCidade = new Option(cidade, cidade);
                     selectCidades.add(novaCidade);
@@ -44,9 +58,58 @@
                 console.log(error);
             });
 
-            function mostrarObrasFiltradas(){
+            function definirCidades(){
+                while (selectCidades.options.length > 1) {
+                    selectCidades.remove(selectCidades.options.length - 1);
+                }
+                let estado = selectEstados.value;
+                if (estado.value == 'todos'){
+                    for (cidade of cidades){
+                        let novaCidade = new Option(cidade, cidade)
+                        selectCidades.add(novaCidade);
+                    }
+                } else{
+                    cidadesEspecificas = [];
+                    obras.map(function (obras) {
+                        if (obras.estado == estado){
+                            if (!(cidadesEspecificas.includes(obras.cidade))){
+                                cidadesEspecificas.push(obras.cidade)
+                            }
+                        }
+                    });
+                    for (cidade of cidadesEspecificas){
+                        let novaCidade = new Option(cidade, cidade)
+                        selectCidades.add(novaCidade);
+                    }
+                }
+            }
+
+            function filtroRegional(){
+                let estado = selectEstados.value;
                 let cidade = selectCidades.value;
-                console.log(cidade)
+                saidaGet = ''
+                if (!(cidade == 'todos')){
+                    for(let obra of obras){
+                        if (obra.cidade == cidade){
+                            saidaGet += '<strong> ' + `${obra.nome}` + '</br>';
+                        }
+                    }
+                } else if (!(estado == 'todos')){
+                    for(let obra of obras){
+                        if (obra.estado == estado){
+                            saidaGet += '<strong> ' + `${obra.nome}` + '</br>';
+                            }
+                        } 
+                } else{
+                    for(let obra of obras){
+                        saidaGet += '<strong> ' + `${obra.nome}` + '</br>';
+                    }
+                } 
+                document.getElementById('nomesDasObras').innerHTML = saidaGet;
+            }
+
+            function filtroPorCidade(){
+                let cidade = selectCidades.value;
                 saidaGet = ''
                 for(let obra of obras){
                     if (obra.cidade == cidade){
