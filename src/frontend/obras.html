@@ -18,7 +18,7 @@
     </select></br>
 
     <label for="servico">Selecione o serviço</label>
-    <select id="servico" name="servico" onchange="definirCidades()">
+    <select id="servico" name="servico">
         <option value="todos">Todos</option>
     </select></br>
 
@@ -63,7 +63,7 @@
                     let novaCidade = new Option(cidade, cidade);
                     selectCidades.add(novaCidade);
                 }
-                MostrarObras(nomesDasObras)
+                mostrarObras(nomesDasObras)
             })
             .catch(function (error) {
                 console.log(error);
@@ -116,29 +116,54 @@
         function filtroRegional(){
             let estado = selectEstados.value;
             let cidade = selectCidades.value;
-            let nomesDasObras = []
+            let obrasFiltradasporRegiao = []
             saidaGet = ''
             if (!(cidade == 'todos')){
                 for(let obra of obras){
                     if (obra.cidade == cidade){
-                        nomesDasObras.push(obra.nome)
+                        obrasFiltradasporRegiao.push(obra);
                     }
                 }
             } else if (!(estado == 'todos')){
                 for(let obra of obras){
                     if (obra.estado == estado){
-                        nomesDasObras.push(obra.nome)
+                        obrasFiltradasporRegiao.push(obra);
                         }
                     } 
             } else{
                 for(let obra of obras){
-                    nomesDasObras.push(obra.nome)
+                    obrasFiltradasporRegiao.push(obra);
                 }
             } 
-            MostrarObras(nomesDasObras);
+            filtroPorServicos(obrasFiltradasporRegiao)
         }
 
-        function MostrarObras(nomes){
+        function filtroPorServicos(obras){
+            let tipoDeServicoSelecionado = selectServicos.value;
+            let nomesDasObrasFiltradasPorServico = [];
+            let idsDasObrasDesejadas = []
+            if (tipoDeServicoSelecionado === 'todos'){
+                for (obra of obras){
+                    nomesDasObrasFiltradasPorServico.push(obra.nome);
+                }
+            } else{
+                for (servico of servicos){
+                    if (servico.tipo === tipoDeServicoSelecionado){
+                        idsDasObrasDesejadas.push(servico.obra_id);
+                    }
+                }
+                for (obra of obras){
+                    console.log(idsDasObrasDesejadas)
+                    console.log(obra.obra_id)
+                    if (idsDasObrasDesejadas.includes(obra.obra_id)){
+                        nomesDasObrasFiltradasPorServico.push(obra.nome);
+                    }
+                }
+            }
+            mostrarObras(nomesDasObrasFiltradasPorServico);
+        }
+
+        function mostrarObras(nomes){
             let saidaGet = ''
             for (nome of nomes){
                 saidaGet += '<strong> ' + `${nome}` + '</br>';
