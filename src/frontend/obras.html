@@ -32,6 +32,7 @@
             })
             .then((data) => {
                 obras = data;
+                let nomesDasObras = []
                 let saidaGet = '';
                 obras.map(function (obras) {
                     if (!(estados.includes(obras.estado))){
@@ -41,7 +42,7 @@
                         cidades.push(obras.cidade);
                     }
                     
-                    saidaGet += '<strong> ' + `${obras.nome}` + '</br>';
+                    nomesDasObras.push(obras.nome)
                 });
 
                 for (let estado of estados) {
@@ -52,72 +53,70 @@
                     let novaCidade = new Option(cidade, cidade);
                     selectCidades.add(novaCidade);
                 }
-                document.getElementById('nomesDasObras').innerHTML = saidaGet;
+                MostrarObras(nomesDasObras)
             })
             .catch(function (error) {
                 console.log(error);
-            });
+        });
 
-            function definirCidades(){
-                while (selectCidades.options.length > 1) {
-                    selectCidades.remove(selectCidades.options.length - 1);
+        function definirCidades(){
+            while (selectCidades.options.length > 1) {
+                selectCidades.remove(selectCidades.options.length - 1);
+            }
+            let estado = selectEstados.value;
+            if (estado == 'todos'){
+                for (cidade of cidades){
+                    let novaCidade = new Option(cidade, cidade)
+                    selectCidades.add(novaCidade);
                 }
-                let estado = selectEstados.value;
-                if (estado.value == 'todos'){
-                    for (cidade of cidades){
-                        let novaCidade = new Option(cidade, cidade)
-                        selectCidades.add(novaCidade);
+            } else{
+                cidadesEspecificas = [];
+                obras.map(function (obras) {
+                if (obras.estado == estado){
+                    if (!(cidadesEspecificas.includes(obras.cidade))){
+                        cidadesEspecificas.push(obras.cidade)
                     }
-                } else{
-                    cidadesEspecificas = [];
-                    obras.map(function (obras) {
-                        if (obras.estado == estado){
-                            if (!(cidadesEspecificas.includes(obras.cidade))){
-                                cidadesEspecificas.push(obras.cidade)
-                            }
-                        }
-                    });
-                    for (cidade of cidadesEspecificas){
-                        let novaCidade = new Option(cidade, cidade)
-                        selectCidades.add(novaCidade);
                     }
+                });
+                for (cidade of cidadesEspecificas){
+                    let novaCidade = new Option(cidade, cidade)
+                    selectCidades.add(novaCidade);
                 }
             }
+        }
 
-            function filtroRegional(){
-                let estado = selectEstados.value;
-                let cidade = selectCidades.value;
-                saidaGet = ''
-                if (!(cidade == 'todos')){
-                    for(let obra of obras){
-                        if (obra.cidade == cidade){
-                            saidaGet += '<strong> ' + `${obra.nome}` + '</br>';
-                        }
-                    }
-                } else if (!(estado == 'todos')){
-                    for(let obra of obras){
-                        if (obra.estado == estado){
-                            saidaGet += '<strong> ' + `${obra.nome}` + '</br>';
-                            }
-                        } 
-                } else{
-                    for(let obra of obras){
-                        saidaGet += '<strong> ' + `${obra.nome}` + '</br>';
-                    }
-                } 
-                document.getElementById('nomesDasObras').innerHTML = saidaGet;
-            }
-
-            function filtroPorCidade(){
-                let cidade = selectCidades.value;
-                saidaGet = ''
+        function filtroRegional(){
+            let estado = selectEstados.value;
+            let cidade = selectCidades.value;
+            let nomesDasObras = []
+            saidaGet = ''
+            if (!(cidade == 'todos')){
                 for(let obra of obras){
                     if (obra.cidade == cidade){
-                        saidaGet += '<strong> ' + `${obra.nome}` + '</br>';
-                        }
-                document.getElementById('nomesDasObras').innerHTML = saidaGet;
+                        nomesDasObras.push(obra.nome)
+                    }
                 }
+            } else if (!(estado == 'todos')){
+                for(let obra of obras){
+                    if (obra.estado == estado){
+                        nomesDasObras.push(obra.nome)
+                        }
+                    } 
+            } else{
+                for(let obra of obras){
+                    nomesDasObras.push(obra.nome)
+                }
+            } 
+            MostrarObras(nomesDasObras);
+        }
+
+        function MostrarObras(nomes){
+            let saidaGet = ''
+            for (nome of nomes){
+                saidaGet += '<strong> ' + `${nome}` + '</br>';
             }
+            document.getElementById('nomesDasObras').innerHTML = saidaGet;
+        }
 
     </script>
 </body>
