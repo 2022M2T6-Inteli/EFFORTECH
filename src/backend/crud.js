@@ -186,3 +186,19 @@ app.get('/obraMaisUsuario', (req, res) => {
     });
     db.close(); // Fecha o banco
 });
+
+/* Definição dos endpoints dos SERVICOS*/
+/******** CRUD ************/
+app.get('/servicos', (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    var sql = 'SELECT * FROM servicos';
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close(); // Fecha o banco
+});

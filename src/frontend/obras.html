@@ -11,29 +11,39 @@
     <select id="estado" name="estado" onchange="definirCidades()">
         <option value="todos">Todos</option>
     </select></br>
+
     <label for="cidade">Cidade</label>
     <select id="cidade" name="cidade">
         <option value="todos">Todas</option>
     </select></br>
-    <button onclick="filtroRegional()">Calcular</button></br></br>
+
+    <label for="servico">Selecione o serviço</label>
+    <select id="servico" name="servico" onchange="definirCidades()">
+        <option value="todos">Todos</option>
+    </select></br>
+
+    <button onclick="filtroRegional()">Filtrar</button></br></br>
     Obras: <div id="nomesDasObras"></div>
     <script>
 
-        const url = '/obras';
+        const urlObras = '/obras';
+        const urlServicos = '/servicos'
         const selectEstados = document.getElementById('estado'); 
         const selectCidades = document.getElementById('cidade'); 
+        const selectServicos = document.getElementById('servico')
         let cidades = [];
         let estados = [];
+        let tiposDeServico = [];
         let obras;
+        let servicos;
 
-        fetch(url)
+        fetch(urlObras)
             .then((response) => {
                 return response.json();
             })
             .then((data) => {
                 obras = data;
                 let nomesDasObras = []
-                let saidaGet = '';
                 obras.map(function (obras) {
                     if (!(estados.includes(obras.estado))){
                         estados.push(obras.estado);
@@ -58,6 +68,24 @@
             .catch(function (error) {
                 console.log(error);
         });
+
+        fetch(urlServicos)
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                servicos = data;
+                servicos.map(function (servicos) {
+                    if (!(tiposDeServico.includes(servicos.tipo))){
+                        console.log(tiposDeServico)
+                        tiposDeServico.push(servicos.tipo);
+                    }
+                })
+                for (let tipoDeServico of tiposDeServico){
+                    let novoTipoDeServico = new Option(tipoDeServico, tipoDeServico);
+                    selectServicos.add(novoTipoDeServico);
+                }
+            });
 
         function definirCidades(){
             while (selectCidades.options.length > 1) {
