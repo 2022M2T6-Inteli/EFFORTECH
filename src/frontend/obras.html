@@ -27,7 +27,7 @@
 
     <!-- Botão de filtrar -->
     <button onclick="filtroRegional()">Filtrar</button></br></br>
-    
+
     Obras: <div id="nomesDasObras"></div>
     <script>
 
@@ -50,7 +50,6 @@
             })
             .then((data) => {
                 obras = data;
-                let nomesDasObras = []
                 obras.map(function (obras) {
                     // Define a lista de estados abrangidos pelas obras
                     if (!(estados.includes(obras.estado))){
@@ -60,8 +59,6 @@
                     if (!(cidades.includes(obras.cidade))){
                         cidades.push(obras.cidade);
                     }
-                    // Define os nomes das obras
-                    nomesDasObras.push(obras.nome)
                 });
 
                 // Adiciona os estados ao select de estados
@@ -74,7 +71,7 @@
                     let novaCidade = new Option(cidade, cidade);
                     selectCidades.add(novaCidade);
                 }
-                mostrarObras(nomesDasObras)
+                mostrarObras(obras)
             })
             .catch(function (error) {
                 console.log(error);
@@ -156,11 +153,11 @@
         // Filtra as obras passadas como argumento de acordo com o serviço selecionado no select de tipos de serviço
         function filtroPorServicos(obras){
             let tipoDeServicoSelecionado = selectServicos.value;
-            let nomesDasObrasFiltradasPorServico = [];
+            let obrasFiltradasPorServico = [];
             let idsDasObrasDesejadas = []
             if (tipoDeServicoSelecionado === 'todos'){
                 for (obra of obras){
-                    nomesDasObrasFiltradasPorServico.push(obra.nome);
+                    obrasFiltradasPorServico.push(obra);
                 }
             } else{
                 for (servico of servicos){
@@ -172,18 +169,18 @@
                     console.log(idsDasObrasDesejadas)
                     console.log(obra.obra_id)
                     if (idsDasObrasDesejadas.includes(obra.obra_id)){
-                        nomesDasObrasFiltradasPorServico.push(obra.nome);
+                        obrasFiltradasPorServico.push(obra);
                     }
                 }
             }
-            mostrarObras(nomesDasObrasFiltradasPorServico);
+            mostrarObras(obrasFiltradasPorServico);
         }
 
         // Função para mostrar as obras passadas como argumento na tela
-        function mostrarObras(nomes){
+        function mostrarObras(obras){
             let saidaGet = ''
-            for (nome of nomes){
-                saidaGet += '<strong> ' + `${nome}` + '</br>';
+            for (obra of obras){
+                saidaGet += '<strong> ' + `${obra.nome}` + '</br>';
             }
             document.getElementById('nomesDasObras').innerHTML = saidaGet;
         }
