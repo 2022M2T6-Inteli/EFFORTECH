@@ -7,25 +7,31 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- Select de filtro por estado -->
     <label for="estado">Selecione o estado</label>
     <select id="estado" name="estado" onchange="definirCidades()">
         <option value="todos">Todos</option>
     </select></br>
 
+    <!-- Select de filtro por cidade -->
     <label for="cidade">Cidade</label>
     <select id="cidade" name="cidade">
         <option value="todos">Todas</option>
     </select></br>
 
+    <!-- Select de filtro por serviço -->
     <label for="servico">Selecione o serviço</label>
     <select id="servico" name="servico">
         <option value="todos">Todos</option>
     </select></br>
 
+    <!-- Botão de filtrar -->
     <button onclick="filtroRegional()">Filtrar</button></br></br>
+    
     Obras: <div id="nomesDasObras"></div>
     <script>
 
+        // Definições de variáveis que serão utilizadas mais a frente
         const urlObras = '/obras';
         const urlServicos = '/servicos'
         const selectEstados = document.getElementById('estado'); 
@@ -37,6 +43,7 @@
         let obras;
         let servicos;
 
+        // Faz a requisição GET das obras 
         fetch(urlObras)
             .then((response) => {
                 return response.json();
@@ -45,20 +52,24 @@
                 obras = data;
                 let nomesDasObras = []
                 obras.map(function (obras) {
+                    // Define a lista de estados abrangidos pelas obras
                     if (!(estados.includes(obras.estado))){
                         estados.push(obras.estado);
                     }
+                    // Define a lista de cidades abrangidas pelas obras
                     if (!(cidades.includes(obras.cidade))){
                         cidades.push(obras.cidade);
                     }
-                    
+                    // Define os nomes das obras
                     nomesDasObras.push(obras.nome)
                 });
 
+                // Adiciona os estados ao select de estados
                 for (let estado of estados) {
                     let novoEstado = new Option(estado, estado);
                     selectEstados.add(novoEstado);
                 }
+                // Adiciona as cidades ao select de cidades
                 for (let cidade of cidades) {
                     let novaCidade = new Option(cidade, cidade);
                     selectCidades.add(novaCidade);
@@ -69,6 +80,7 @@
                 console.log(error);
         });
 
+        // Faz a requisição GET dos serviços
         fetch(urlServicos)
             .then((response) => {
                 return response.json();
@@ -76,17 +88,19 @@
             .then((data) => {
                 servicos = data;
                 servicos.map(function (servicos) {
+                    // Define os tipos de serviços existentes no banco de dados
                     if (!(tiposDeServico.includes(servicos.tipo))){
-                        console.log(tiposDeServico)
                         tiposDeServico.push(servicos.tipo);
                     }
                 })
+                // Adiciona os tipos de serviços ao select de serviços
                 for (let tipoDeServico of tiposDeServico){
                     let novoTipoDeServico = new Option(tipoDeServico, tipoDeServico);
                     selectServicos.add(novoTipoDeServico);
                 }
             });
 
+        // Função para definir as cidades mostradas no select de cidades, o que é atualizado dependendo do estado selecionado
         function definirCidades(){
             while (selectCidades.options.length > 1) {
                 selectCidades.remove(selectCidades.options.length - 1);
@@ -113,6 +127,7 @@
             }
         }
 
+        // Realiza o filtro por cidade e estado e chama no final a função de filtro por serviço
         function filtroRegional(){
             let estado = selectEstados.value;
             let cidade = selectCidades.value;
@@ -138,6 +153,7 @@
             filtroPorServicos(obrasFiltradasporRegiao)
         }
 
+        // Filtra as obras passadas como argumento de acordo com o serviço selecionado no select de tipos de serviço
         function filtroPorServicos(obras){
             let tipoDeServicoSelecionado = selectServicos.value;
             let nomesDasObrasFiltradasPorServico = [];
@@ -163,6 +179,7 @@
             mostrarObras(nomesDasObrasFiltradasPorServico);
         }
 
+        // Função para mostrar as obras passadas como argumento na tela
         function mostrarObras(nomes){
             let saidaGet = ''
             for (nome of nomes){
