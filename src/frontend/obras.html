@@ -10,26 +10,28 @@
     <link href="css/obras.css" rel="stylesheet"/>
 </head>
 <body>
-    <!-- Select de filtro por estado -->
-    <label for="estado">Selecione o estado</label>
-    <select id="estado" name="estado" onchange="definirCidades()">
-        <option value="todos">Todos</option>
-    </select></br>
+    <div id="divFiltros">
+        <!-- Select de filtro por estado -->
+        <label for="estado" class="labelFiltros">Selecione o estado</label>
+        <select id="estado" name="estado" onchange="definirCidades()">
+            <option value="todos">Todos</option>
+        </select>
 
-    <!-- Select de filtro por cidade -->
-    <label for="cidade">Cidade</label>
-    <select id="cidade" name="cidade">
-        <option value="todos">Todas</option>
-    </select></br>
+        <!-- Select de filtro por cidade -->
+        <label for="cidade" class="labelFiltros">Cidade</label>
+        <select id="cidade" name="cidade">
+            <option value="todos">Todas</option>
+        </select>
 
-    <!-- Select de filtro por serviço -->
-    <label for="servico">Selecione o serviço</label>
-    <select id="servico" name="servico">
-        <option value="todos">Todos</option>
-    </select></br>
+        <!-- Select de filtro por serviço -->
+        <label for="servico" class="labelFiltros">Selecione o serviço</label>
+        <select id="servico" name="servico">
+            <option value="todos">Todos</option>
+        </select>
 
-    <!-- Botão de filtrar -->
-    <button onclick="filtroRegional()">Filtrar</button></br></br>
+        <!-- Botão de filtrar -->
+        <button onclick="filtroRegional()">Filtrar</button>
+    </div>
 
     <div id="nomesDasObras" class="row row-cols-3 gy-4 overflow-auto"></div>
     <script>

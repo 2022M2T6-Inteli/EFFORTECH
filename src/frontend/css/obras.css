@@ -38,6 +38,21 @@ body{
     margin: auto;
 }
 
-#nomesDasObras{
-    height: 78vh;
+.textoFiltros{
+    padding: 0;
+    border: 0;
+    margin: 0;
 }
+
+#nomesDasObras{
+    margin-top: 3vh;
+    height: 88vh;
+}
+
+#divFiltros{
+    display: flexbox;
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
