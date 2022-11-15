@@ -31,7 +31,7 @@
     <!-- Botão de filtrar -->
     <button onclick="filtroRegional()">Filtrar</button></br></br>
 
-    <div id="nomesDasObras" class="row row-cols-2"></div>
+    <div id="nomesDasObras" class="row row-cols-3 gy-4"></div>
     <script>
 
         // Definições de variáveis que serão utilizadas mais a frente
@@ -45,6 +45,27 @@
         let tiposDeServico = [];
         let obras;
         let servicos;
+
+        // Faz a requisição GET dos serviços
+        fetch(urlServicos)
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                servicos = data;
+                servicos.map(function (servicos) {
+                    // Define os tipos de serviços existentes no banco de dados
+                    if (!(tiposDeServico.includes(servicos.tipo))){
+                        tiposDeServico.push(servicos.tipo);
+                    }
+                })
+                // Adiciona os tipos de serviços ao select de serviços
+                for (let tipoDeServico of tiposDeServico){
+                    let novoTipoDeServico = new Option(tipoDeServico, tipoDeServico);
+                    selectServicos.add(novoTipoDeServico);
+                }
+            });
+
 
         // Faz a requisição GET das obras 
         fetch(urlObras)
@@ -80,25 +101,6 @@
                 console.log(error);
         });
 
-        // Faz a requisição GET dos serviços
-        fetch(urlServicos)
-            .then((response) => {
-                return response.json();
-            })
-            .then((data) => {
-                servicos = data;
-                servicos.map(function (servicos) {
-                    // Define os tipos de serviços existentes no banco de dados
-                    if (!(tiposDeServico.includes(servicos.tipo))){
-                        tiposDeServico.push(servicos.tipo);
-                    }
-                })
-                // Adiciona os tipos de serviços ao select de serviços
-                for (let tipoDeServico of tiposDeServico){
-                    let novoTipoDeServico = new Option(tipoDeServico, tipoDeServico);
-                    selectServicos.add(novoTipoDeServico);
-                }
-            });
 
         // Função para definir as cidades mostradas no select de cidades, o que é atualizado dependendo do estado selecionado
         function definirCidades(){
@@ -181,10 +183,21 @@
 
         // Função para mostrar as obras passadas como argumento na tela
         function mostrarObras(obras){
-            let saidaGet = ''
-            let contador = 1
+            let saidaGet = '';
+            let contador = 1;
+            let saidaServicos;
             for (obra of obras){
-                saidaGet += '<div class="col"><p class="text-center">'+ `${obra.nome}` + '</p></div>'
+                saidaServicos = '';
+                console.log(servicos);
+                servicos.map(function (servicos) {
+                    if (servicos.obra_id === obra.obra_id){
+                        if (saidaServicos){
+                            saidaServicos += ', ';
+                        }
+                        saidaServicos += servicos.tipo;
+                    }
+                });
+                saidaGet += '<div class="col text-center noPadding"><div class="green card gy-0 p3"><a href="google.com"><p class="tituloObra">'+ `${obra.nome}` + '</p><img src="https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_lfill,h_128,dpr_3/https://assets.app.engoo.com/images/7fqunkLjWhAkJA3ZwTylAk.jpeg" height="192" width="192" class="rounded mx-auto d-block rounded"><p class="detalhesObra">' + `${obra.cidade}` + ' - ' + `${saidaServicos}` + '</p></div></a></div>'
             }
             document.getElementById('nomesDasObras').innerHTML = saidaGet;
         }
