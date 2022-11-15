@@ -31,7 +31,7 @@
     <!-- Botão de filtrar -->
     <button onclick="filtroRegional()">Filtrar</button></br></br>
 
-    <div id="nomesDasObras" class="row row-cols-3 gy-4"></div>
+    <div id="nomesDasObras" class="row row-cols-3 gy-4 overflow-auto"></div>
     <script>
 
         // Definições de variáveis que serão utilizadas mais a frente
@@ -197,7 +197,7 @@
                         saidaServicos += servicos.tipo;
                     }
                 });
-                saidaGet += '<div class="col text-center noPadding"><div class="green card gy-0 p3"><a href="google.com"><p class="tituloObra">'+ `${obra.nome}` + '</p><img src="https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_lfill,h_128,dpr_3/https://assets.app.engoo.com/images/7fqunkLjWhAkJA3ZwTylAk.jpeg" height="192" width="192" class="rounded mx-auto d-block rounded"><p class="detalhesObra">' + `${obra.cidade}` + ' - ' + `${saidaServicos}` + '</p></div></a></div>'
+                saidaGet += '<div class="col text-center noPadding"><div class="green card gy-0 p3"><a href="google.com"><p class="tituloObra">'+ `${obra.nome}` + '</p><img src="https://transcode-v2.app.engoo.com/image/fetch/f_auto,c_lfill,h_128,dpr_3/https://assets.app.engoo.com/images/7fqunkLjWhAkJA3ZwTylAk.jpeg" height="auto" width="90%" class="rounded mx-auto d-block rounded"><p class="detalhesObra">' + `${obra.cidade}` + ' - ' + `${saidaServicos}` + '</p></div></a></div>'
             }
             document.getElementById('nomesDasObras').innerHTML = saidaGet;
         }
