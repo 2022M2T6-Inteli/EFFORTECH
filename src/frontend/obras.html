@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="css/obras.css" rel="stylesheet"/>
 </head>
 <body>
     <!-- Select de filtro por estado -->
@@ -28,7 +31,7 @@
     <!-- Botão de filtrar -->
     <button onclick="filtroRegional()">Filtrar</button></br></br>
 
-    Obras: <div id="nomesDasObras"></div>
+    <div id="nomesDasObras" class="row row-cols-2"></div>
     <script>
 
         // Definições de variáveis que serão utilizadas mais a frente
@@ -179,8 +182,9 @@
         // Função para mostrar as obras passadas como argumento na tela
         function mostrarObras(obras){
             let saidaGet = ''
+            let contador = 1
             for (obra of obras){
-                saidaGet += '<strong> ' + `${obra.nome}` + '</br>';
+                saidaGet += '<div class="col"><p class="text-center">'+ `${obra.nome}` + '</p></div>'
             }
             document.getElementById('nomesDasObras').innerHTML = saidaGet;
         }
