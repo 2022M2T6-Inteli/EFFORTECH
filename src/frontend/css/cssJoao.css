@@ -1,0 +1,109 @@
+*{
+    padding:0;
+    margin:0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+nav{
+    background: #FFB719;
+    height:80px;
+}
+
+nav ul.direita{
+    float:right;
+    height:80px;
+    
+}
+
+nav ul.esquerda{
+    float:left;
+    height:80px;
+    
+}
+nav ul li{
+    display:inline-block;
+    line-height: 80px;
+    margin:0.5px;
+    height: 80px;
+    
+}
+nav ul li a{
+    color:#079D56;
+    font-size: 17px;
+    padding:7px 13px;
+    border-radius: 3px;
+    text-transform:uppercase;
+    
+}
+.navbar.active,.navbar:hover{
+    background: #079D56;
+    color: aliceblue;
+}
+.foto{
+    margin-left: 25%;
+    margin-right:25%;
+    margin-bottom: 3%;
+    height: 20%;
+}
+.foto1{
+    margin-top:30px;
+    border: solid black;
+    width:100%;
+
+ 
+}
+
+.fundo{
+    background-color: rgba(207, 205, 205, 0.637);
+    background-color: rgba(207, 205, 205, 0.637);
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 6px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.nome_servico{
+    margin-left: 10%;
+    font-size: 200%;
+    font-family: 'Times New Roman', Times, serif;
+}
+.descricao_servico{
+    font-size: 120%;
+    margin-left: 10%;
+    font-family: 'Times New Roman', Times, serif;
+    border:solid black;
+}
+.conteudo_descricoes{
+    padding:3%;
+}
+.btn{
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 30%;
+    font-size: 100%;
+    background-color: #079D56;
+    border-radius: 4px;
+    padding:8px;
+}
+.servicos{
+    font-size: 200%;
+    padding:3%;
+}
+.tipo_servico{
+    font-size: 90%;
+    margin-left: 5%;
+
+}
+.descricao_pintura{
+    font-size: 70%;
+    margin-left: 5%;
+}
+.btn{
+    background-color: #079D56;
+    font-size: 80%;
+    border-radius: 3px;
+}
+
+
+

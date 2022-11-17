@@ -1,6 +1,6 @@
 body{
     background-color: white;
-    width: 100vw;
+    width: 98.7vw;
 }
 
 .noPadding{
@@ -30,7 +30,7 @@ body{
 }
 
 .green{
-    background-color: green;
+    background-color: #079d56;
 }
 
 .card{
@@ -48,17 +48,36 @@ body{
     text-decoration: none;
 }
 
+
 #nomesDasObras{
     margin: auto;
     width: 95%;
-    height: 82vh;
+    height: 81vh;
 }
 
 #divFiltros{
     display: flexbox;
-    padding-bottom: 5vh;
-    padding-top: 5vh;
+    padding-bottom: 2vh;
+    padding-top: 2vh;
     border: 0;
     margin: 0;
-    background-color: orange;
+    background-image: linear-gradient(to left, rgba(0,107,63,1), rgba(7,157,86,1));
+}
+
+
+#navBar{
+    background-color: #FFB719;
+}
+
+.textoDireita{
+    text-align: right;
+}
+
+.textoCentro{
+    text-align: center;
+    margin-top: 2vh;
+}
+
+.arredondado{
+    border-radius: 15px;
 }
