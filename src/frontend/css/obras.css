@@ -11,7 +11,7 @@ body{
 }
 
 .tituloObra{
-    font-size: 2vh;
+    font-size: 1.5vw;
     color: white;
     padding: 0;
     border: 0;
@@ -21,7 +21,7 @@ body{
 }
 
 .detalhesObra{
-    font-size: 1.5vh;
+    font-size: 1vw;
     color: white;
     padding: 0;
     border: 0;
@@ -34,7 +34,7 @@ body{
 }
 
 .card{
-    width: 60%;
+    width: 90%;
     margin: auto;
 }
 
@@ -49,7 +49,8 @@ body{
 }
 
 #nomesDasObras{
-    margin-top: 0vh;
+    margin: auto;
+    width: 95%;
     height: 82vh;
 }
 
@@ -59,5 +60,5 @@ body{
     padding-top: 5vh;
     border: 0;
     margin: 0;
-    background-color: green;
+    background-color: orange;
 }
