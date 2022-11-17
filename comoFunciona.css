@@ -1,0 +1,84 @@
+
+body {
+    background-color: #edecec;
+}
+
+/* *{
+    padding:0;
+    margin:0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+} */
+
+nav{
+    background: #FFB719;
+    height:80px;
+}
+
+nav ul.direita{
+    float:right;
+    height:80px;
+    
+}
+
+nav ul.esquerda{
+    float:left;
+    height:80px;
+    
+}
+nav ul li{
+    display:inline-block;
+    line-height: 80px;
+    margin:0.5px;
+    height: 80px;
+    
+}
+nav ul li a{
+    color:#079D56;
+    font-size: 17px;
+    padding:7px 13px;
+    border-radius: 3px;
+    text-transform:uppercase;
+    
+}
+a.active,a:hover{
+    background: #079D56;
+    color: aliceblue;
+}
+
+#div_maior {
+    background-color: white;
+}
+
+#head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    margin-bottom: 3%;
+}
+
+.linha_etapa {
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.numero_etapa {
+    background-color: #079D56;
+    height: 5em;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.numero_etapa h1 {
+    color: white;
+}
+
+#ultima_linha {
+    padding-bottom: 8%;
+}
