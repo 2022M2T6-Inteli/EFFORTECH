@@ -10,6 +10,15 @@
     <link href="css/obras.css" rel="stylesheet"/>
 </head>
 <body>
+
+    <div id="navBar" class="row gx-0">
+        <div id="divMenu" class="col-2 divNav"><p class="textoCentro">Menu</p></div>
+        <div id="vazioNav" class="col-4"></div>
+        <div id="divRegistrar" class="col-2 divNav"><p class="textoCentro">Registrar</p></div>
+        <div id="vazioNav2" class="col-2"></div>
+        <div id="divLogin" class="col-2 divNav"><p class="textoCentro">Login</p></div>
+    </div>
+
     <div id="divFiltros">
         <!-- Select de filtro por estado -->
         <label for="estado" class="labelFiltros">Estado</label>
@@ -33,7 +42,7 @@
         <button onclick="filtroRegional()">Filtrar</button>
     </div>
 
-    <div id="nomesDasObras" class="row row-cols-4 gy-4 overflow-auto"></div>
+    <div id="nomesDasObras" class="row gy-4 overflow-auto"></div>
 
     <script>
 
@@ -200,7 +209,7 @@
                         saidaServicos += servicos.tipo;
                     }
                 });
-                saidaGet += '<div class="col text-center noPadding"><div class="green card p0"><a class="linkIndecorado" href="google.com"><p class="tituloObra">'+ `${obra.nome}` + '</p><img src="https://www.ie.edu/insights/wp-content/uploads/2020/11/VanSchendel-Construction.jpg" height="auto" width="90%" class="rounded mx-auto d-block rounded"><p class="detalhesObra">' + `${obra.cidade}` + ' - ' + `${saidaServicos}` + '</p></div></a></div>'
+                saidaGet += '<div class="col-lg-3 col-md-4 text-center noPadding"><div class="green card arredondado p0"><a class="linkIndecorado" href="google.com"><p class="tituloObra">'+ `${obra.nome}` + '</p><img src="https://www.ie.edu/insights/wp-content/uploads/2020/11/VanSchendel-Construction.jpg" height="auto" width="90%" class="mx-auto arredondado d-block"><p class="detalhesObra">' + `${obra.cidade}` + ' - ' + `${saidaServicos}` + '</p></div></a></div>'
             }
             document.getElementById('nomesDasObras').innerHTML = saidaGet;
         }
