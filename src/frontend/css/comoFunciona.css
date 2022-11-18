@@ -52,8 +52,8 @@ a.active,a:hover{
     padding: 0%;
 }
 
-.accordion {
-    --#{$prefix}accordion-color: #079D56;
+.accordion-button {
+    background-color: #079D56;
 }
 
 #head {
