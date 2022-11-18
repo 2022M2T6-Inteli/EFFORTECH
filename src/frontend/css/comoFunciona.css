@@ -54,6 +54,40 @@ a.active,a:hover{
 
 .accordion-button {
     background-color: #079D56;
+    display: flex !important;
+    justify-content: center !important;
+    /* margin-top: 1%; */
+    border: none;
+}
+
+span{
+    margin-left: 6%;
+}
+
+.accordion-body {
+    margin-left: 15%;
+}/* 
+
+.accordion-item:first-of-type .accordion-button {
+    border-top-right-radius: 0%;
+    border-top-left-radius: 0%;
+}
+
+.accordion-item:last-of-type .accordion-button.collapsed {
+    border-bottom-right-radius: 0%;
+    border-bottom-left-radius: 0%;
+    
+} */
+
+.accordion-button:focus, .accordion-button:not(.collapsed){
+    background-color: #079D56;
+    color: black;
+    box-shadow: none;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: var(--bs-accordion-btn-icon);
+    color: black;
 }
 
 #head {
