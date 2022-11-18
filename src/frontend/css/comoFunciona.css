@@ -49,6 +49,11 @@ a.active,a:hover{
 
 #div_maior {
     background-color: white;
+    padding: 0%;
+}
+
+.accordion {
+    --#{$prefix}accordion-color: #079D56;
 }
 
 #head {
@@ -68,7 +73,7 @@ a.active,a:hover{
 
 .numero_etapa {
     background-color: #079D56;
-    height: 5em;
+    height: 6em;
     border-radius: 50%;
     display: flex;
     justify-content: center;
