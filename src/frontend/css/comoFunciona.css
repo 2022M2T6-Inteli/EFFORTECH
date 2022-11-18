@@ -1,6 +1,7 @@
 
 body {
     background-color: #edecec;
+    font-family: Verdana;
 }
 
 /* *{
@@ -86,4 +87,8 @@ a.active,a:hover{
 
 #ultima_linha {
     padding-bottom: 8%;
+}
+
+h1{
+    font-size: xx-large;
 }
