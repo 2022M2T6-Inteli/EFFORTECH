@@ -1,15 +1,14 @@
+/* Importa a fonte utilizada */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
 
+/* Estiliza o corpo da pagina, alterando inclusive a fonte */
 body{
     margin: 0;
     font-family: 'Noto-Sans', sans-serif;
     height: 100vh;
 }
 
-body * {
-    box-sizing: border-box;
-}
-
+/* Estiliza todos os elementos do documento */
 *{
     padding:0;
     margin:0;
@@ -18,22 +17,28 @@ body * {
     box-sizing: border-box;
 }
 
+/* Desgin da NavBar inteira */
 nav{
     background: #FFB719;
     height:80px;
 }
 
+/* Desgin da parte direita da NavBar  */
 nav ul.direita{
     float:right;
     height:80px;
     
 }
 
+/* Desgin da parte esquerda da NavBar  */
 nav ul.esquerda{
     float:left;
+    margin-left: 10%;
     height:80px;
     
 }
+
+/* Desgin da lista da NavBar  */
 nav ul li{
     display:inline-block;
     line-height: 80px;
@@ -41,20 +46,27 @@ nav ul li{
     height: 80px;
     
 }
+
+/* Desgin do texto da NavBar  */
 nav ul li a{
     color:#079D56;
     font-size: 17px;
     padding:7px 13px;
     border-radius: 3px;
     text-transform:uppercase;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
     
 }
-a.active,a:hover{
+
+/* Mudar o background do texto da navbar qnd passa o mouse em cima */
+.navbar.active,.navbar:hover{
     background: #079D56;
     color: aliceblue;
 }
 
-.main-login{
+/* Estiliza a divisória principal do login */
+.login{
     width: 100vw;
     height: 100vh;
     background-color:aliceblue;
@@ -63,7 +75,8 @@ a.active,a:hover{
     align-items: center;
 }
 
-.left-login{
+/* Estiliza a parte esquerda do login */
+.loginEsquerda{
     width: 50vw;
     height: 100vh;
     margin-left: 15%;
@@ -73,19 +86,22 @@ a.active,a:hover{
     flex-direction: column;
 }
 
-.left-login > h1 {
+/* Estiliza o texto dentro da divisória esquerda de login */
+.loginEsquerda > h1 {
     font-size: 3vw;
     margin-top: 10%;
     color: seagreen;
 }
 
-.left-login-image{
+/* Estiliza a imagem logo da mrv */
+.imagemLoginEsquerda{
     width:25vw;
     margin-left: -40%;
     margin-bottom: -10%;
 }
 
-.right-login{
+/* Estiliza a parte direita da pagina de login */
+.loginDireita{
     width: 50vw;
     height: 100vh;
     display: flex;
@@ -93,7 +109,8 @@ a.active,a:hover{
     align-items: center;
 }
 
-.card-login{
+/* Estiliza o card de login */
+.cardLogin{
     width: 60%;
     display: flex;
     justify-content: center;
@@ -105,13 +122,15 @@ a.active,a:hover{
     box-shadow: aliceblue
 } 
 
-.card-login > h1 {
+/* Estiliza o texto dentro do card de login */
+.cardLogin > h1 {
     color: coral;
     font-weight: 800;
     margin: 0;
 }
 
-.textfield{
+/* Estiliza as divisórias de usuario e senha */
+.campoDeTexto{
     width: 100;
     display: flex;
     flex-direction: column;
@@ -120,7 +139,8 @@ a.active,a:hover{
     margin: 10px 0px;
 }
 
-.textfield > input{
+/* Estiliza os inputs de usuário e senha */
+.campoDeTexto > input{
     width: 100%;
     border: none;
     border-radius: 10px;
@@ -133,12 +153,13 @@ a.active,a:hover{
     box-sizing: border-box;
 } 
 
-.textfield > label {
+/* Estiliza os textos de label dos inputs de usuario e senha */
+.campoDeTexto > label {
     color: aliceblue;
     margin-bottom: 10px;
 }
-
-.btn-login{
+/* Estiliza o botão de login */
+.botaoLogin{
     width: 60%;
     padding: 16px 0px;
     margin: 25px;
@@ -151,31 +172,33 @@ a.active,a:hover{
     cursor: pointer;
 }
 
+/* Adapta o tamanho do card para devices com largura menor que 950px */
 @media only screen and (max-widht: 950px){
-    .card-login{
+    .cardLogin{
         width: 60%;
     }
 }
 
+/* Adapta o tamanho do card para devices com largura menor que 60% */
 @media only screen and (max-widht: 60%){
-    .main-login{
+    .login{
         flex-direction: column;
     }
-    .left-login > h1{
+    .loginEsquerda > h1{
         display: none;
     }
 
-    .left-login{
+    .loginEsquerda{
         width: 100%;
         height: auto;
     }
 
-    .right-login{
+    .loginDireita{
         width: 100%;
         height: auto;
     }
 
-    .left-login-image{
+    .imagemLoginEsquerda{
         width: 50vh;
     }
 
