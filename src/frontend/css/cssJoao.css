@@ -1,7 +1,3 @@
-body{
-    font-family: Verdana;
-}
-
 *{
     padding:0;
     margin:0;
@@ -9,23 +5,26 @@ body{
     list-style: none;
     box-sizing: border-box;
 }
-
+/* Desgin da NavBar inteira */
 nav{
     background: #FFB719;
     height:80px;
 }
 
+/* Desgin da parte direita da NavBar  */
 nav ul.direita{
     float:right;
     height:80px;
     
 }
-
+/* Desgin da parte esquerda da NavBar  */
 nav ul.esquerda{
     float:left;
+    margin-left: 10%;
     height:80px;
     
 }
+/* Desgin da lista da NavBar  */
 nav ul li{
     display:inline-block;
     line-height: 80px;
@@ -33,24 +32,30 @@ nav ul li{
     height: 80px;
     
 }
+/* Desgin do texto da NavBar  */
 nav ul li a{
     color:#079D56;
     font-size: 17px;
     padding:7px 13px;
     border-radius: 3px;
     text-transform:uppercase;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
     
 }
+/* Mudar o background do texto da navbar qnd passa o mouse em cima */
 .navbar.active,.navbar:hover{
     background: #079D56;
     color: aliceblue;
 }
+/* Design da foto*/
 .foto{
     margin-left: 25%;
     margin-right:25%;
     margin-bottom: 3%;
     height: 20%;
 }
+/* Design da foto */
 .foto1{
     margin-top:30px;
     border: solid black;
@@ -58,30 +63,30 @@ nav ul li a{
 
  
 }
-
+/* Design do fundo */
 .fundo{
     background-color: rgba(207, 205, 205, 0.637);
-    background-color: rgba(207, 205, 205, 0.637);
+
     margin-left: 10%;
     margin-right: 10%;
     border-radius: 6px;
     font-family: 'Times New Roman', Times, serif;
 }
 
-.nome_servico{
-    margin-left: 10%;
-    font-size: 200%;
-    font-family: 'Times New Roman', Times, serif;
-}
-.descricao_servico{
-    font-size: 120%;
-    margin-left: 10%;
-    font-family: 'Times New Roman', Times, serif;
-    border:solid black;
-}
+
+
+
+
+/*Texto dentro da divisoria da descriçao da obra */
 .conteudo_descricoes{
-    padding:3%;
+    padding:5%;
+    
 }
+/*Divisoria onde fica a descriçao da obra */
+.descricao{
+    margin-left:7%;
+}
+/* Botao de candidatar-se*/
 .btn{
     font-family: 'Times New Roman', Times, serif;
     margin-left: 30%;
@@ -90,24 +95,51 @@ nav ul li a{
     border-radius: 4px;
     padding:8px;
 }
+/*Divisoria onde vao ficar os serviços */
 .servicos{
     font-size: 200%;
     padding:3%;
 }
+/*Design da divisoria do  tipo de serviço, ex, pintura, gas, limpeza */
 .tipo_servico{
     font-size: 90%;
-    margin-left: 5%;
+    margin-left: 10%;
+    margin-top: 10%;
 
 }
+/*Div que vai ficar o texto da descrição do serviço */
 .descricao_pintura{
     font-size: 70%;
     margin-left: 5%;
 }
-.btn{
-    background-color: #079D56;
-    font-size: 80%;
-    border-radius: 3px;
+
+/*Animação do botao */
+@keyframes anima{
+    0%{
+        transform: scala(1);
+    }
+
+    100%{
+        transform:scale(1.05);
+    }
 }
-
-
+/* Ativar a animação do botao ao passar o mouse*/
+.btn:hover{
+  animation-name: anima;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  background-color: #FFB719;
+}
+/*Design to titulo "Serviços" */
+.titulo_pintura{
+    margin-top: 5%;
+    background: #079D56;
+    color:antiquewhite;
+    width: 100%;   
+    border:solid black;
+    border-radius: 6px;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 
