@@ -1,7 +1,11 @@
+/*No Body, setamos a cor de fundo e a fonte base da página*/
+
 body {
     background-color: #DAD9D9;
     font-family: Verdana;
 }
+
+/* Os estilos abaixo tem como objetivo tornar a Navbar esteticamente agradável*/
 
 *{
     padding:0;
@@ -47,6 +51,8 @@ a.active,a:hover{
     color: aliceblue;
 }
 
+/* O objetivo do estilo a seguir é setar a cor de fundo, a largura da div e um margin para centralizá-la*/
+
 #retangulo_Maior {
     background-color: rgb(243, 246, 250);
     width: 90%;
@@ -59,6 +65,8 @@ a.active,a:hover{
     margin-top: 5%;
 }
 
+/* Nas id's e classes a seguir foi necessário retirar o padding natural do bootstrap, colocar margin's e arredondamento, a fins estéticos */
+
 #tira_padding {
     padding: 0% !important;
 }
@@ -68,7 +76,6 @@ a.active,a:hover{
 }
 
 .card_servicos {
-    /* background-image: url(obra-mrv-campo-grande-ms-881485.jpg); */
     padding: 0% !important;
 }
 
