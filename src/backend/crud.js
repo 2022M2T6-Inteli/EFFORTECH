@@ -3,14 +3,14 @@ const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 const sqlite3 = require('sqlite3').verbose();
-const DBPATH = 'data/modeloFisico.db'; // dois pontos barra sobe um nível + o nome da pasta entra nela
+const DBPATH = '../data/modeloFisico.db'; // dois pontos barra sobe um nível + o nome da pasta entra nela
 
 const hostname = '127.0.0.1';
-const port = 3001;
+const port = 1234;
 const app = express();
 
 /* Colocar toda a parte estática no frontend */
-app.use(express.static("frontend/"));
+app.use(express.static("../frontend/"));
 
 /* Definição dos endpoints das OBRAS*/
 /******** CRUD ************/
