@@ -4,12 +4,12 @@
 <a href= "https://www.inteli.edu.br/"><img src="https://www.inteli.edu.br/wp-content/uploads/2021/08/20172028/marca_1-2.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0"></a>
 </p>
 
-# HOMERO by MRV
+# MRVISÂO
 
-## HORIZON
+## EFFORTECH
 
 ## Integrantes: 
-- <a href="https://www.linkedin.com/in/giuliano-bontempo-domiciano-5b5766212/">\ Giuliano Bontempo Domiciano</a>
+- <a href="https://www.linkedin.com/in/giuliano-bontempo-domiciano-5b5766212/">Giuliano Bontempo Domiciano</a>
 - <a href="https://www.linkedin.com/in/jos%C3%A9-vitor-alencar-161243211/">José Vitor Alencar Nunes</a>
 - <p>João Montanha</p> 
 - <a href="https://www.linkedin.com/in/luis-miranda-137566139/">Luis Miranda</a>
