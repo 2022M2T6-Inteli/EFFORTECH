@@ -8,12 +8,12 @@
     <title>CRUD</title>
 </head>
 <h1>Listagem de Obras</h1>
-<p><a href="/inserir.html">INSERIR NOVA OBRA</a></p>
-<p><a href="/obras.html">PAGINA DE OBRAS</a></p>
-<p><a href="/comoFunciona.html">PAGINA DE COMO FUNCIONA</a></p>
-<p><a href="/login.html">PAGINA DE LOGIN</a></p>
-<p><a href="/meuPerfil.html">PAGINA DE PERFIL</a></p>
-<p><a href="/ofertas.html">PAGINA DE OFERTAS</a></p>
+<p><a href="/frontend/inserir.html">INSERIR NOVA OBRA</a></p>
+<p><a href="/frontend/obras.html">PAGINA DE OBRAS</a></p>
+<p><a href="/frontend/comoFunciona.html">PAGINA DE COMO FUNCIONA</a></p>
+<p><a href="/frontend/login.html">PAGINA DE LOGIN</a></p>
+<p><a href="/frontend/meuPerfil.html">PAGINA DE PERFIL</a></p>
+<p><a href="/frontend/ofertas.html">PAGINA DE OFERTAS</a></p>
 
 <script>
     const url = '/obras';
@@ -32,7 +32,7 @@
             });
             document.getElementById('resultado').innerHTML = saida;
         })
-        .catch(function (error) {
+        .catch(function(error) {
             console.log(error);
         });
 
