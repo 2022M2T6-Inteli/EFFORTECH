@@ -3,102 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NavBar</title>
-    <link rel="stylesheet" href="css/cssJoao.css">
-  
+    <title>Ofertas</title>
+    <link rel="stylesheet" href="css/cssJoao.css"/>
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
 
-
-    
+</head>
 <body>
-    <!--Essa é a Navbar-->
-    <nav>
-        
-        
-         <!--Essa parte vai ficar os textos na parte esquerda da Navbar-->
-        <div>
-            <ul class="esquerda">
-                <div class="teste" >
-                    <li><a class="navbar" href="#">MENU</a></li> 
-                </div>
-            </ul>
-                
-         <!--Essa parte vai ficar os textos na parte direita da Navbar-->
-            <ul class="direita">
-                <div  >
-                    <li class="teste"><a class="navbar" href="#">REGISTRAR</a></li> 
-                    <li class="teste"><a class="navbar" href="#">LOGIN</a></li> 
-                </div>
-            </ul>
-       
+    <header>
+        <nav>
+            <h1 class="titulo-logo">MRVisão</h1>
+            <div class="menu">
+                <a  href="">MENU</a>
+                <a href="">LOGIN</a>
+                <a href="">REGISTRAR-SE</a>
+            </div>
+
+            <button class="hamburguer">
+                <span class="material-icons">menu</span>
+            </button>
+        </nav>
+ 
+
+        <div class="mobile-menu">
+            <a href="">MENU</a>
+            <a href="">LOGIN</a>
+            <a href="">REGISTRAR-SE</a>
         </div>
 
-        
 
-    </nav>
+    
+    
+    </header>
+    <div class="foto_container">
+        <img class="foto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGypcTAaeb06oM7psZiX4TuKZa9110fhNFrg&usqp=CAU">
+    </div>
+    <div class="fundo">
 
-  
-<br><br>
+        <div class="descricao">
+            <a class="titulo">Descriçao:</a><br>
+            <a class="descricao_conteudo">Blablablabla</a>
+        </div>
 
-  <!--Aqui fica a foto da obra-->
-<div class="foto">
-    <img src="https://ademipr.com.br/wp-content/uploads/2021/09/imagem-obra.jpg" class="foto1"> 
-</div>
+        <div class="Serviços">
+            <h1 class="servico">Serviços:</h1>
+        </div><br>
 
-  <!--Aqui fica o background cinza-->
-<div class="fundo">
 
-            <!--Aqui fica a descriçao-->
-            <div class="descricao">
-                <h1 class="conteudo_descricoes">Descrição:<br> Serviço para empreiteiros por todo o brasil asdasdasdasdasdasdasddsaasdads</h1>
+        <div class="conteudo_servicos">
+            <div class="tipo">Pintura
+                <div class="desc_tipo"> bça baçba çba ba bça çba bça çba çba bça bça çbab<br>
+                    <button class="btn">CANDIDATAR-SE</button> 
+                </div><br>
+
             </div>
+        </div>
 
-            <!--Aqui fica o texto Serviços-->
-            <div class="servicos">
-                <div class="titulo_pintura">
-                    Serviços:
-                </div>
-            <br>
-            <!--Aqui vao ficar os serviços da obra como pintura gas etc-->
-                <div class="tipo_servico">
-                    <p>Pintura:</p>
-                        <div class="descricao_pintura">
-                            <a>Lorem Ipsum Lorem Ipsum Lorem Ipsum </a>
-                        </div>
-                        <br>
-                        <button class="btn">CANDIDATAR-SE</button>
-                </div>
-                <br><br>
-                <div class="tipo_servico">
-                    <p>Gas:</p>
-                        <div class="descricao_pintura">
-                            <a>Lorem Ipsum Lorem Ipsum Lorem Ipsum </a>
-                        </div>
-                        <br>
-                        <button class="btn">CANDIDATAR-SE</button>
-                </div>
-                <br><br>
-                <div class="tipo_servico">
-                    <p>Limpeza:</p>
-                        <div class="descricao_pintura">
-                            <a>Lorem Ipsum Lorem Ipsum Lorem Ipsum </a>
-                        </div>
-                        <br>
-                        <button class="btn">CANDIDATAR-SE</button>
-                </div>
+        <div class="conteudo_servicos">
+            <div class="tipo">Pintura
+                <div class="desc_tipo"> bça baçba çba ba bça çba bça çba çba bça bça çbab<br>
+                    <button class="btn">CANDIDATAR-SE</button> 
+                </div><br>
+
             </div>
-
-
-
-
-
-            
-
-
-
- </div>            
-
-
+        </div>
+    </div>
+ 
+    <script src="js/api/view/joao.js"></script>
 </body>
 </html>

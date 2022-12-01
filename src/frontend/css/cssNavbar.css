@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 *{
     margin:0;
     padding:0;
     box-sizing: border-box;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Poppins', sans-serif;
+
+
 }
 
 
@@ -16,6 +19,7 @@ nav{
     background-color: #66FF99;
     color:red;
     padding: 1rem 1.5rem;
+
 }
 
 nav h1{
@@ -35,10 +39,27 @@ nav h1:hover{
     100%{color:darkgreen;}
 
 }
+.menuNavbar{
+cursor: pointer;
+}
+.menuNavbar.logado{
+    font-size:150%;
+    margin-left: 60%;
+}
+.loginNavbar.logado{
+    display:none;
+
+}
+.registrarNavbar.logado{
+    display:none;
+}
+.deslogado3.logado{
+    display:none;
+}
 
 
 
-.menu{
+.menuNavbarGrande{
     display:none;
     align-items: center;
     margin: 0 -1rem;
@@ -47,19 +68,20 @@ nav h1:hover{
     width: 30%;
 }
 
-.menu a{
+.menuNavbarGrande a{
     margin:0 1rem;
     color:black;
     text-decoration: none;
     transition: 0.6s;
-
+ 
+    font-size: 115%;
 
 }
 .item1{
     border:solid black;
     height: 80px;
 }
-.menu a:hover{
+.menuNavbarGrande a:hover{
     color:black;
     background-color:rgb(228, 207, 22) ;
     padding: 3%;
@@ -67,11 +89,11 @@ nav h1:hover{
 
 }
 
-.hamburguer:hover{
+.btnDropDown:hover{
     transform: scale(1.2);
 
 }
-.hamburguer{
+.btnDropDown{
     transition: 1s;
     appearance: none;
     outline:none;
@@ -83,12 +105,12 @@ nav h1:hover{
     height:2rem;
 }
 
-.hamburguer span{
+.btnDropDown span{
     color:black;
     font-size: 2rem;
 }
 
-.mobile-menu{
+.mobileMenu{
     position: fixed;
     top:0;
     width: 100%;
@@ -101,9 +123,10 @@ nav h1:hover{
     color:red;
     transition: 0.3s;
 
+
 }
 
-.mobile-menu.is-open{
+.mobileMenu.is-open{
     opacity: 1;
     transform:translateY(0);
 
@@ -113,7 +136,7 @@ nav h1:hover{
 
 }
 
-.mobile-menu a{
+.mobileMenu a{
     display:block;
     padding: 1rem;
     color:white;
@@ -123,18 +146,30 @@ nav h1:hover{
     transition: 1s;
 }
 
-.mobile-menu a:hover{
-    color:black(228, 207, 22) ;
-    background: #66FF99;
-    color: black;
+.mobileMenu a.sumir{
+display:none;
+}
+.mobileMenu a.teste{
+    display:block;
+    padding: 1rem;
+    color:red;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.2rem;
+    transition: 1s;
 
 }
+.mobileMenu a:hover{
+    color:black;
+    background: #66FF99;
+    
+}
 
-@media (min-width:1300px){
-    .mobile-menu,.hamburguer{
+@media (min-width:700px){
+    .btnDropDown{
         display:none;
     }
-    .menu{
+    .menuNavbarGrande{
         display:flex;
     }
 }
@@ -166,7 +201,7 @@ nav h1:hover{
     margin-right: 5%;
     margin-top: 5%;
     margin-bottom: 4%;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+
     font-size: 120%;
 
 }
@@ -189,7 +224,7 @@ nav h1:hover{
     margin-top: 5%;
     margin-left: 40%;
     border-radius: 6px;
-    padding: 1.5%;
+    padding: 1%;
     transition: 2s;
 }
 
@@ -216,7 +251,7 @@ nav h1:hover{
 
 .servico{
   transition: 1s; 
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
   color:black;
   font-size: 2rem;
 
