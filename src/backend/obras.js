@@ -161,16 +161,7 @@ function mostrarObras(obras){
                 saidaServicos += servicos.tipo;
             }
         });
-        saidaGet += '<div class="col-lg-3 col-md-4 text-center noPadding"><div class="green card arredondado p0"><a class="linkIndecorado" href="/frontend/ofertas.html?' + `${obra.obra_id}` + '"><img src="https://www.ie.edu/insights/wp-content/uploads/2020/11/VanSchendel-Construction.jpg" height="auto" width="100%" class="mx-auto arredondado d-block"><p class="tituloObra">'+ `${obra.nome}` + '</p><p class="detalhesObra">' + `${obra.cidade}` + ' - ' + `${saidaServicos}` + '</p></div></a></div>'
+        saidaGet += '<div class="col-lg-3 col-md-4 text-center teste noPadding"><div class="green card arredondado p0"><a class="linkIndecorado" href="/frontend/ofertas.html?' + `${obra.obra_id}` + '"><img src="https://www.ie.edu/insights/wp-content/uploads/2020/11/VanSchendel-Construction.jpg" height="auto" width="100%" class="mx-auto arredondado d-block"><p class="tituloObra">'+ `${obra.nome}` + '</p><p class="detalhesObra">' + `${obra.cidade}` + ' - ' + `${saidaServicos}` + '</p></div></a></div>'
     }
     document.getElementById('nomesDasObras').innerHTML = saidaGet;
 }
-
-$(document).ready(function(){
-    $(".card").hover(function(){
-        $(this).css("background-color", "#FFB719");
-    },
-    function(){
-        $(this).css("background-color", "#079d56");
-    }); 
-});
