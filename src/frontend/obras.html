@@ -13,13 +13,36 @@
 <body>
 
     <!-- Navbar -->
-    <div id="navBar" class="row gx-0">
-        <div id="divMenu" class="col-2 divNav"><p class="textoCentro">Menu</p></div>
-        <div id="vazioNav" class="col-4"></div>
-        <div id="divRegistrar" class="col-2 divNav"><p class="textoCentro">Registrar</p></div>
-        <div id="vazioNav2" class="col-2"></div>
-        <div id="divLogin" class="col-2 divNav"><p class="textoCentro">Login</p></div>
-    </div>
+    <header>
+        <nav>
+            <img id="fotoLogo" src="../imgs/MRVisão.png" onclick="mudarNav()">
+            <div class="menuNavbarGrande">
+                <a class="menuNavbar" onclick="abrirMenu()">Menu</a>
+                <a class="loginNavbar" href="login.html">Login</a>
+                <a class="registrarNavbar" href="cadastro.html">Registrar-se</a>
+
+
+
+            </div>
+
+            <button class="btnDropDown">
+                <span class="material-icons">menu</span>
+            </button>
+        </nav>  
+ 
+
+        <div id="menu" class="mobileMenu">
+            <a class="item1DropDown" href="home.html">Home</a>
+            <a class="item2DropDown" href="obras.html">Obras</a>
+            <a class="item3DropDown" href="comoFunciona.html">Como Funciona</a>
+            <a class="item4DropDown" href="cadastro.html">Registrar-se</a>
+            <a class="item5DropDown" href="login.html">Login</a>
+
+
+        </div>
+
+    
+    </header>
 
     <div id="divFiltros">
         <!-- Select de filtro por estado -->
@@ -48,6 +71,7 @@
     <div id="nomesDasObras" class="row gy-4 overflow-auto"></div>
 
     <script src="../backend/obras.js"></script>
+    <script src="js/joao.js"></script>
 
 </body>
 </html>
