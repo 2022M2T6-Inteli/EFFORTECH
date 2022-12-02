@@ -126,7 +126,7 @@ app.post('/insereUsuario', urlencodedParser, (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
     var db = new sqlite3.Database(DBPATH); // Abre o banco
-    sql = "INSERT INTO usuarios (nomeFantasia, CNPJ, senha, email, contato1, contato2)";
+    sql = "INSERT INTO usuarios (nomeFantasia, CNPJ, senha, email, contato1, nome_empreiteiro) VALUES ('" + req.body.nome + "', '" + req.body.cnpj + "', '" + req.body.senha + "', '" + req.body.contato + "', '" + req.body.descricao + "')";
     console.log(sql);
     db.run(sql, [], err => {
         if (err) {

@@ -1,6 +1,6 @@
-const btnDropDown=document.querySelector('.btnDropDown');
-const dropDownIcon=btnDropDown.querySelector('span');
-const mobileMenu=document.querySelector('.mobileMenu');
+const btnDropDown = document.querySelector('.btnDropDown');
+const dropDownIcon = btnDropDown.querySelector('span');
+const mobileMenu = document.querySelector('.mobileMenu');
 
 btnDropDown.addEventListener('click',()=>{
     dropDownIcon.innerText=dropDownIcon.innerText=== 'menu'

@@ -1,7 +1,8 @@
 var perfil;
 
-const id_usuario = 2;
-
+let parametroURL = new URLSearchParams(window.location.search)
+let parametro = parametroURL.get('email')
+console.log(parametro)
 
 fetch('/usuario')
     .then((response) => {
@@ -10,10 +11,11 @@ fetch('/usuario')
     .then((data) => {
         perfis = data;
         perfis.map(function (perfis) {
-            if(perfis.usuario_id == id_usuario) {
+            if(perfis.email == parametro) {
                 perfil = perfis
             }
         })
+        
         document.getElementById("nome_do_empreiteiro").innerHTML = `<h2>${perfil.nomeFantasia}</h2>`
         document.getElementById("nome_da_empreiteira").innerHTML = `<p>${perfil.nomeFantasia}</p>`
         document.getElementById("nota").innerHTML = `<p>${perfil.usuario_id}</p>`
