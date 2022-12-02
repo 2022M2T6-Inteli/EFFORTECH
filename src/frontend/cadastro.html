@@ -3,15 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>Formulário de várias etapas</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/pageCadastro.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src=""></script>
   </head>
   <body>
     <div class="container">
       <header>Cadastro</header>
       <div class="progress-bar">
         <div class="step">
-          <p>Nome</p>
+          <p>Empreiteira</p>
           <div class="bullet">
             <span>1</span>
           </div>
@@ -25,19 +26,19 @@
           <div class="check fas fa-check"></div>
         </div>
         <div class="step">
-          <p>Histórico</p>
+          <p>Conta</p>
           <div class="bullet">
             <span>3</span>
           </div>
           <div class="check fas fa-check"></div>
         </div>
-        <div class="step">
+        <!-- <div class="step">
           <p>Enviar</p>
           <div class="bullet">
             <span>4</span>
           </div>
           <div class="check fas fa-check"></div>
-        </div>
+        </div> -->
       </div>
       <div class="form-outer">
         <form action="#">
@@ -45,11 +46,11 @@
             <div class="title">Informação básica:</div>
             <div class="field">
               <div class="label">Nome Fantasia</div>
-              <input type="text">
+              <input type="text" name="nome">
             </div>
             <div class="field">
               <div class="label">CNPJ</div>
-              <input type="text">
+              <input type="text" name="cnpj">
             </div>
             <div class="field">
               <button class="firstNext next">Próximo</button>
@@ -59,28 +60,28 @@
           <div class="page">
             <div class="title">Informações de contato</div>
             <div class="field">
-              <div class="label">Endereço de e-mail</div>
-              <input type="text">
+              <div class="label">Seu Nome Completo</div>
+              <input type="text" name="nome_empreiteiro">
             </div>
             <div class="field">
               <div class="label">Número de telefone</div>
-              <input type="Number">
+              <input type="Number" name="contato">
             </div>
             <div class="field btns">
               <button class="prev-1 prev">Anterior</button>
               <button class="next-1 next">Próximo</button>
             </div>
           </div>
-
-          <div class="page">
+          
+          <!-- <div class="page">
             <div class="title">Nascimento:</div>
             <div class="field">
               <div class="label">Data</div>
-              <input type="text">
+              <input type="text" name="data">
             </div>
             <div class="field">
               <div class="label">Gênero</div>
-              <select>
+              <select name="genero">
                 <option>Masculino</option>
                 <option>Feminino</option>
                 <option>Outros</option>
@@ -90,17 +91,17 @@
               <button class="prev-2 prev">Anterior</button>
               <button class="next-2 next">Próximo</button>
             </div>
-          </div>
-
+          </div> -->
+          
           <div class="page">
             <div class="title">Detalhes de login:</div>
             <div class="field">
-              <div class="label">Nome do usuário</div>
-              <input type="text">
+              <div class="label">Email</div>
+              <input type="text" name="email">
             </div>
             <div class="field">
               <div class="label">Senha</div>
-              <input type="password">
+              <input type="password" name="senha">
             </div>
             <div class="field btns">
               <button class="prev-3 prev">Anterior</button>
@@ -110,9 +111,9 @@
         </form>
       </div>
     </div>
-    <script src="script.js"></script>
-
+    <script src="js/scriptCadastro.js"></script>
+    
   </body> 
-
   
-</html>
+  
+  </html>
