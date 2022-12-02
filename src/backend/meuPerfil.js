@@ -25,14 +25,14 @@ fetch('/usuario')
     })
 
 
-fetch('/obras')
-    .then((response) => {
-        return response.json();
-    })
-    .then((data) => {
-        obras = data;
-        obras.map
-    })
+// fetch('/obras')
+//     .then((response) => {
+//         return response.json();
+//     })
+//     .then((data) => {
+//         obras = data;
+//         obras.map
+//     })
 
 function adiciona_card() {
 

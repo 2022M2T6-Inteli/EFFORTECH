@@ -2,6 +2,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
+// const { createHash } = require('crypto');
+
+// function hash(senha) {
+//   return createHash('sha256').update(senha).digest('hex');
+// }
+
 const sqlite3 = require('sqlite3').verbose();
 const DBPATH = '../data/modeloFisico.db'; // dois pontos barra sobe um nível + o nome da pasta entra nela
 
@@ -126,14 +132,14 @@ app.post('/insereUsuario', urlencodedParser, (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
     var db = new sqlite3.Database(DBPATH); // Abre o banco
-    sql = "INSERT INTO usuarios (nomeFantasia, CNPJ, senha, email, contato1, nome_empreiteiro) VALUES ('" + req.body.nome + "', '" + req.body.cnpj + "', '" + req.body.senha + "', '" + req.body.contato + "', '" + req.body.descricao + "')";
+    sql = "INSERT INTO usuarios (nomeFantasia, cnpj, senha, email, contato1, contato2) VALUES ('" + req.body.nome + "', '" + req.body.cnpj + "', '" + req.body.senha + "', '" + req.body.email + "', '" + req.body.contato1 + "', '" + req.body.nome_empreiteiro + "')";
     console.log(sql);
     db.run(sql, [], err => {
         if (err) {
             throw err;
         }
     });
-    res.write('<p>USUARIO INSERIDA COM SUCESSO!</p><a href="/">VOLTAR</a>'); //hiperlink volta
+    res.write('<p>USUARIO INSERIDO COM SUCESSO!</p><a href="/">VOLTAR</a>'); //hiperlink volta
     db.close(); // Fecha o banco
     res.end();
 });
@@ -143,7 +149,7 @@ app.get('/atualizaUsuario', (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
 
-    sql = `SELECT * FROM usuarios WHERE usuario_id = 1`;;
+    sql = 'SELECT * FROM usuarios WHERE usuario_id =' + req.body.usuario_id + "'";
     console.log(sql);
     var db = new sqlite3.Database(DBPATH); // Abre o banco
     db.all(sql, [], (err, rows) => {
@@ -169,6 +175,22 @@ app.post('/atualizaUsuario', urlencodedParser, (req, res) => {
         res.end();
     });
     res.write('<p>USUARIO ATUALIZADO COM SUCESSO!</p><a href="/">VOLTAR</a>');
+    db.close(); // Fecha o banco
+});
+
+app.get('/removeUsuario', urlencodedParser, (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    sql = "DELETE FROM usuarios WHERE usuario_id='" + req.query.usuario_id + "'"; 
+    console.log(sql);
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    db.run(sql, [], err => {
+        if (err) {
+            throw err;
+        }
+        res.write('<p>OBRAS REMOVIDO COM SUCESSO!</p><a href="/">VOLTAR</a>');
+        res.end();
+    });
     db.close(); // Fecha o banco
 });
 

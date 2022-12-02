@@ -42,6 +42,7 @@ submitBtn.addEventListener("click", function(){
     alert("Your Form Successfully Signed up");
     location.reload();
   },800);
+  window.location.href = "/insereUsuario"
 });
 
 prevBtnSec.addEventListener("click", function(){
