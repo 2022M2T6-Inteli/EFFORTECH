@@ -24,19 +24,21 @@ function validaLogin(){
             usuarios.map(function (usuarios) {
                 if(usuarios.email == email_usuario) {
                     usuario = usuarios
+                    if(usuario.senha == senha_usuario) {
+                        status_login = true;
+                        window.location.href = 'meuPerfil.html?email=' + `${email_usuario}`
+                        
+                    }
+                    else {
+                        document.getElementById("erro").innerHTML = `<p class = "text-danger">Email ou senha incorretos.</p>`
+        
+                    }
                 }
-
+                else {
+                    document.getElementById("erro").innerHTML = `<p class = "text-danger">Email ou senha incorretos.</p>`
+                }
             })
 
-            if(usuario.senha == senha_usuario) {
-                status_login = true;
-                window.location.href = 'meuPerfil.html?email=' + `${email_usuario}`
-
-            }
-            else {
-                document.getElementById("erro").innerHTML = `<p class = "text-danger">Email ou senha incorretos.</p>`
-
-            }
         })
 
 }
