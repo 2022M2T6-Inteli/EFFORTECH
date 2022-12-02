@@ -36,7 +36,7 @@ function validaLogin(){
                 console.log("o login foi validado")
 
                 //if(senha_usuario == senha_hash)
-                window.location.href = 'meuPerfil.html'
+                window.location.href = 'meuPerfil.html?email_usuario' + `${usuarios.email}`
 
             }
             else {
