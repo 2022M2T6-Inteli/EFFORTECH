@@ -30,16 +30,24 @@ function mudarNav(){
     if (deslogado==1){
         item5DropDown.classList.add('sumir');
         item1DropDown.innerText="Home";
+        item1DropDown.href="home.html";
         item2DropDown.innerText="Obras";
+        item2DropDown.href="obras.html";
         item3DropDown.innerText="Perfil";
+        item3DropDown.href="meuPerfil.html";
         item4DropDown.innerText="Como funciona";
+        item4DropDown.href="comoFunciona.html";
 
         deslogado=2
     } else{
-        item1DropDown.innerText="Login";
-        item2DropDown.innerText="Registrar-se";
-        item3DropDown.innerText="Obras";
-        item4DropDown.innerText="Como funciona";
+        item1DropDown.innerText="Home";
+        item1DropDown.href="home.html";
+        item2DropDown.innerText="Obras";
+        item2DropDown.href="obras.html";
+        item3DropDown.innerText="Como funciona";
+        item3DropDown.href="comoFunciona.html";
+        item4DropDown.innerText="Registrar-se";
+        item4DropDown.href="cadastro.html";
 
         item5DropDown.classList.remove('sumir');
       
