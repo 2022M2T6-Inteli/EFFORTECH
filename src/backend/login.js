@@ -10,6 +10,7 @@ function validaLogin(){
 
     var usuario
 
+    //variáveis que armazenam o que for digitado pelo usuário como email e senha para serem validados em seguida com duas lógicas de if e else, sendo exibidos os erros em cada caso
     var email_usuario = document.getElementById("email").value
     var senha_usuario = document.getElementById("senha").value
 

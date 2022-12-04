@@ -1,3 +1,5 @@
+
+//todo esse arquivo tem uma lógica responsável por fazer com que a tela de cadastro seja animada com javascript
 const slidePage = document.querySelector(".slide-page");
 const nextBtnFirst = document.querySelector(".firstNext");
 const prevBtnSec = document.querySelector(".prev-1");

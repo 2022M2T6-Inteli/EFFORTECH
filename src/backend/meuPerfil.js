@@ -4,12 +4,15 @@ let parametroURL = new URLSearchParams(window.location.search)
 let parametro = parametroURL.get('email')
 console.log(parametro)
 let url = window.location.href;
+
+//lógica de if e else para impedir que a página seja meuPerfil seja acessada sem que seja passado um parâmetro por url com seu email
 if(url == 'http://127.0.0.1:1234/frontend/meuPerfil.html') {
     window.location.href = 'login.html'
 
 }
 else {
 
+    //fetch responsável por fazer com que a página possa acessar todos os usuários do banco de dados e puxe as informações a serem exibidar no "cabeçalho"
     fetch('/usuario')
         .then((response) => {
             return response.json();
@@ -40,6 +43,7 @@ else {
     //         obras.map
     //     })
 
+    //função criada para testes
     function adiciona_card() {
 
 
