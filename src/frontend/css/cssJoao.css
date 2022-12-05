@@ -1,229 +1,164 @@
+/* Estiliza todos os elementos do documento */
+body{
+    padding-bottom: 1%;
+}
+
 *{
-    margin:0;
     padding:0;
+    margin:0;
+    text-decoration: none;
+    list-style: none;
     box-sizing: border-box;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
-
-
- /*Navbar*/
+/* Desgin da NavBar inteira */
 nav{
-    position:relative;
-    z-index:99;
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #66FF99;
-    color:red;
-    padding: 1rem 1.5rem;
+    background: #FFB719;
+    height:80px;
 }
 
-nav h1{
-    letter-spacing: 3px;
-    padding: 0.5rem 1rem;
-    padding-right: 5px;
-    transition: 2s;
-    color:#FFFF8F;
-    animation: mudarcor 5s infinite;
-}
-nav h1:hover{
-    transform: scale(1.1);
-}
-@keyframes mudarcor{
-    0%{color:darkgreen;}
-    50%{color:darkgoldenrod;}
-    100%{color:darkgreen;}
-
-}
-
-
-
-.menu{
-    display:none;
-    align-items: center;
-    margin: 0 -1rem;
-    margin-right: 10px;
-
-    width: 30%;
-}
-
-.menu a{
-    margin:0 1rem;
-    color:black;
-    text-decoration: none;
-    transition: 0.6s;
-
-
-}
-.item1{
-    border:solid black;
-    height: 80px;
-}
-.menu a:hover{
-    color:black;
-    background-color:rgb(228, 207, 22) ;
-    padding: 3%;
-    border-radius: 6px;
-
-}
-
-.hamburguer:hover{
-    transform: scale(1.2);
-
-}
-.hamburguer{
-    transition: 1s;
-    appearance: none;
-    outline:none;
-    border:none;
-    background: none;
-    cursor: pointer;
-    display:block;
-    width: 2rem;
-    height:2rem;
-}
-
-.hamburguer span{
-    color:black;
-    font-size: 2rem;
-}
-
-.mobile-menu{
-    position: fixed;
-    top:0;
-    width: 100%;
-    height: 100%;
-    z-index:98;
-    padding-top: 6rem;
-    opacity: 0;
-    transform: translateY(-100%);
-    background-color: black;
-    color:red;
-    transition: 0.3s;
-
-}
-
-.mobile-menu.is-open{
-    opacity: 1;
-    transform:translateY(0);
-
-}
-.fontes{
-    display:none;
-
-}
-
-.mobile-menu a{
-    display:block;
-    padding: 1rem;
-    color:white;
-    text-decoration: none;
-    text-align: center;
-    font-size: 1.2rem;
-    transition: 1s;
-}
-
-.mobile-menu a:hover{
-    color:black(228, 207, 22) ;
-    background: #66FF99;
-    color: black;
-
-}
-
-@media (min-width:1300px){
-    .mobile-menu,.hamburguer{
-        display:none;
-    }
-    .menu{
-        display:flex;
-    }
-}
-.foto_container{
-    align-items: center;
-}
-.foto{
-   width: 60%;
-    margin-left: 20%;
-    margin-right: 30%;
-   padding: 10px;
-}
-.fundo{
-    background-color: rgb(197, 197, 197);
-    margin-left: 20%;
-    margin-right: 20%;
-    border-radius: 6px;
-
+/* Desgin da parte direita da NavBar  */
+nav ul.direita{
+    float:right;
+    height:80px;
     
 }
-.descricao_conteudo{
-    margin-top: 1%;
+/* Desgin da parte esquerda da NavBar  */
+nav ul.esquerda{
+    float:left;
+    margin-left: 10%;
+    height:80px;
+    
 }
-.titulo{
-    font-size: 120%;
+/* Desgin da lista da NavBar  */
+nav ul li{
+    display:inline-block;
+    line-height: 80px;
+    margin:0.5px;
+    height: 80px;
+    
 }
-.descricao{
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 5%;
-    margin-bottom: 4%;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 120%;
-
+/* Desgin do texto da NavBar  */
+nav ul li a{
+    color:#079D56;
+    font-size: 17px;
+    padding:7px 13px;
+    border-radius: 3px;
+    text-transform:uppercase;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    
 }
-
-.Serviços{
-
-    text-align: center;
-    float:center;
-    width:80%;
-    font-size: 200%;
-    margin-left:10%;
-    background-color: rgba(0, 255, 76, 0.568);
-    border-radius: 6px;
-
-
-
+/* Mudar o background do texto da navbar qnd passa o mouse em cima */
+.navbar.active,.navbar:hover{
+    background: #079D56;
+    color: aliceblue;
 }
-.btn{
-    background-color: #66FF99;
-    margin-top: 5%;
-    margin-left: 40%;
-    border-radius: 6px;
-    padding: 1.5%;
-    transition: 2s;
+/* Design da foto*/
+.foto{
+    margin-left: 25%;
+    margin-right:25%;
+    margin-bottom: 3%;
+    height: 20%;
 }
+/* Design da foto */
+.foto1{
+    margin-top:30px;
+    border: solid black;
+    width:100%;
 
-.btn:hover{
-    background-color: #fcff66;
+ 
 }
-.conteudo_servicos{
-    margin-top: 5%;
+/* Design do fundo */
+.fundo{
+    background-color: rgba(207, 205, 205, 0.637);
+
     margin-left: 10%;
     margin-right: 10%;
-    margin-bottom: 10%;
-
-    width: 60%;
-    align-items: center;
+    border-radius: 6px;
+    font-family: 'Times New Roman', Times, serif;
 }
-.desc_tipo{
 
+
+
+
+
+/*Texto dentro da divisoria da descriçao da obra */
+.conteudo_descricoes{
+    padding:5%;
+    
+}
+/*Divisoria onde fica a descriçao da obra */
+.descricao{
+    margin-left:7%;
+}
+/* Botao de candidatar-se*/
+.btn{
+    font-family: 'Times New Roman', Times, serif;
     font-size: 100%;
-    margin-left:5%;
+    background-color: #079D56;
+    border-radius: 4px;
+    padding:8px;
+    margin-bottom:5%;
 }
-.tipo{
-    font-size: 120%;
+/*Divisoria onde vao ficar os serviços */
+.servicos{
+    font-size: 200%;
+    padding:3%;
+}
+/*Design da divisoria do  tipo de serviço, ex, pintura, gas, limpeza */
+.tipo_servico{
+    font-size: 90%;
+    margin-left: 10%;
+    margin-top: 10%;
+
+}
+/*Div que vai ficar o texto da descrição do serviço */
+.descricao_pintura{
+    font-size: 70%;
+    margin-left: 5%;
 }
 
-.servico{
-  transition: 1s; 
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color:black;
-  font-size: 2rem;
+/*Animação do botao */
+@keyframes anima{
+    0%{
+        transform: scala(1);
+    }
+
+    100%{
+        transform:scale(1.05);
+    }
+}
+/* Ativar a animação do botao ao passar o mouse*/
+.btn:hover{
+  animation-name: anima;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  background-color: #FFB719;
+}
+/*Design to titulo "Serviços" */
+.titulo_pintura{
+    margin-top: 5%;
+    background: #079D56;
+    color:antiquewhite;
+    width: 100%;   
+    border:solid black;
+    border-radius: 6px;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.tituloServico{
+    color: black;
+}
+
+.divCentralizadora{
+    padding:2%;
+    text-align: center;
 
 }
 
-
-.servico:hover{
-transform: scale(1.2);
-  
+img{
+    height: 50%;
+    width: 50%;
 }

@@ -3,72 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ofertas</title>
-    <link rel="stylesheet" href="css/cssJoao.css"/>
-	<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <title>NavBar</title>
+    <link rel="stylesheet" href="css/cssJoao.css">
+  
 
-</head>
+
+    
 <body>
-    <header>
-        <nav>
-            <h1 class="titulo-logo">MRVisão</h1>
-            <div class="menu">
-                <a  href="">MENU</a>
-                <a href="">LOGIN</a>
-                <a href="">REGISTRAR-SE</a>
-            </div>
-
-            <button class="hamburguer">
-                <span class="material-icons">menu</span>
-            </button>
-        </nav>
- 
-
-        <div class="mobile-menu">
-            <a href="">MENU</a>
-            <a href="">LOGIN</a>
-            <a href="">REGISTRAR-SE</a>
+    <!--Essa é a Navbar-->
+    <nav>
+        
+        
+         <!--Essa parte vai ficar os textos na parte esquerda da Navbar-->
+        <div>
+            <ul class="esquerda">
+                <div class="teste" >
+                    <li><a class="navbar" href="#">MENU</a></li> 
+                </div>
+            </ul>
+                
+         <!--Essa parte vai ficar os textos na parte direita da Navbar-->
+            <ul class="direita">
+                <div  >
+                    <li class="teste"><a class="navbar" href="#">REGISTRAR</a></li> 
+                    <li class="teste"><a class="navbar" href="#">LOGIN</a></li> 
+                </div>
+            </ul>
+       
         </div>
 
+        
 
+    </nav>
     
+    <div id="divObra" class="divCentralizadora">
+
+        <!--Título da obra-->
+        <h1 id="nomeObra">Obra Galvão</h1>
     
-    </header>
-    <div class="foto_container">
-        <img class="foto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGypcTAaeb06oM7psZiX4TuKZa9110fhNFrg&usqp=CAU">
+        <!--Localização-->
+        <p id="localizacaoObra">Salvador, BA - Rua dos loucos</p>
+    
+        <!--Imagem da obra-->
+        <img src="https://mm.exame.com/wp-content/uploads/2020/11/DSC_3926baixa3.jpg">
+    
+        <!--Descricao da obra-->
+        <p id="descricaoObra">Oi, essa eh uma obrinha louca</p>
+        
     </div>
-    <div class="fundo">
 
-        <div class="descricao">
-            <a class="titulo">Descriçao:</a><br>
-            <a class="descricao_conteudo">Blablablabla</a>
-        </div>
-
-        <div class="Serviços">
-            <h1 class="servico">Serviços:</h1>
-        </div><br>
-
-
-        <div class="conteudo_servicos">
-            <div class="tipo">Pintura
-                <div class="desc_tipo"> bça baçba çba ba bça çba bça çba çba bça bça çbab<br>
-                    <button class="btn">CANDIDATAR-SE</button> 
-                </div><br>
-
-            </div>
-        </div>
-
-        <div class="conteudo_servicos">
-            <div class="tipo">Pintura
-                <div class="desc_tipo"> bça baçba çba ba bça çba bça çba çba bça bça çbab<br>
-                    <button class="btn">CANDIDATAR-SE</button> 
-                </div><br>
-
-            </div>
-        </div>
-    </div>
- 
-    <script src="js/api/view/joao.js"></script>
+    <!--Aqui fica o background cinza-->
+    <div class="fundo row divCentralizadora" id="mainServicos"></div>            
+    <script src="../backend/ofertas.js"></script>
 </body>
 </html>

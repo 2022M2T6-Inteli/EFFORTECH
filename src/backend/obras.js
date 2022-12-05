@@ -10,6 +10,27 @@ let tiposDeServico = [];
 let obras;
 let servicos;
 
+// Faz a requisição GET dos serviços
+fetch(urlServicos)
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        servicos = data;
+        servicos.map(function (servicos) {
+            // Define os tipos de serviços existentes no banco de dados
+            if (!(tiposDeServico.includes(servicos.tipo))){
+                tiposDeServico.push(servicos.tipo);
+            }
+        })
+        // Adiciona os tipos de serviços ao select de serviços
+        for (let tipoDeServico of tiposDeServico){
+            let novoTipoDeServico = new Option(tipoDeServico, tipoDeServico);
+            selectServicos.add(novoTipoDeServico);
+        }
+    });
+
+
 // Faz a requisição GET das obras 
 fetch(urlObras)
     .then((response) => {
@@ -44,25 +65,6 @@ fetch(urlObras)
         console.log(error);
 });
 
-// Faz a requisição GET dos serviços
-fetch(urlServicos)
-    .then((response) => {
-        return response.json();
-    })
-    .then((data) => {
-        servicos = data;
-        servicos.map(function (servicos) {
-            // Define os tipos de serviços existentes no banco de dados
-            if (!(tiposDeServico.includes(servicos.tipo))){
-                tiposDeServico.push(servicos.tipo);
-            }
-        })
-        // Adiciona os tipos de serviços ao select de serviços
-        for (let tipoDeServico of tiposDeServico){
-            let novoTipoDeServico = new Option(tipoDeServico, tipoDeServico);
-            selectServicos.add(novoTipoDeServico);
-        }
-    });
 
 // Função para definir as cidades mostradas no select de cidades, o que é atualizado dependendo do estado selecionado
 function definirCidades(){
@@ -145,9 +147,21 @@ function filtroPorServicos(obras){
 
 // Função para mostrar as obras passadas como argumento na tela
 function mostrarObras(obras){
-    let saidaGet = ''
+    let saidaGet = '';
+    let contador = 1;
+    let saidaServicos;
     for (obra of obras){
-        saidaGet += '<strong> ' + `${obra.nome}` + '</br>';
+        saidaServicos = '';
+        console.log(servicos);
+        servicos.map(function (servicos) {
+            if (servicos.obra_id === obra.obra_id){
+                if (saidaServicos){
+                    saidaServicos += ', ';
+                }
+                saidaServicos += servicos.tipo;
+            }
+        });
+        saidaGet += '<div class="col-lg-3 col-md-4 text-center teste noPadding"><div class="green card arredondado p0"><a class="linkIndecorado" href="/frontend/ofertas.html?' + `${obra.obra_id}` + '"><img src="https://www.ie.edu/insights/wp-content/uploads/2020/11/VanSchendel-Construction.jpg" height="auto" width="100%" class="mx-auto arredondado d-block"><p class="tituloObra">'+ `${obra.nome}` + '</p><p class="detalhesObra">' + `${obra.cidade}` + ' - ' + `${saidaServicos}` + '</p></div></a></div>'
     }
     document.getElementById('nomesDasObras').innerHTML = saidaGet;
 }
