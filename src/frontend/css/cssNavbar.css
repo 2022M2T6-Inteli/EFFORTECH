@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+
+}
+
+
+ /*Navbar*/
+nav{
+    position:relative;
+    z-index:99;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #66FF99;
+    color:red;
+    padding: 1rem 1.5rem;
+
+}
+
+nav h1{
+    letter-spacing: 3px;
+    padding: 0.5rem 1rem;
+    padding-right: 5px;
+    transition: 2s;
+    color:#FFFF8F;
+    animation: mudarcor 5s infinite;
+}
+nav h1:hover{
+    transform: scale(1.1);
+}
+@keyframes mudarcor{
+    0%{color:darkgreen;}
+    50%{color:darkgoldenrod;}
+    100%{color:darkgreen;}
+
+}
+.menuNavbar{
+cursor: pointer;
+}
+.menuNavbar.logado{
+    font-size:150%;
+    margin-left: 60%;
+}
+.loginNavbar.logado{
+    display:none;
+
+}
+.registrarNavbar.logado{
+    display:none;
+}
+.deslogado3.logado{
+    display:none;
+}
+
+
+
+.menuNavbarGrande{
+    display:none;
+    align-items: center;
+    margin: 0 -1rem;
+    margin-right: 10px;
+
+    width: 30%;
+}
+
+.menuNavbarGrande a{
+    margin:0 1rem;
+    color:black;
+    text-decoration: none;
+    transition: 0.6s;
+ 
+    font-size: 115%;
+
+}
+.item1{
+    border:solid black;
+    height: 80px;
+}
+.menuNavbarGrande a:hover{
+    color:black;
+    background-color:rgb(228, 207, 22) ;
+    padding: 3%;
+    border-radius: 6px;
+
+}
+
+.btnDropDown:hover{
+    transform: scale(1.2);
+
+}
+.btnDropDown{
+    transition: 1s;
+    appearance: none;
+    outline:none;
+    border:none;
+    background: none;
+    cursor: pointer;
+    display:block;
+    width: 2rem;
+    height:2rem;
+}
+
+.btnDropDown span{
+    color:black;
+    font-size: 2rem;
+}
+
+.mobileMenu{
+    position: fixed;
+    top:0;
+    width: 100%;
+    height: 100%;
+    z-index:98;
+    padding-top: 6rem;
+    opacity: 0;
+    transform: translateY(-100%);
+    background-color: black;
+    color:red;
+    transition: 0.3s;
+
+
+}
+
+.mobileMenu.is-open{
+    opacity: 1;
+    transform:translateY(0);
+
+}
+.fontes{
+    display:none;
+
+}
+
+.mobileMenu a{
+    display:block;
+    padding: 1rem;
+    color:white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.2rem;
+    transition: 1s;
+}
+
+.mobileMenu a.sumir{
+display:none;
+}
+.mobileMenu a.teste{
+    display:block;
+    padding: 1rem;
+    color:red;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.2rem;
+    transition: 1s;
+
+}
+.mobileMenu a:hover{
+    color:black;
+    background: #66FF99;
+    
+}
+
+@media (min-width:700px){
+    .btnDropDown{
+        display:none;
+    }
+    .menuNavbarGrande{
+        display:flex;
+    }
+}
+.foto_container{
+    align-items: center;
+}
+.foto{
+   width: 60%;
+    margin-left: 20%;
+    margin-right: 30%;
+   padding: 10px;
+}
+.fundo{
+    background-color: rgb(197, 197, 197);
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 6px;
+
+    
+}
+.descricao_conteudo{
+    margin-top: 1%;
+}
+.titulo{
+    font-size: 120%;
+}
+.descricao{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+    margin-bottom: 4%;
+
+    font-size: 120%;
+
+}
+
+.Serviços{
+
+    text-align: center;
+    float:center;
+    width:80%;
+    font-size: 200%;
+    margin-left:10%;
+    background-color: rgba(0, 255, 76, 0.568);
+    border-radius: 6px;
+
+
+
+}
+.btn{
+    background-color: #66FF99;
+    margin-top: 5%;
+    margin-left: 40%;
+    border-radius: 6px;
+    padding: 1%;
+    transition: 2s;
+}
+
+.btn:hover{
+    background-color: #fcff66;
+}
+.conteudo_servicos{
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+
+    width: 60%;
+    align-items: center;
+}
+.desc_tipo{
+
+    font-size: 100%;
+    margin-left:5%;
+}
+.tipo{
+    font-size: 120%;
+}
+
+.servico{
+  transition: 1s; 
+
+  color:black;
+  font-size: 2rem;
+
+}
+
+
+.servico:hover{
+transform: scale(1.2);
+  
+}
