@@ -16,83 +16,72 @@ nav{
     display:flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #66FF99;
-    color:red;
+    background-image: linear-gradient(to left, rgba(0, 107, 63, 0.9), rgb(41, 161, 105));
+
     padding: 1rem 1.5rem;
 
 }
 
-nav h1{
-    letter-spacing: 3px;
-    padding: 0.5rem 1rem;
-    padding-right: 5px;
-    transition: 2s;
-    color:#FFFF8F;
-    animation: mudarcor 5s infinite;
-}
-nav h1:hover{
-    transform: scale(1.1);
-}
-@keyframes mudarcor{
-    0%{color:darkgreen;}
-    50%{color:darkgoldenrod;}
-    100%{color:darkgreen;}
 
-}
+/* colocar o pointer ao passar o mouse em cima dos textos da navbar */
 .menuNavbar{
 cursor: pointer;
 }
+
+/* deixar apenas a opção "MENU" quando o cliente estiver logado */
 .menuNavbar.logado{
     font-size:150%;
     margin-left: 60%;
 }
+
+/* Sumir com a opção "login" na navbar ao logar */
 .loginNavbar.logado{
     display:none;
 
 }
+
+/* Sumir com a opção "registrase" na navbar ao logar */
 .registrarNavbar.logado{
     display:none;
 }
-.deslogado3.logado{
-    display:none;
-}
 
 
 
+/* design da navbar quando estiver na responsividade do PC */
 .menuNavbarGrande{
     display:none;
     align-items: center;
-    margin: 0 -1rem;
-    margin-right: 10px;
+    height:1px;
 
-    width: 30%;
+    width: 60%;
 }
 
+/* Textos dentro da navbar na responsividade do PC */
 .menuNavbarGrande a{
-    margin:0 1rem;
-    color:black;
+    user-select: none;
+    color:whitesmoke;
     text-decoration: none;
     transition: 0.6s;
- 
+    margin-left:20%;
     font-size: 115%;
 
 }
-.item1{
-    border:solid black;
-    height: 80px;
-}
+/* Animação ao passar o mouse nos textos dentro da navbar na responsividade do PC */
 .menuNavbarGrande a:hover{
     color:black;
-    background-color:rgb(228, 207, 22) ;
+    background-color:rgb(255, 255, 255) ;
     padding: 3%;
     border-radius: 6px;
 
 }
 
+/* animar o botao de Dropdown do menu quando estiver na responsividade Celular */
 .btnDropDown:hover{
     transform: scale(1.2);
 
 }
+
+/* design do botao DropDown na Responsividade Celular */
 .btnDropDown{
     transition: 1s;
     appearance: none;
@@ -105,11 +94,13 @@ cursor: pointer;
     height:2rem;
 }
 
+
 .btnDropDown span{
     color:black;
     font-size: 2rem;
 }
 
+/* design menu dropdown */
 .mobileMenu{
     position: fixed;
     top:0;
@@ -125,17 +116,14 @@ cursor: pointer;
 
 
 }
-
+/* Ativar o menu dropdown*/
 .mobileMenu.is-open{
     opacity: 1;
     transform:translateY(0);
 
 }
-.fontes{
-    display:none;
 
-}
-
+/* Letras no menu dropdown*/
 .mobileMenu a{
     display:block;
     padding: 1rem;
@@ -146,26 +134,26 @@ cursor: pointer;
     transition: 1s;
 }
 
+/* Quando o cliente estiver logado, algumas opçoes dentro do dropdown somem */
 .mobileMenu a.sumir{
 display:none;
 }
-.mobileMenu a.teste{
-    display:block;
-    padding: 1rem;
-    color:red;
-    text-decoration: none;
-    text-align: center;
-    font-size: 1.2rem;
-    transition: 1s;
-
-}
+/* Animar ao passar o mouse sobre os textos do  menu dropdown */
 .mobileMenu a:hover{
     color:black;
     background: #66FF99;
     
 }
 
-@media (min-width:700px){
+/* Foto Do Logo na NavBar */
+#fotoLogo{
+    width: 15%;
+    margin-left: 65px;
+
+}
+
+/* Responsividade PC/Celular/Tablet*/
+@media (min-width:1100px){
     .btnDropDown{
         display:none;
     }
@@ -173,92 +161,15 @@ display:none;
         display:flex;
     }
 }
+
+/* Div da foto*/
 .foto_container{
     align-items: center;
 }
+/* Foto do site*/
 .foto{
    width: 60%;
     margin-left: 20%;
     margin-right: 30%;
    padding: 10px;
-}
-.fundo{
-    background-color: rgb(197, 197, 197);
-    margin-left: 20%;
-    margin-right: 20%;
-    border-radius: 6px;
-
-    
-}
-.descricao_conteudo{
-    margin-top: 1%;
-}
-.titulo{
-    font-size: 120%;
-}
-.descricao{
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 5%;
-    margin-bottom: 4%;
-
-    font-size: 120%;
-
-}
-
-.Serviços{
-
-    text-align: center;
-    float:center;
-    width:80%;
-    font-size: 200%;
-    margin-left:10%;
-    background-color: rgba(0, 255, 76, 0.568);
-    border-radius: 6px;
-
-
-
-}
-.btn{
-    background-color: #66FF99;
-    margin-top: 5%;
-    margin-left: 40%;
-    border-radius: 6px;
-    padding: 1%;
-    transition: 2s;
-}
-
-.btn:hover{
-    background-color: #fcff66;
-}
-.conteudo_servicos{
-    margin-top: 5%;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-bottom: 10%;
-
-    width: 60%;
-    align-items: center;
-}
-.desc_tipo{
-
-    font-size: 100%;
-    margin-left:5%;
-}
-.tipo{
-    font-size: 120%;
-}
-
-.servico{
-  transition: 1s; 
-
-  color:black;
-  font-size: 2rem;
-
-}
-
-
-.servico:hover{
-transform: scale(1.2);
-  
 }

@@ -154,7 +154,7 @@ cursor: pointer;
 .menuNavbarGrande{
     display:none;
     align-items: center;
-    height:80px;
+    height:1px;
 
     width: 60%;
 }
