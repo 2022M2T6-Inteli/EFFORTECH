@@ -6,37 +6,43 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NavBar</title>
-    <link rel="stylesheet" href="css/cssJoao.css">
+    <link rel="stylesheet" href="css/ofertas.css">
   
 
 
     
 <body>
     <!--Essa é a Navbar-->
-    <nav>
-        
-        
-         <!--Essa parte vai ficar os textos na parte esquerda da Navbar-->
-        <div>
-            <ul class="esquerda">
-                <div class="teste" >
-                    <li><a class="navbar" href="#">MENU</a></li> 
-                </div>
-            </ul>
-                
-         <!--Essa parte vai ficar os textos na parte direita da Navbar-->
-            <ul class="direita">
-                <div  >
-                    <li class="teste"><a class="navbar" href="#">REGISTRAR</a></li> 
-                    <li class="teste"><a class="navbar" href="#">LOGIN</a></li> 
-                </div>
-            </ul>
-       
+    <header>
+        <nav>
+            <img id="fotoLogo" src="../imgs/MRVisão.png" onclick="mudarNav()">
+            <div class="menuNavbarGrande">
+                <a class="menuNavbar" onclick="abrirMenu()">Menu</a>
+                <a class="loginNavbar" href="login.html">Login</a>
+                <a class="registrarNavbar" href="cadastro.html">Registrar-se</a>
+
+
+
+            </div>
+
+            <button class="btnDropDown">
+                <span class="material-icons">menu</span>
+            </button>
+        </nav>  
+ 
+
+        <div id="menu" class="mobileMenu">
+            <a class="item1DropDown" href="home.html">Home</a>
+            <a class="item2DropDown" href="obras.html">Obras</a>
+            <a class="item3DropDown" href="comoFunciona.html">Como Funciona</a>
+            <a class="item4DropDown" href="cadastro.html">Registrar-se</a>
+            <a class="item5DropDown" href="login.html">Login</a>
+
+
         </div>
 
-        
-
-    </nav>
+    
+    </header>
     
     <div id="divObra" class="divCentralizadora">
 
@@ -47,7 +53,7 @@
         <p id="localizacaoObra">Salvador, BA - Rua dos loucos</p>
     
         <!--Imagem da obra-->
-        <img src="https://mm.exame.com/wp-content/uploads/2020/11/DSC_3926baixa3.jpg">
+        <img id="fotoObra" src="https://mm.exame.com/wp-content/uploads/2020/11/DSC_3926baixa3.jpg">
     
         <!--Descricao da obra-->
         <p id="descricaoObra">Oi, essa eh uma obrinha louca</p>
@@ -57,5 +63,6 @@
     <!--Aqui fica o background cinza-->
     <div class="fundo row divCentralizadora" id="mainServicos"></div>            
     <script src="../backend/ofertas.js"></script>
+    <script src="js/joao.js"></script>
 </body>
 </html>

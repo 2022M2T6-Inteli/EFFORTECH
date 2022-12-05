@@ -14,6 +14,7 @@
 <p><a href="/frontend/login.html">PAGINA DE LOGIN</a></p>
 <p><a href="/frontend/meuPerfil.html">PAGINA DE PERFIL</a></p>
 <p><a href="/frontend/ofertas.html">PAGINA DE OFERTAS</a></p>
+<p><a href="/frontend/home.html">HOME LUQUITA</a></p>
 
 <script>
     const url = '/obras';
@@ -36,11 +37,32 @@
             console.log(error);
         });
 
+    fetch('/usuario')
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            let usuarios = data;
+            let saida2 = '';
+            usuarios.map(function (usuarios) {
+                saida2 += '<strong> ' + `${usuarios.nomeFantasia}` + '</strong> ' + `${usuarios.email}` + '</strong> ' + `${usuarios.senha}` + '</strong> ';
+                saida2 += ' - <a href="/atualizaUsuario.html?usuario_id=' + `${usuarios.usuario_id}` + '">EDITAR</a>';
+                saida2 += ' | <a href="/removeUsuario?usuario_id=' + `${usuarios.usuario_id}` + '">REMOVER</a></br>';
+            });
+            document.getElementById('resultado_usuario').innerHTML = saida2;
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+
 
 </script>
 
 <body>
+    <h2>OBRAS</h2>
     <div id="resultado"></div>
+    <h2>USUARIOS</h2>
+    <div id="resultado_usuario"></div>
 </body>
 
 </html>
