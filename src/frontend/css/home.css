@@ -1,16 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
-
+/* Desabilita o scroll no body */
 body{
     height: 100%;
     overflow: hidden;
 }
-
+/* Define detalhes para todos os elementos */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+/* Estiliza o conteúdo dentro de section */
 section{
     position: relative;
     width: 100%;
@@ -23,7 +24,7 @@ section{
     overflow: hidden;
 }
 
-
+/* Estiliza o círculo que fica no canto inferior direito */
 .circle{
     position: absolute;
     top: 0;
@@ -34,6 +35,7 @@ section{
     clip-path: circle(50% at bottom right);
 }
 
+/* Define o display dos elementos que ficarão dentro de 'content' */
 .content{
     position: relative;
     width: 100%;
@@ -41,6 +43,7 @@ section{
     align-items: center;
     justify-content: space-between;
 }
+/* Define propriedades do texto dentro de content */
 .content .text{
     position: relative;
     max-width: 600px;
@@ -77,6 +80,8 @@ section{
 .content .text a:hover{
     transform: translateY(-10px);
 }
+
+/* Define propriedades do ícones */
 .icons{
     position: absolute;
     bottom: 40px;
@@ -108,6 +113,8 @@ section{
     filter: invert(1);
     transform: scale(0.5);
 }
+
+/* Define propriedades das imagens */
 .boxImg{
     position:relative;
     right: 0;
