@@ -5,34 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/cssNavbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/login.css">
     <title>Login</title>
 </head>
 <body>
 
-    <nav>
-        
-        
-        
-      <div>
-          <!-- Parte esquerda da nav bar -->
-          <ul class="esquerda">
-              <div>
-                  <li><a href="#">MENU</a></li> 
-                </div>
-          </ul>
-          
-          <!-- Parte direita da nav bar -->
-          <ul class="direita">
-              <div  >
-                  <!-- link para pagina de registro -->
-                  <li><a href="#">REGISTRAR</a></li> 
-                  <!-- Link para a pagina de login -->
-                  <li><a  href="#">LOGIN</a></li> 
-              </div>
-            </ul>
-            
+    <!-- Navbar -->
+    <header>
+        <nav>
+            <img id="fotoLogo" src="../imgs/MRVisão.png">
+            <div class="menuNavbarGrande">
+                <a class="menuNavbar" onclick="abrirMenu()">Menu</a>
+                <a class="loginNavbar" href="login.html">Login</a>
+                <a class="registrarNavbar" href="cadastro.html">Registrar-se</a>
+
+
+
+            </div>
+
+            <button class="btnDropDown">
+                <span class="material-icons">menu</span>
+            </button>
+        </nav>  
+ 
+
+        <div id="menu" class="mobileMenu">
+            <a class="item1DropDown" href="home.html">Home</a>
+            <a class="item2DropDown" href="obras.html">Obras</a>
+            <a class="item3DropDown" href="comoFunciona.html">Como Funciona</a>
+            <a class="item4DropDown" href="cadastro.html">Registrar-se</a>
+            <a class="item5DropDown" href="login.html">Login</a>
+
+
         </div>
+
+    
+    </header>
+
         
         
         
@@ -71,6 +82,7 @@
             </div>
         </div>
     </div>
+    <script src="js/joao.js"></script>
     <script src="../backend/login.js"></script>
 </body>
 </html>

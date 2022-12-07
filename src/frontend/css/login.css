@@ -6,6 +6,7 @@ body{
     margin: 0;
     font-family: 'Noto-Sans', sans-serif;
     height: 100vh;
+    overflow: hidden;
 }
 
 /* Estiliza todos os elementos do documento */
@@ -15,54 +16,6 @@ body{
     text-decoration: none;
     list-style: none;
     box-sizing: border-box;
-}
-
-/* Desgin da NavBar inteira */
-nav{
-    background: #FFB719;
-    height:80px;
-}
-
-/* Desgin da parte direita da NavBar  */
-nav ul.direita{
-    float:right;
-    height:80px;
-    
-}
-
-/* Desgin da parte esquerda da NavBar  */
-nav ul.esquerda{
-    float:left;
-    margin-left: 10%;
-    height:80px;
-    
-}
-
-/* Desgin da lista da NavBar  */
-nav ul li{
-    display:inline-block;
-    line-height: 80px;
-    margin:0.5px;
-    height: 80px;
-    
-}
-
-/* Desgin do texto da NavBar  */
-nav ul li a{
-    color:#079D56;
-    font-size: 17px;
-    padding:7px 13px;
-    border-radius: 3px;
-    text-transform:uppercase;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
-    
-}
-
-/* Mudar o background do texto da navbar qnd passa o mouse em cima */
-.navbar.active,.navbar:hover{
-    background: #079D56;
-    color: aliceblue;
 }
 
 /* Estiliza a divisória principal do login */
@@ -84,6 +37,7 @@ nav ul li a{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-bottom:5%;
 }
 
 /* Estiliza o texto dentro da divisória esquerda de login */
@@ -107,6 +61,7 @@ nav ul li a{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 5%;
 }
 
 /* Estiliza o card de login */
