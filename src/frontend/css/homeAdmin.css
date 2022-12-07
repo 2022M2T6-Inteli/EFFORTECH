@@ -1,3 +1,7 @@
+body {
+    background-color: white;
+}
+
 #retangulo_maior {
     margin-left: 0%;
     margin-right: 0%;
@@ -15,6 +19,13 @@
     width: 100%;
 }
 
+#Meus_Projetos h3 {
+    margin-left: 5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    font-size: 85%;
+}
+
 .row.align-items-center {
     height: 100%;
 }
@@ -27,9 +38,25 @@ p {
     margin-bottom: 0%;
 }
 
+#linhaBarraDePesquisa {
+    height: 100%;
+}
+
 #barra_de_pesquisa {
-    background-color: gray;
+    background-color: white;
     margin-top: 2%;
+    border: 3px solid black;
+}
+
+#inputPesquisa {
+    height: 100%;
+    border-style: none;
+}
+
+#inputPesquisa:press {
+    border-style: none !important;
+    box-shadow: 0 0 0 0;
+    border: 0px;
 }
 
 #barra_de_pesquisa p {
@@ -50,4 +77,25 @@ p {
 p.col-8 {
     font-size: 12px;
     padding: 0%;
+}
+
+.card_servicos {
+    margin-left: 7%;
+}
+
+.card_servicos h3 {
+    font-size: 80%;
+}
+
+.card_servicos p {
+    font-size: 60%;
+
+}
+
+.icon_feedback {
+    width: 80%;
+}
+
+#adicionaCard {
+    margin-top: 5%;
 }
