@@ -19,7 +19,7 @@ else {
         .then((data) => {
             cookies = data;
             console.log(cookies)
-            if (cookies === "erro"){
+            if (cookies === "deslogado"){
                 window.location.href = 'login.html';
             }
             let cookieSplit = cookies.split('=');

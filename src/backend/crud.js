@@ -239,9 +239,13 @@ app.get('/login', urlencodedParser, (req, res) => {
 app.get('/cookies', urlencodedParser, (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
-    if(req.header.cookie){
-        res.json(req.headers.cookie); 
+    if(req.headers.cookie){
+        if(req.headers.cookie.includes("id")){
+            res.json(req.headers.cookie);
+        } else{
+            res.json("deslogado");
+        }
     } else{
-        res.json("erro")
+        res.json("deslogado");
     }
 });
