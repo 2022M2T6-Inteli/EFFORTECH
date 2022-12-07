@@ -28,18 +28,31 @@ const item5DropDown=document.querySelector('.item5DropDown');
 // 1 = deslogado, 2=logado
 
 
-let deslogado=1
+let deslogado = 1;
+
+fetch('/cookies')
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            let cookies = data;
+            console.log(cookies)
+            if (cookies === "deslogado"){
+                deslogado = 2;
+            }
+            mudarNav();
+        })
 
 
 
 function mudarNav(){
 //   ao clicar serão inseridos uma classe que mudarão o CSS dos elementos
-    menuNavbar.classList.toggle('logado');
-    loginNavbar.classList.toggle('logado');
-    registrarNavbar.classList.toggle('logado');
+    //menuNavbar.classList.toggle('logado');
+    //loginNavbar.classList.toggle('logado');
+    //registrarNavbar.classList.toggle('logado');
 
     // executa esse codigo se estiver deslogado
-    if (deslogado==1){
+    if (deslogado===1){
         item5DropDown.classList.add('sumir');
         item1DropDown.innerText="Home";
         item1DropDown.href="home.html";
@@ -50,7 +63,10 @@ function mudarNav(){
         item4DropDown.innerText="Como funciona";
         item4DropDown.href="comoFunciona.html";
 
-        deslogado=2
+        menuNavbar.classList.toggle('logado');
+        loginNavbar.classList.toggle('logado');
+        registrarNavbar.classList.toggle('logado');
+        
             // executa esse codigo se estiver logado
     } else{
         item1DropDown.innerText="Home";
@@ -63,12 +79,7 @@ function mudarNav(){
         item4DropDown.href="cadastro.html";
 
         item5DropDown.classList.remove('sumir');
-      
-        deslogado=1
     }
-
-    
-    console.log(deslogado)
 }
 
 const menu=document.getElementById("menuNavbarGrande");

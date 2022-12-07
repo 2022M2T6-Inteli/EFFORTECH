@@ -1,9 +1,3 @@
-// const { createHash } = require('crypto');
-
-// function hash(senha) {
-//   return createHash('sha256').update(senha).digest('hex');
-// }
-
 function validaLogin(){
 
     var usuarios
@@ -11,6 +5,7 @@ function validaLogin(){
     var usuario
 
     //variáveis que armazenam o que for digitado pelo usuário como email e senha para serem validados em seguida com duas lógicas de if e else, sendo exibidos os erros em cada caso
+    
     var email_usuario = document.getElementById("email").value
     var senha_usuario = document.getElementById("senha").value
 
@@ -26,8 +21,9 @@ function validaLogin(){
                 if(usuarios.email == email_usuario) {
                     usuario = usuarios
                     if(usuario.senha == senha_usuario) {
+                        window.location.href = '/login?usuario_id=' + `${usuario.usuario_id}`
                         status_login = true;
-                        window.location.href = 'meuPerfil.html?email=' + `${email_usuario}`
+                        //window.location.href = 'meuPerfil.html?email=' + `${email_usuario}`
                         
                     }
                     else {
@@ -43,4 +39,3 @@ function validaLogin(){
         })
 
 }
-

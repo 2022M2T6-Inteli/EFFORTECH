@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
+const cookieParser = require("cookie-parser");
 
 // const { createHash } = require('crypto');
 
@@ -92,7 +93,7 @@ app.post('/atualizaObra', urlencodedParser, (req, res) => {
 app.get('/removeObra', urlencodedParser, (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
-    sql = "DELETE FROM obras WHERE obra_id='" + req.query.obra_id + "'"; //
+    sql = "DELETE FROM obras WHERE obra_id='" + req.query.obra_id + "'";
     console.log(sql);
     var db = new sqlite3.Database(DBPATH); // Abre o banco
     db.run(sql, [], err => {
@@ -223,4 +224,28 @@ app.get('/servicos', (req, res) => {
         res.json(rows);
     });
     db.close(); // Fecha o banco
+});
+
+app.get('/login', urlencodedParser, (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    let id = req.query.usuario_id;
+    res.cookie("id", id, {
+        httpOnly: true
+    });
+    res.redirect("../frontend/meuPerfil.html");
+});
+
+app.get('/cookies', urlencodedParser, (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    if(req.headers.cookie){
+        if(req.headers.cookie.includes("id")){
+            res.json(req.headers.cookie);
+        } else{
+            res.json("deslogado");
+        }
+    } else{
+        res.json("deslogado");
+    }
 });
