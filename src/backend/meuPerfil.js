@@ -2,16 +2,30 @@ var perfil;
 
 let parametroURL = new URLSearchParams(window.location.search)
 let parametro = parametroURL.get('email')
-console.log(parametro)
 let url = window.location.href;
+let cookies;
+let id;
 
 //lógica de if e else para impedir que a página seja meuPerfil seja acessada sem que seja passado um parâmetro por url com seu email
-if(url == 'http://127.0.0.1:1234/frontend/meuPerfil.html') {
+if (false) {
     window.location.href = 'login.html'
 
 }
 else {
-
+    fetch('/cookies')
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            cookies = data;
+            console.log(cookies)
+            if (cookies === "erro"){
+                window.location.href = 'login.html';
+            }
+            let cookieSplit = cookies.split('=');
+            id = +cookieSplit[1]
+            console.log(id)
+        })
     //fetch responsável por fazer com que a página possa acessar todos os usuários do banco de dados e puxe as informações a serem exibidar no "cabeçalho"
     fetch('/usuario')
         .then((response) => {
@@ -20,7 +34,7 @@ else {
         .then((data) => {
             perfis = data;
             perfis.map(function (perfis) {
-                if(perfis.email == parametro) {
+                if(perfis.usuario_id == id) {
                     perfil = perfis
                 }
             })

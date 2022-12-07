@@ -135,8 +135,6 @@ function filtroPorServicos(obras){
             }
         }
         for (obra of obras){
-            console.log(idsDasObrasDesejadas)
-            console.log(obra.obra_id)
             if (idsDasObrasDesejadas.includes(obra.obra_id)){
                 obrasFiltradasPorServico.push(obra);
             }
@@ -152,7 +150,6 @@ function mostrarObras(obras){
     let saidaServicos;
     for (obra of obras){
         saidaServicos = '';
-        console.log(servicos);
         servicos.map(function (servicos) {
             if (servicos.obra_id === obra.obra_id){
                 if (saidaServicos){

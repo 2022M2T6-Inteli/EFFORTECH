@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
+const cookieParser = require("cookie-parser");
 
 // const { createHash } = require('crypto');
 
@@ -223,4 +224,24 @@ app.get('/servicos', (req, res) => {
         res.json(rows);
     });
     db.close(); // Fecha o banco
+});
+
+app.get('/login', urlencodedParser, (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    let id = req.query.usuario_id;
+    res.cookie("id", id, {
+        httpOnly: true
+    });
+    res.redirect("../frontend/meuPerfil.html");
+});
+
+app.get('/cookies', urlencodedParser, (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    if(req.header.cookie){
+        res.json(req.headers.cookie); 
+    } else{
+        res.json("erro")
+    }
 });
