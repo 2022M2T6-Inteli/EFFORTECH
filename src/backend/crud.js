@@ -92,7 +92,7 @@ app.post('/atualizaObra', urlencodedParser, (req, res) => {
 app.get('/removeObra', urlencodedParser, (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
-    sql = "DELETE FROM obras WHERE obra_id='" + req.query.obra_id + "'"; //
+    sql = "DELETE FROM obras WHERE obra_id='" + req.query.obra_id + "'";
     console.log(sql);
     var db = new sqlite3.Database(DBPATH); // Abre o banco
     db.run(sql, [], err => {

@@ -28,7 +28,7 @@
             let saida = '';
             obras.map(function (obras) {
                 saida += '<strong> ' + `${obras.nome}` + '</strong> ' + `${obras.endereco}` + '</strong> ' + `${obras.dataInicio}` + '</strong> ' + `${obras.dataFim}` + '</strong> ' + `${obras.descricao}`;
-                saida += ' - <a href="/atualizar.html?obra_id=' + `${obras.obra_id}` + '">EDITAR</a>';
+                saida += ' - <a href="/atualizaObra?obra_id=' + `${obras.obra_id}` + '">EDITAR</a>';
                 saida += ' | <a href="/removeObra?obra_id=' + `${obras.obra_id}` + '">REMOVER</a></br>';
             });
             document.getElementById('resultado').innerHTML = saida;
