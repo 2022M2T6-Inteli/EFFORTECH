@@ -90,3 +90,8 @@ function abrirMenu(){
     mobileMenu.classList.toggle('is-open');
 
 }
+
+//Te redireciona para a home
+function voltarHome(){
+    window.location.href = "home.html";
+}

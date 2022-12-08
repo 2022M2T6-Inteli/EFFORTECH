@@ -140,7 +140,7 @@ app.post('/insereUsuario', urlencodedParser, (req, res) => {
             throw err;
         }
     });
-    res.write('<p>USUARIO INSERIDO COM SUCESSO!</p><a href="/">VOLTAR</a>'); //hiperlink volta
+    res.redirect("../frontend/home.html");
     db.close(); // Fecha o banco
     res.end();
 });
@@ -175,7 +175,7 @@ app.post('/atualizaUsuario', urlencodedParser, (req, res) => {
         }
         res.end();
     });
-    res.write('<p>USUARIO ATUALIZADO COM SUCESSO!</p><a href="/">VOLTAR</a>');
+    res.redirect("../frontend/home.html");
     db.close(); // Fecha o banco
 });
 
