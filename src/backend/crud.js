@@ -140,7 +140,7 @@ app.post('/insereUsuario', urlencodedParser, (req, res) => {
             throw err;
         }
     });
-    res.write('<p>USUARIO INSERIDO COM SUCESSO!</p><a href="/">VOLTAR</a>'); //hiperlink volta
+    res.redirect("../frontend/home.html");
     db.close(); // Fecha o banco
     res.end();
 });
@@ -175,7 +175,7 @@ app.post('/atualizaUsuario', urlencodedParser, (req, res) => {
         }
         res.end();
     });
-    res.write('<p>USUARIO ATUALIZADO COM SUCESSO!</p><a href="/">VOLTAR</a>');
+    res.redirect("../frontend/home.html");
     db.close(); // Fecha o banco
 });
 
@@ -217,6 +217,21 @@ app.get('/servicos', (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     var db = new sqlite3.Database(DBPATH); // Abre o banco
     var sql = 'SELECT * FROM servicos';
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close(); // Fecha o banco
+});
+
+app.get('/servicosId', (req, res) => {
+    res.statusCode = 200;
+    // const idObra  = req.params.idObra
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    const sql = "SELECT * from servicos WHERE obra_id = '" + req.query.obra_id + "'";
     db.all(sql, [], (err, rows) => {
         if (err) {
             throw err;

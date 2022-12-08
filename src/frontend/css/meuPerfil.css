@@ -15,42 +15,6 @@ body {
     box-sizing: border-box;
 }
 
-nav{
-    background: #FFB719;
-    height:80px;
-}
-
-nav ul.direita{
-    float:right;
-    height:80px;
-    
-}
-
-nav ul.esquerda{
-    float:left;
-    height:80px;
-    
-}
-nav ul li{
-    display:inline-block;
-    line-height: 80px;
-    margin:0.5px;
-    height: 80px;
-    
-}
-nav ul li a{
-    color:#079D56;
-    font-size: 17px;
-    padding:7px 13px;
-    border-radius: 3px;
-    text-transform:uppercase;
-    
-}
-a.active,a:hover{
-    background: #079D56;
-    color: aliceblue;
-}
-
 /* O objetivo do estilo a seguir é setar a cor de fundo, a largura da div e um margin para centralizá-la*/
 
 #retangulo_Maior {

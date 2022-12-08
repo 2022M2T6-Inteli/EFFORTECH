@@ -4,6 +4,73 @@ function redirecionaAdicionaObra() {
 
 let nObras = 4
 
+fetch('/cookies')
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        cookies = data;
+        console.log(cookies)
+        if (cookies === "deslogado"){
+            window.location.href = 'login.html';
+        }
+        let cookieSplit = cookies.split('=');
+        id = +cookieSplit[1]
+        console.log(id)
+    })
+
+fetch('/obras')
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        obras = data;
+        obras.map(function (obras) {
+            document.getElementById("tabela").innerHTML +=
+            `<tr>
+                <th scope="row">${obras.obra_id}</th>
+                <td>${obras.nome}</td>
+                <td>${obras.endereco}</td>
+                <td class="tdImgs"><a href = "adminServicos.html?obra_id=${obras.obra_id}" id = "servicos"><img src="../imgs/servico.png" alt=""></a></td>
+                <td class="tdImgs"><img src="../imgs/editar.png" alt=""></td>
+                <td class="tdImgs"><img id = "imgConcluir" src="../imgs/verifica (1).png" alt=""></td>
+            </tr>`
+        })
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function adicionaCard() {
 
     const linha = Math.floor(nObras/4)
