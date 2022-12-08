@@ -226,6 +226,21 @@ app.get('/servicos', (req, res) => {
     db.close(); // Fecha o banco
 });
 
+app.get('/servicosId', (req, res) => {
+    res.statusCode = 200;
+    // const idObra  = req.params.idObra
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    const sql = "SELECT * from servicos WHERE obra_id = '" + req.query.obra_id + "'";
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close(); // Fecha o banco
+});
+
 app.get('/login', urlencodedParser, (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');

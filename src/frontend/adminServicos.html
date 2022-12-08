@@ -9,18 +9,16 @@
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="css/meuPerfil.css">
     <!-- <link rel="stylesheet" href="css/home&meuPerfil.css"> -->
-    <link rel="stylesheet" href="css/homeAdmin.css">
-    <script src="../backend/homeAdmin.js"></script>
-    <script src="../backend/adminServicos.js"></script>
+    <link rel="stylesheet" href="css/adminServicos.css">
     <title>Home - Admin</title>
 </head>
 
 <body>
-
+    
     <!-- A lógica do código é baseada em diversas div's sucessivas com container, row e col, a fim de organizar a disposição dos elementos na página -->
-
+    
     <div class="container align-items-center" id="retangulo_maior">
-
+        
         <!-- Abaixo tem-se uma div row que contém os elementos de uma espécie de Navbar da página -->
 
         <div class="row justify-content-center align-items-center" id="primeira_linha">
@@ -30,7 +28,7 @@
                     <img class="col-2" src="../imgs/lupa (1).png" alt="">
                 </div>
             </div>
-            <div class="offset-1 col-1" id="ordenar">
+            <!-- <div class="offset-1 col-1" id="ordenar">
                 <div class="row align-items-center">
                     <img class="offset-2 col-3" src="../imgs/ordenar.png" alt="">
                     <p class="offset-1 col-6">Ordenar</p>
@@ -41,41 +39,41 @@
                     <img class="offset-2 col-3" src="../imgs/simbolo-de-ferramenta-preenchido-com-filtro.png" alt="">
                     <p class="offset-1 col-6">Filtrar</p>
                 </div>
-            </div>
-            <div class="offset-1 col-2" id="adiciona_obra">
+            </div> -->
+            <div class="offset-5 col-2 align-items-center" id="adiciona_obra">
                 <button class="rounded-5" id="botao_adiciona_obra" onclick="redirecionaAdicionaObra()">
                     <div class="row align-items-center" id="botao_adiciona_margin">
                         <img class="col-3" src="../imgs/mais (1).png" alt="">
-                        <p class="col-8">Adicionar Obra</p>
+                        <p class="col-8">Adicionar Serviços</p>
                     </div>
                 </button>
             </div>
         </div>
         <div class="row align-items-center" id="Meus_Projetos">
-            <h3 class="justify-content-start align-items-center">Minhas Obras</h3>
+            <h3 class="justify-content-start align-items-center">Serviços</h3>
         </div>
-
+        
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">Número</th>
-                    <th scope="col">Nome da Obra</th>
-                    <th scope="col">Endereço</th>
-                    <th scope="col">Serviços</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Empreiteiro</th>
                     <th scope="col">Editar</th>
+                    <th scope="col">Cancelar</th>
                     <th scope="col">Concluir</th>
-
+                    
                 </tr>
             </thead>
-            <tbody id="tabela">
-
+            <tbody id="tabelaServicos">
             </tbody>
         </table>
-
-
+        
+        
     </div>
-    </div>
-    </div>
+</div>
+</div>
+<script src="../backend/adminServicos.js"></script>
 </body>
 
 </html>
