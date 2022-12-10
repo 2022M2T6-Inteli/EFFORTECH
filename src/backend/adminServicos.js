@@ -3,6 +3,11 @@ let idObra
 let parametroURL = new URLSearchParams(window.location.search)
 let obra_id = parametroURL.get('obra_id')
 
+
+function redirecionaAdicionaServico() {
+    window.location.href = 'inserirServico.html?obra_id=' + obra_id
+}
+
 // fetch('/obras')
 //     .then((response) => {
 //         return response.json();

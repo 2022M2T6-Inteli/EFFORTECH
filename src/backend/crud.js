@@ -10,7 +10,7 @@ const cookieParser = require("cookie-parser");
 // }
 
 const sqlite3 = require('sqlite3').verbose();
-const DBPATH = '../data/modeloFisico.db'; // dois pontos barra sobe um nível + o nome da pasta entra nela
+const DBPATH = '../data/Projeto.db'; // dois pontos barra sobe um nível + o nome da pasta entra nela
 
 const hostname = '127.0.0.1';
 const port = 1234;
@@ -237,6 +237,89 @@ app.get('/servicosId', (req, res) => {
             throw err;
         }
         res.json(rows);
+    });
+    db.close(); // Fecha o banco
+});
+
+app.post('/insereServico', urlencodedParser, (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    sql = "INSERT INTO servicos (obra_id, tipo, dataInicio, dataFim, descricao) VALUES ('" + req.query.obra_id + "', '" + req.body.tipo + "', '" + req.body.dataInicio + "', '" + req.body.dataFim + "', '" + req.body.descricao + "')";
+    console.log(sql);
+    db.run(sql, [], err => {
+        if (err) {
+            throw err;
+        }
+    });
+    res.redirect("../frontend/homeAdmin.html");
+    db.close(); // Fecha o banco
+    res.end();
+});
+
+app.post('/insereObra', urlencodedParser, (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    sql = "INSERT INTO obras (nome, endereco, dataInicio, dataFim, descricao) VALUES ('" + req.body.nome + "', '" + req.body.endereco + "', '" + req.body.dataInicio + "', '" + req.body.dataFim + "', '" + req.body.descricao + "')";
+    console.log(sql);
+    db.run(sql, [], err => {
+        if (err) {
+            throw err;
+        }
+    });
+    res.write('<p>OBRA INSERIDA COM SUCESSO!</p><a href="/">VOLTAR</a>'); //hiperlink volta
+    db.close(); // Fecha o banco
+    res.end();
+});
+
+
+// Monta o formulário para o update (é o U do CRUD - Update)
+app.get('/atualizaServico', (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    sql = 'SELECT * FROM usuarios WHERE usuario_id =' + req.body.usuario_id + "'";
+    console.log(sql);
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close(); // Fecha o banco
+});
+
+// Atualiza um registro (é o U do CRUD - Update)
+app.post('/atualizaServico', urlencodedParser, (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    sql = "UPDATE usuarios SET nomeFantasia='" + req.body.nomeFantasia + "', cnpj='" + req.body.cnpj + "', email = '" + req.body.email + "' , contato1 = '" + req.body.contato1 + "', contato2 = '" + req.body.contato2 + "' WHERE usuario_id='" + req.body.usuario_id + "'";
+    console.log(sql);
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    db.run(sql, [], err => {
+        if (err) {
+            throw err;
+        }
+        res.end();
+    });
+    res.redirect("../frontend/home.html");
+    db.close(); // Fecha o banco
+});
+
+app.get('/removeServico', urlencodedParser, (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    sql = "DELETE FROM servicos WHERE usuario_id='" + req.query.servico_id + "'"; 
+    console.log(sql);
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    db.run(sql, [], err => {
+        if (err) {
+            throw err;
+        }
+        res.write('<p>OBRAS REMOVIDO COM SUCESSO!</p><a href="/">VOLTAR</a>');
+        res.end();
     });
     db.close(); // Fecha o banco
 });

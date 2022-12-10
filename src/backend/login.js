@@ -23,8 +23,6 @@ function validaLogin(){
                     if(usuario.senha == senha_usuario) {
                         window.location.href = '/login?usuario_id=' + `${usuario.usuario_id}`
                         status_login = true;
-                        //window.location.href = 'meuPerfil.html?email=' + `${email_usuario}`
-                        
                     }
                     else {
                         document.getElementById("erro").innerHTML = `<p class = "text-danger">Email ou senha incorretos.</p>`

@@ -31,7 +31,7 @@ fetch('/obras')
                 <th scope="row">${obras.obra_id}</th>
                 <td>${obras.nome}</td>
                 <td>${obras.endereco}</td>
-                <td class="tdImgs"><a href = "adminServicos.html?obra_id=${obras.obra_id}" id = "servicos"><img src="../imgs/servico.png" alt=""></a></td>
+                <td class="tdImgs"><a href = "adminServicos.html?obra_id=${obras.obra_id}" id = "servicos"><img id="imgServicos" src="../imgs/servico.png" alt=""></a></td>
                 <td class="tdImgs"><img src="../imgs/editar.png" alt=""></td>
                 <td class="tdImgs"><img id = "imgConcluir" src="../imgs/verifica (1).png" alt=""></td>
             </tr>`
