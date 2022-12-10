@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INSERIR OBRAS</title>
+</head>
+
+<body>
+
+    <div id="formEditar"></div>
+    
+
+    <script>
+
+        document.getElementById("formEditar").innerHTML = `
+            <form name="form1" method="post" action="/atualizaObra">
+                NOME: <input type="text" name="nome" value="${}" required>
+                <br>
+                ENDEREÇO: <input type="text" name="endereco" value="${}" required>
+                <br>
+                DATA-INICIO: <input type="date" name="dataInicio" value="${}" required>
+                <br>
+                DATA-FIM: <input type="date" name="dataFim" value="${}" required>
+                <br>
+                DESCRIÇÃO: <input type="text" name="descricao" value="${}" required>
+                <br>
+                <input type="submit" value="INSERIR">
+            </form>`
+
+    </script>
+</body>
+
+</html>

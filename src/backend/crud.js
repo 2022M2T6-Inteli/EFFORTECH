@@ -257,20 +257,34 @@ app.post('/insereServico', urlencodedParser, (req, res) => {
     res.end();
 });
 
-app.post('/insereObra', urlencodedParser, (req, res) => {
+app.post('/insereAdmin', urlencodedParser, (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
     var db = new sqlite3.Database(DBPATH); // Abre o banco
-    sql = "INSERT INTO obras (nome, endereco, dataInicio, dataFim, descricao) VALUES ('" + req.body.nome + "', '" + req.body.endereco + "', '" + req.body.dataInicio + "', '" + req.body.dataFim + "', '" + req.body.descricao + "')";
+    sql = "INSERT INTO admin (email, senha) VALUES ('" + req.body.email + "', '" + req.body.senha + "')";
     console.log(sql);
     db.run(sql, [], err => {
         if (err) {
             throw err;
         }
     });
-    res.write('<p>OBRA INSERIDA COM SUCESSO!</p><a href="/">VOLTAR</a>'); //hiperlink volta
+    res.redirect("../frontend/homeAdmin.html");
     db.close(); // Fecha o banco
     res.end();
+});
+
+app.get('/admin', (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    var sql = 'SELECT * FROM admin';
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close(); // Fecha o banco
 });
 
 
@@ -345,5 +359,19 @@ app.get('/cookies', urlencodedParser, (req, res) => {
         }
     } else{
         res.json("deslogado");
+    }
+});
+
+app.get('/cookiesAdmin', urlencodedParser, (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    if(req.headers.cookie){
+        if(req.headers.cookie.includes("admin_id")){
+            res.json(req.headers.cookie);
+        } else{
+            // res.json("deslogado");
+        }
+    } else{
+        // res.json("deslogado");
     }
 });

@@ -11,6 +11,31 @@ function validaLogin(){
 
     var status_login = false
 
+
+    fetch('/admin')
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            admin = data;
+            admin.map(function (admin) {
+                if(admin.email == email_usuario) {
+                    if(admin.senha == senha_usuario) {
+                        window.location.href = 'homeAdmin.html?admin_id=' + `${admin.admin_id}`
+                    }
+                    else {
+                        document.getElementById("erro").innerHTML = `<p class = "text-danger">Email ou senha incorretos.</p>`
+        
+                    }
+                }
+                else {
+                    document.getElementById("erro").innerHTML = `<p class = "text-danger">Email ou senha incorretos.</p>`
+                }
+            })
+
+        })
+    
+
     fetch('/usuario')
         .then((response) => {
             return response.json();
