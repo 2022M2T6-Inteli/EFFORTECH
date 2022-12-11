@@ -3,11 +3,47 @@
   <head>
     <meta charset="utf-8">
     <title>Formulário de várias etapas</title>
+    <link rel="stylesheet" href="css/cssNavbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/pageCadastro.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src=""></script>
   </head>
   <body>
+
+    <!-- Navbar -->
+    <header>
+      <nav>
+          <img id="fotoLogo" src="../imgs/MRVisão.png" onclick="voltarHome()">
+          <div class="menuNavbarGrande">
+              <a class="menuNavbar" onclick="abrirMenu()">Menu</a>
+              <a class="loginNavbar" href="login.html">Login</a>
+              <a class="registrarNavbar" href="cadastro.html">Registrar-se</a>
+
+
+
+          </div>
+
+          <button class="btnDropDown">
+              <span class="material-icons">menu</span>
+          </button>
+      </nav>  
+
+
+      <div id="menu" class="mobileMenu">
+          <a class="item1DropDown" href="home.html">Home</a>
+          <a class="item2DropDown" href="obras.html">Obras</a>
+          <a class="item3DropDown" href="comoFunciona.html">Como Funciona</a>
+          <a class="item4DropDown" href="cadastro.html">Registrar-se</a>
+          <a class="item5DropDown" href="login.html">Login</a>
+
+
+      </div>
+
+  
+  </header>
+
+
     <div class="container">
       <header>Cadastro</header>
       <!-- Aqui está a barra de progresso -->
@@ -120,6 +156,7 @@
         </form>
       </div>
     </div>
+    <script src="js/joao.js"></script>
     <script src="js/scriptCadastro.js"></script>
     
   </body> 

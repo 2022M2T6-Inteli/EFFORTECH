@@ -9,6 +9,22 @@ let obraDesejada;
 let servicosDesejados = [];
 let divServicos = document.getElementById("mainServicos");
 let divModal = document.getElementById("mainModal");
+let cookies;
+let idUsuario;
+
+fetch('/cookies')
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        cookies = data;
+        console.log(cookies)
+        if (cookies === "deslogado"){
+            window.location.href = 'login.html';
+        }
+        let cookieSplit = cookies.split('=');
+        idUsuario = +cookieSplit[1]
+    })
 
 // Pega todas as obras do banco de dados
 fetch(urlObras)
@@ -49,7 +65,7 @@ fetch(urlServicos)
             if (todosOsServicos.obra_id === idObra){
                 saida += '<div class="col-12"><p class="tituloServico">' + `${todosOsServicos.tipo}` + ':</p><p class="descricaoServico">' + `${todosOsServicos.descricao}` + '</p><br><button class="btn" data-bs-toggle="modal" data-bs-target="#modal' + `${todosOsServicos.tipo}` + '">CANDIDATAR-SE</button></div>'
                 //Adiciona o seu modal
-                saidaModal += '<div class="modal" id="modal' + `${todosOsServicos.tipo}` + '" tab-index="-1" aria-labelledby="tituloModal' + `${todosOsServicos.tipo}` + '" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="tituloModal' + `${todosOsServicos.tipo}` + '">' + `${todosOsServicos.tipo}` + '</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><textarea rows="8" cols="56" placeholder="Digite sua proposta aqui" autofocus></textarea></div><div class="modal-footer"><button type="button" class="btn btn-primary">Enviar</button></div></div></div></div>'
+                saidaModal += '<div class="modal" id="modal' + `${todosOsServicos.tipo}` + '" tab-index="-1" aria-labelledby="tituloModal' + `${todosOsServicos.tipo}` + '" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="tituloModal' + `${todosOsServicos.tipo}` + '">' + `${todosOsServicos.tipo}` + '</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><form id="insereCandidatura" method="post" action="/inserecandidatura"><textarea name="proposta" rows="8" cols="56" placeholder="Digite sua proposta aqui"></textarea><input type="hidden" name="servico_id" value="' + `${todosOsServicos.servico_id}` + '"><input type="hidden" name="usuario_id" value="' + `${idUsuario}` + '"></form></div><div class="modal-footer"><button type="submit" form="insereCandidatura" class="btn btn-primary">Enviar</button></div></div></div></div>'
             }
         })
         // Manda os serviços para o html
