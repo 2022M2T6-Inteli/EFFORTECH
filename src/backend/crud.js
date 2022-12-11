@@ -368,6 +368,23 @@ app.get('/removeServico', urlencodedParser, (req, res) => {
     db.close(); // Fecha o banco
 });
 
+// CRUD de candidaturas
+app.post('/insereCandidatura', urlencodedParser, (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    sql = "INSERT INTO candidaturas (servico_id, usuario_id, proposta) VALUES ('" + req.body.servico_id + "', '" + req.body.usuario_id + "', '" + req.body.proposta + "')";
+    console.log(sql);
+    db.run(sql, [], err => {
+        if (err) {
+            throw err;
+        }
+    });
+    res.redirect("../frontend/obras.html");
+    db.close(); // Fecha o banco
+    res.end();
+});
+
 app.get('/login', urlencodedParser, (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
