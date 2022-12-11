@@ -38,6 +38,21 @@ app.get('/obras', (req, res) => {
     db.close(); // Fecha o banco
 });
 
+app.get('/obraId', (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    var sql = `SELECT * FROM obras WHERE obra_id =${req.query.obra_id}`;
+    console.log(req.query.obra_id)
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close(); // Fecha o banco
+});
+
 // Insere um registro (é o C do CRUD - Create)
 app.post('/insereObra', urlencodedParser, (req, res) => {
     res.statusCode = 200;
@@ -76,7 +91,7 @@ app.get('/atualizaObra', (req, res) => {
 app.post('/atualizaObra', urlencodedParser, (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
-    sql = "UPDATE obras SET nome='" + req.body.nome + "', endereco='" + req.body.endereco + "', dataInicio = '" + req.body.dataInicio + "' , dataFim = '" + req.body.dataFim + "', descricao = '" + req.body.descricao + "' WHERE obra_id='" + req.body.obra_id + "'";
+    sql = "UPDATE obras SET nome='" + req.body.nome + "', endereco='" + req.body.endereco + "', dataInicio = '" + req.body.dataInicio + "' , dataFim = '" + req.body.dataFim + "', descricao = '" + req.body.descricao + "' WHERE obra_id='" + req.query.obra_id + "'";
     console.log(sql);
     var db = new sqlite3.Database(DBPATH); // Abre o banco
     db.run(sql, [], err => {
@@ -231,6 +246,21 @@ app.get('/servicosId', (req, res) => {
     // const idObra  = req.params.idObra
     res.setHeader('Access-Control-Allow-Origin', '*');
     var db = new sqlite3.Database(DBPATH); // Abre o banco
+    const sql = "SELECT * from servicos WHERE servico_id = '" + req.query.servico_id + "'";
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close(); // Fecha o banco
+});
+
+app.get('/servicosObraId', (req, res) => {
+    res.statusCode = 200;
+    // const idObra  = req.params.idObra
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
     const sql = "SELECT * from servicos WHERE obra_id = '" + req.query.obra_id + "'";
     db.all(sql, [], (err, rows) => {
         if (err) {
@@ -309,7 +339,7 @@ app.get('/atualizaServico', (req, res) => {
 app.post('/atualizaServico', urlencodedParser, (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
-    sql = "UPDATE usuarios SET nomeFantasia='" + req.body.nomeFantasia + "', cnpj='" + req.body.cnpj + "', email = '" + req.body.email + "' , contato1 = '" + req.body.contato1 + "', contato2 = '" + req.body.contato2 + "' WHERE usuario_id='" + req.body.usuario_id + "'";
+    sql = "UPDATE servicos SET tipo='" + req.body.tipo + "', dataInicio='" + req.body.dataInicio + "', dataFim = '" + req.body.dataFim + "' , descricao = '" + req.body.descricao + "' WHERE servico_id='" + req.query.servico_id + "'";
     console.log(sql);
     var db = new sqlite3.Database(DBPATH); // Abre o banco
     db.run(sql, [], err => {
@@ -318,7 +348,7 @@ app.post('/atualizaServico', urlencodedParser, (req, res) => {
         }
         res.end();
     });
-    res.redirect("../frontend/home.html");
+    res.redirect("../frontend/homeAdmin.html");
     db.close(); // Fecha o banco
 });
 

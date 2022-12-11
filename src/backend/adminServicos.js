@@ -42,7 +42,7 @@ fetch('/cookies')
 
 // console.log(idObra)
 
-fetch('/servicosId?obra_id=' + obra_id)
+fetch('/servicosObraId?obra_id=' + obra_id)
     .then((response) => {
         return response.json();
     })
@@ -54,7 +54,7 @@ fetch('/servicosId?obra_id=' + obra_id)
                 <th scope="row">${servicos.servico_id}</th>
                 <td>${servicos.tipo}</td>
                 <td>${servicos.descricao}</td>
-                <td class="tdImgs"><img src="../imgs/editar.png" alt=""></td>
+                <td class="tdImgs"><a href = "editarServico.html?servico_id=${servicos.servico_id}"><img src="../imgs/editar.png" alt=""></td></a>
                 <td class="tdImgs"><img id = "imgCancelar" src="../imgs/cancelar (1).png" alt=""></td>
                 <td class="tdImgs"><img id = "imgConcluir" src="../imgs/verifica (1).png" alt=""></td>
             </tr>`
