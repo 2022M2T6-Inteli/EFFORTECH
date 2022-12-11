@@ -4,20 +4,20 @@ function redirecionaAdicionaObra() {
 
 let nObras = 4
 
-fetch('/cookies')
-    .then((response) => {
-        return response.json();
-    })
-    .then((data) => {
-        cookies = data;
-        console.log(cookies)
-        if (cookies === "deslogado"){
-            window.location.href = 'login.html';
-        }
-        let cookieSplit = cookies.split('=');
-        id = +cookieSplit[1]
-        console.log(id)
-    })
+// fetch('/cookiesAdmin')
+    // .then((response) => {
+    //     return response.json();
+    // })
+    // .then((data) => {
+    //     cookies = data;
+    //     console.log(cookies)
+    //     if (cookies === "deslogado"){
+    //         // window.location.href = 'login.html';
+    //     }
+    //     let cookieSplit = cookies.split('=');
+    //     id = +cookieSplit[1]
+    //     console.log(id)
+    // })
 
 fetch('/obras')
     .then((response) => {
@@ -31,8 +31,8 @@ fetch('/obras')
                 <th scope="row">${obras.obra_id}</th>
                 <td>${obras.nome}</td>
                 <td>${obras.endereco}</td>
-                <td class="tdImgs"><a href = "adminServicos.html?obra_id=${obras.obra_id}" id = "servicos"><img src="../imgs/servico.png" alt=""></a></td>
-                <td class="tdImgs"><img src="../imgs/editar.png" alt=""></td>
+                <td class="tdImgs"><a href = "adminServicos.html?obra_id=${obras.obra_id}" id = "servicos"><img id="imgServicos" src="../imgs/servico.png" alt=""></a></td>
+                <td class="tdImgs"><a href = "editarObra.html?obra_id=${obras.obra_id}"><img src="../imgs/editar.png" alt=""></td></a>
                 <td class="tdImgs"><img id = "imgConcluir" src="../imgs/verifica (1).png" alt=""></td>
             </tr>`
         })

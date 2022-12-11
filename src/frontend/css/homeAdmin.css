@@ -103,6 +103,10 @@ table img {
     width: 25% !important;
 }
 
+#imgServicos {
+    width: 15%;
+}
+
 #servicos:hover {
     background-color: #00000000;
 }

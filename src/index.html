@@ -55,6 +55,23 @@
             console.log(error);
         });
 
+    fetch('/admin')
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            let admin = data;
+            let saida3 = '';
+            admin.map(function (admin) {
+                saida3 += '<strong> ' + `${admin.email}` + '</strong> ' + `${admin.senha}` + '</strong> ' + '</strong> ';
+            });
+            document.getElementById('resultado_admin').innerHTML = saida3;
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    
+
 
 </script>
 
@@ -63,6 +80,8 @@
     <div id="resultado"></div>
     <h2>USUARIOS</h2>
     <div id="resultado_usuario"></div>
+    <h2>ADMIN</h2>
+    <div id="resultado_admin"></div>
 </body>
 
 </html>
