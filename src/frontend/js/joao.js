@@ -53,7 +53,6 @@ function mudarNav(){
 
     // executa esse codigo se estiver deslogado
     if (deslogado===1){
-        item5DropDown.classList.add('sumir');
         item1DropDown.innerText="Home";
         item1DropDown.href="home.html";
         item2DropDown.innerText="Obras";
@@ -62,6 +61,11 @@ function mudarNav(){
         item3DropDown.href="meuPerfil.html";
         item4DropDown.innerText="Como funciona";
         item4DropDown.href="comoFunciona.html";
+        item5DropDown.innerText="Deslogar-se";
+        item5DropDown.href="#";
+        item5DropDown.onclick=logout();
+        item5DropDown.dataset.bsToggle="modal";
+        item5DropDown.dataset.bsTarget="#modalLogout";
 
         menuNavbar.classList.toggle('logado');
         loginNavbar.classList.toggle('logado');
@@ -77,8 +81,8 @@ function mudarNav(){
         item3DropDown.href="comoFunciona.html";
         item4DropDown.innerText="Registrar-se";
         item4DropDown.href="cadastro.html";
-
-        item5DropDown.classList.remove('sumir');
+        item5DropDown.innerText="Login";
+        item5DropDown.href="login.html";
     }
 }
 
@@ -94,4 +98,8 @@ function abrirMenu(){
 //Te redireciona para a home
 function voltarHome(){
     window.location.href = "home.html";
+}
+
+function logout(){
+    document.getElementById("modalLogout").setAttribute('aria-hidden', 'true');
 }
