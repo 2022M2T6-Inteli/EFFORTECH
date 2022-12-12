@@ -62,7 +62,7 @@ function abrirMenu(){
 }
 
 function aparecer(){
-    wpp.classList.add('aparecer');
+    $("#wpp").slideDown("slow");
 }
 
 

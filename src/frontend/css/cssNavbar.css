@@ -173,3 +173,8 @@ display:none;
     margin-right: 30%;
    padding: 10px;
 }
+
+#botaoLogout{
+    background-color: #04844B;
+    border:  0px;
+}

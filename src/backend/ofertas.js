@@ -64,7 +64,7 @@ fetch(urlServicos)
         todosOsServicos.map(function(todosOsServicos){
             // Se o serviço tem o obra_id igual ao id da obra desejada, adiciona ele a saída
             if (todosOsServicos.obra_id === idObra){
-                saida += '<div class="col-12"><p class="tituloServico">' + `${todosOsServicos.tipo}` + ':</p><p class="descricaoServico">' + `${todosOsServicos.descricao}` + '</p><br><button class="btn" data-bs-toggle="modal" data-bs-target="#modal' + `${todosOsServicos.servico_id}` + '">CANDIDATAR-SE</button></div>'
+                saida += '<div class="col-12"><p class="tituloServico">' + `${todosOsServicos.tipo}` + ':</p><p class="descricaoServico">' + `${todosOsServicos.descricao}` + '</p><br><button class="botao" data-bs-toggle="modal" data-bs-target="#modal' + `${todosOsServicos.servico_id}` + '">CANDIDATAR-SE</button></div>'
                 //Adiciona o seu modal
                 if (idUsuario === "deslogado"){
                     saidaModal += '<div class="modal" id="modal' + `${todosOsServicos.servico_id}` + '" tab-index="-1" aria-labelledby="tituloModal' + `${todosOsServicos.servico_id}` + '" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="tituloModal' + `${todosOsServicos.servico_id}` + '">' + `${todosOsServicos.tipo}` + '</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><p class="textoVermelho">Faça login para poder se candidatar</p></div><div class="modal-footer"><button type="submit" form="insereCandidatura" class="btn btn-primary">Enviar</button></div></div></div></div>'

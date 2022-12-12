@@ -189,14 +189,11 @@ margin-bottom:5%;
 
 
 
+
+
 .wpp{
-    display:none;
 
-}
-
-.wpp.aparecer{
-    transition:5s;
-    display:block;
+display:none;
     margin-top: 5%;
 margin-left:5%;
 margin-bottom: 5%;
@@ -211,16 +208,17 @@ font-size: 150%;
 
 }
 
-.wpp.aparecer button{
+.wpp button{
     font-size: 120%;
     padding: 1%;
     border-radius: 5px;
     margin-top: 2%;
     background-color: lightgrey;
     transition:5s;
-    margin-left:25%;
+    margin-left:15%;
     animation:piscaPisca 5s infinite;
-    size:100%;
+    width:70%;
+    height:50%;
 
 }
 
