@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 const cookieParser = require("cookie-parser");
+const { query } = require('express');
 
 // const { createHash } = require('crypto');
 
@@ -209,6 +210,94 @@ app.get('/removeUsuario', urlencodedParser, (req, res) => {
     });
     db.close(); // Fecha o banco
 });
+
+
+
+app.get('/feedback', (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    var sql = 'SELECT * FROM usuarios';
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close(); // Fecha o banco
+});
+
+// Insere um registro (é o C do CRUD - Create)
+app.post('/insereFeedback', urlencodedParser, (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    sql = "INSERT INTO feedbacks (nota, comentario) VALUES ('" + req.body.nota + "', '" + req.body.comentario + "')";
+    console.log(sql);
+    db.run(sql, [], err => {
+        if (err) {
+            throw err;
+        }
+    });
+    res.redirect("../frontend/home.html");
+    db.close(); // Fecha o banco
+    res.end();
+});
+
+// Monta o formulário para o update (é o U do CRUD - Update)
+app.get('/atualizafeedback', (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+
+    sql = 'SELECT * FROM feedbacks WHERE usuario_id="' + req.query.feedback_id + '" AND servico_id"' + req.query.servico_id + '"';
+    console.log(sql);
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close(); // Fecha o banco
+});
+
+// Atualiza um registro (é o U do CRUD - Update)
+app.post('/atualizafeedback', urlencodedParser, (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    sql = "UPDATE feedbacks SET nota='" + req.body.nota + "', comentario='" + req.body.comentario + "'";
+    console.log(sql);
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    db.run(sql, [], err => {
+        if (err) {
+            throw err;
+        }
+        res.end();
+    });
+    // res.redirect("../frontend/home.html");
+    db.close(); // Fecha o banco
+});
+
+app.get('/removeFeedback', urlencodedParser, (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    sql = "DELETE FROM feedbacks WHERE usuario_id='" + req.query.feedback_id + "' AND servico_id'" + req.query.servico_id + "'"; 
+    console.log(sql);
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    db.run(sql, [], err => {
+        if (err) {
+            throw err;
+        }
+        res.write('<p>feedback REMOVIDO COM SUCESSO!</p><a href="/">VOLTAR</a>');
+        res.end();
+    });
+    db.close(); // Fecha o banco
+});
+
+
+
+
+
 
 ///// JOIN DAS TABELAS ///////
 app.get('/obraMaisUsuario', (req, res) => {
