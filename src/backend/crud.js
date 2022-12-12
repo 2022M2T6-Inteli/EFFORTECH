@@ -441,22 +441,6 @@ app.post('/atualizaServico', urlencodedParser, (req, res) => {
     db.close(); // Fecha o banco
 });
 
-// app.get('/atualizaStatusServico', (req, res) => {
-//     res.statusCode = 200;
-//     res.setHeader('Access-Control-Allow-Origin', '*');
-
-//     sql = 'SELECT * FROM servicos WHERE servico_id ="' + req.query.servico_id + '"';
-//     console.log(sql);
-//     var db = new sqlite3.Database(DBPATH); // Abre o banco
-//     db.all(sql, [], (err, rows) => {
-//         if (err) {
-//             throw err;
-//         }
-//         res.json(rows);
-//         res.redirect('/atualizaStatusServicoPost')
-//     });
-//     db.close(); // Fecha o banco
-// });
 
 app.get('/atualizaStatusServico', urlencodedParser, (req, res) => {
     res.statusCode = 200;
@@ -526,11 +510,20 @@ app.post('/insereCandidatura', urlencodedParser, (req, res) => {
 app.get('/login', urlencodedParser, (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
-    let id = req.query.usuario_id;
-    res.cookie("id", id, {
-        httpOnly: true
-    });
-    res.redirect("../frontend/meuPerfil.html");
+    if(req.query.usuario_id){
+        let id = req.query.usuario_id;
+        res.cookie("id", id, {
+            httpOnly: true
+        });
+        res.redirect("../frontend/meuPerfil.html");
+    }
+    else if (req.query.admin_id){
+        let admin = req.query.admin_id
+        res.cookie("admin_id", admin, {
+            httpOnly: true
+        });
+        res.redirect("../frontend/homeAdmin.html");
+    }
 });
 
 app.get('/logout', urlencodedParser, (req, res) => {
@@ -561,9 +554,9 @@ app.get('/cookiesAdmin', urlencodedParser, (req, res) => {
         if(req.headers.cookie.includes("admin_id")){
             res.json(req.headers.cookie);
         } else{
-            // res.json("deslogado");
+            res.json("deslogado");
         }
     } else{
-        // res.json("deslogado");
+        res.json("deslogado");
     }
 });

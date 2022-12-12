@@ -4,20 +4,20 @@ function redirecionaAdicionaObra() {
 
 let nObras = 4
 
-// fetch('/cookiesAdmin')
-    // .then((response) => {
-    //     return response.json();
-    // })
-    // .then((data) => {
-    //     cookies = data;
-    //     console.log(cookies)
-    //     if (cookies === "deslogado"){
-    //         // window.location.href = 'login.html';
-    //     }
-    //     let cookieSplit = cookies.split('=');
-    //     id = +cookieSplit[1]
-    //     console.log(id)
-    // })
+fetch('/cookiesAdmin')
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        cookies = data;
+        console.log(cookies)
+        if (cookies === "deslogado"){
+            // window.location.href = 'login.html';
+        }
+        let cookieSplit = cookies.split('=');
+        id = +cookieSplit[1]
+        console.log(id)
+    })
 
 fetch('/obras')
     .then((response) => {
