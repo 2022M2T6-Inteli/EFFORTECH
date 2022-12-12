@@ -441,7 +441,24 @@ app.post('/atualizaServico', urlencodedParser, (req, res) => {
     db.close(); // Fecha o banco
 });
 
-app.post('/atualizaStatusServico', urlencodedParser, (req, res) => {
+// app.get('/atualizaStatusServico', (req, res) => {
+//     res.statusCode = 200;
+//     res.setHeader('Access-Control-Allow-Origin', '*');
+
+//     sql = 'SELECT * FROM servicos WHERE servico_id ="' + req.query.servico_id + '"';
+//     console.log(sql);
+//     var db = new sqlite3.Database(DBPATH); // Abre o banco
+//     db.all(sql, [], (err, rows) => {
+//         if (err) {
+//             throw err;
+//         }
+//         res.json(rows);
+//         res.redirect('/atualizaStatusServicoPost')
+//     });
+//     db.close(); // Fecha o banco
+// });
+
+app.get('/atualizaStatusServico', urlencodedParser, (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
     sql = "UPDATE servicos SET status='" + req.query.status + "' WHERE servico_id='" + req.query.servico_id + "'";
