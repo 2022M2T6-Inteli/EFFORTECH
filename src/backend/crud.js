@@ -352,6 +352,38 @@ app.post('/atualizaServico', urlencodedParser, (req, res) => {
     db.close(); // Fecha o banco
 });
 
+app.post('/atualizaStatusServico', urlencodedParser, (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    sql = "UPDATE servicos SET status='" + req.query.status + "' WHERE servico_id='" + req.query.servico_id + "'";
+    console.log(sql);
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    db.run(sql, [], err => {
+        if (err) {
+            throw err;
+        }
+        res.end();
+    });
+    res.redirect("../frontend/homeAdmin.html");
+    db.close(); // Fecha o banco
+});
+
+app.post('/atualizaStatusObra', urlencodedParser, (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    sql = "UPDATE obras SET status='" + req.query.status + "' WHERE obra_id='" + req.query.obra_id + "'";
+    console.log(sql);
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    db.run(sql, [], err => {
+        if (err) {
+            throw err;
+        }
+        res.end();
+    });
+    res.redirect("../frontend/homeAdmin.html");
+    db.close(); // Fecha o banco
+});
+
 app.get('/removeServico', urlencodedParser, (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');

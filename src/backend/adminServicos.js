@@ -4,6 +4,7 @@ let parametroURL = new URLSearchParams(window.location.search)
 let obra_id = parametroURL.get('obra_id')
 
 
+
 function redirecionaAdicionaServico() {
     window.location.href = 'inserirServico.html?obra_id=' + obra_id
 }
@@ -55,8 +56,8 @@ fetch('/servicosObraId?obra_id=' + obra_id)
                 <td>${servicos.tipo}</td>
                 <td>${servicos.descricao}</td>
                 <td class="tdImgs"><a href = "editarServico.html?servico_id=${servicos.servico_id}"><img src="../imgs/editar.png" alt=""></td></a>
-                <td class="tdImgs"><img id = "imgCancelar" src="../imgs/cancelar (1).png" alt=""></td>
-                <td class="tdImgs"><img id = "imgConcluir" src="../imgs/verifica (1).png" alt=""></td>
+                <td class="tdImgs"><a href = "/atualizaStatusServico?status=Cancelado&servico_id=${servicos.servico_id}"><img id = "imgCancelar" src="../imgs/cancelar (1).png" alt=""></a></td>
+                <td class="tdImgs"><a href = "/atualizaStatusServico?status=Concluido&servico_id=${servicos.servico_id}"><img id = "imgConcluir" src="../imgs/verifica (1).png" alt=""></a></td>
             </tr>`
         })
     })
