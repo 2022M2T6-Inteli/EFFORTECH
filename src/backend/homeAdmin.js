@@ -33,10 +33,18 @@ fetch('/obras')
                 <td>${obras.endereco}</td>
                 <td class="tdImgs"><a href = "adminServicos.html?obra_id=${obras.obra_id}" id = "servicos"><img id="imgServicos" src="../imgs/servico.png" alt=""></a></td>
                 <td class="tdImgs"><a href = "editarObra.html?obra_id=${obras.obra_id}"><img src="../imgs/editar.png" alt=""></td></a>
-                <td class="tdImgs"><img id = "imgConcluir" src="../imgs/verifica (1).png" alt=""></td>
+                <td class="tdImgs"><a onclick = "concluiObra(${obras.obra_id})"><img id = "imgConcluir" src="../imgs/verifica (1).png" alt=""></a></td>
             </tr>`
         })
     })
+
+    function concluiObra(obra_id){
+
+        fetch(`/atualizaStatusObra?status=Concluido&obra_id=${obra_id}`)
+        
+
+
+    }
 
 
 
