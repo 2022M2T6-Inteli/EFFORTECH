@@ -67,7 +67,7 @@ function aparecer(){
 
 
 let ac ="11993416930"
-let al ="3299392807"
+let al ="32999392807"
 let ap ="Numero AC"
 let am ="Numero AC"
 let ba ="Numero AC"
@@ -90,7 +90,7 @@ let rs ="Numero AC"
 let ro ="Numero AC"
 let rr ="Numero AC"
 let sc ="Numero AC"
-let sp ="Marcelão"
+let sp ="11960616272"
 let se ="Numero AC"
 let to ="Numero AC"
 
