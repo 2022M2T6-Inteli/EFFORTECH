@@ -533,6 +533,13 @@ app.get('/login', urlencodedParser, (req, res) => {
     res.redirect("../frontend/meuPerfil.html");
 });
 
+app.get('/logout', urlencodedParser, (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.clearCookie("id");
+    res.redirect("../frontend/home.html");
+});
+
 app.get('/cookies', urlencodedParser, (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
