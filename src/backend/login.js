@@ -21,7 +21,7 @@ function validaLogin(){
             admin.map(function (admin) {
                 if(admin.email == email_usuario) {
                     if(admin.senha == senha_usuario) {
-                        window.location.href = 'homeAdmin.html?admin_id=' + `${admin.admin_id}`
+                        window.location.href = '/login?admin_id=' + `${admin.admin_id}`
                     }
                     else {
                         document.getElementById("erro").innerHTML = `<p class = "text-danger">Email ou senha incorretos.</p>`
