@@ -23,7 +23,7 @@ body{
     margin-left:7%;
 }
 /* Botao de candidatar-se*/
-.btn{
+.botao{
     font-family: 'Times New Roman', Times, serif;
     font-size: 100%;
     background-color: #079D56;
@@ -60,7 +60,7 @@ body{
     }
 }
 /* Ativar a animação do botao ao passar o mouse*/
-.btn:hover{
+.botao:hover{
   animation-name: anima;
   animation-duration: 0.8s;
   animation-timing-function: ease-in-out;
