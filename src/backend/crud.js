@@ -260,14 +260,14 @@ app.post('/insereFeedback', urlencodedParser, (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
     var db = new sqlite3.Database(DBPATH); // Abre o banco
-    sql = "INSERT INTO feedbacks (nota, comentario) VALUES ('" + req.body.nota + "', '" + req.body.comentario + "')";
+    sql = "INSERT INTO feedbacks (nota, comentario, usuario_id, servico_id) VALUES ('" + req.body.nota + "', '" + req.body.comentario + "', '" + req.body.usuario_id + "', '" + req.body.servico_id + "')";
     console.log(sql);
     db.run(sql, [], err => {
         if (err) {
             throw err;
         }
     });
-    res.redirect("../frontend/home.html");
+    res.redirect("/atualizaStatusServico?status=Concluido&servico_id='" + req.body.servico_id + "'");
     db.close(); // Fecha o banco
     res.end();
 });
