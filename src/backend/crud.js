@@ -94,7 +94,7 @@ app.post('/insereObra', urlencodedParser, (req, res) => {
             throw err;
         }
     });
-    res.write('<p>OBRA INSERIDA COM SUCESSO!</p><a href="/">VOLTAR</a>'); //hiperlink volta
+    res.redirect('/frontend/homeAdmin.html'); //hiperlink volta
     db.close(); // Fecha o banco
     res.end();
 });
@@ -293,7 +293,7 @@ app.get('/atualizafeedback', (req, res) => {
 app.post('/atualizafeedback', urlencodedParser, (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
-    sql = "UPDATE feedbacks SET nota='" + req.body.nota + "', comentario='" + req.body.comentario + "'";
+    sql = "UPDATE feedbacks SET nota='" + req.body.nota + "', comentario='" + req.body.comentario + " WHERE usuario_id='" + req.query.usuario_id + "'";
     console.log(sql);
     var db = new sqlite3.Database(DBPATH); // Abre o banco
     db.run(sql, [], err => {
