@@ -79,7 +79,7 @@ body{
 
 /* Estiliza o texto dentro do card de login */
 .cardLogin > h1 {
-    color: coral;
+    color: #ff7f50;
     font-weight: 800;
     margin: 0;
 }

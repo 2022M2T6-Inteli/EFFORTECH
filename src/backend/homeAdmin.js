@@ -1,8 +1,75 @@
+
+
 function redirecionaAdicionaObra() {
     window.location.href = 'inserir.html'
 }
 
-let nObras = 4
+let statusFiltro
+
+function getStatusObra() {
+    const select = document.getElementById('filtroStatus');
+    const statusObra = select.options[select.selectedIndex].text;
+    statusFiltro = statusObra
+    console.log(statusFiltro)
+    document.getElementById("tabela").innerHTML = ''
+
+    // window.location.href = '/frontend/homeAdmin.html'
+    fetch(`/obrasStatus?statusObra=${statusFiltro}`)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            obras = data;
+            obras.map(function (obras) {
+
+                if(statusFiltro == 'Em andamento'){
+                    document.getElementById("tabela").innerHTML +=
+                    `<tr>
+                    <th scope="row">${obras.obra_id}</th>
+                    <td>${obras.nome}</td>
+                    <td>${obras.endereco}</td>
+                    <td class="tdImgs"><a href = "adminServicos.html?obra_id=${obras.obra_id}" id = "servicos"><img id="imgServicos" src="../imgs/servico.png" alt=""></a></td>
+                    <td class="tdImgs"><a href = "editarObra.html?obra_id=${obras.obra_id}"><img src="../imgs/editar.png" alt=""></td></a>
+                    <td class="tdImgs"><a href = "/atualizaStatusObra?status=Cancelado&obra_id=${obras.obra_id}"><img id = "imgCancelar" src="../imgs/cancelar (1).png" alt=""></a></td>
+                    <td class="tdImgs"><a href = "/atualizaStatusObra?status=Concluido&obra_id=${obras.obra_id}"><img id = "imgConcluir" src="../imgs/verifica (1).png" alt=""></a></td>
+                    </tr>`
+                }
+                else if (statusFiltro == 'Cancelado') {
+                    document.getElementById("Cancelar").text = 'Reativar'
+                    document.getElementById("tabela").innerHTML +=
+                    `<tr>
+                    <th scope="row">${obras.obra_id}</th>
+                    <td>${obras.nome}</td>
+                    <td>${obras.endereco}</td>
+                    <td class="tdImgs"><a href = "adminServicos.html?obra_id=${obras.obra_id}" id = "servicos"><img id="imgServicos" src="../imgs/servico.png" alt=""></a></td>
+                    <td class="tdImgs"><a href = "editarObra.html?obra_id=${obras.obra_id}"><img src="../imgs/editar.png" alt=""></td></a>
+                    <td class="tdImgs"><a href = "/atualizaStatusObra?status=Em andamento&obra_id=${obras.obra_id}"><img id = "imgAtivar" src="../imgs/contrato.png" alt=""></a></td>
+                    <td class="tdImgs"><a href = "/atualizaStatusObra?status=Concluido&obra_id=${obras.obra_id}"><img id = "imgConcluir" src="../imgs/verifica (1).png" alt=""></a></td>
+                    </tr>`
+                }
+                else {
+                    document.getElementById("Concluir").value = 'Reativar'
+                    document.getElementById("tabela").innerHTML +=
+                    `<tr>
+                    <th scope="row">${obras.obra_id}</th>
+                    <td>${obras.nome}</td>
+                    <td>${obras.endereco}</td>
+                    <td class="tdImgs"><a href = "adminServicos.html?obra_id=${obras.obra_id}" id = "servicos"><img id="imgServicos" src="../imgs/servico.png" alt=""></a></td>
+                    <td class="tdImgs"><a href = "editarObra.html?obra_id=${obras.obra_id}"><img src="../imgs/editar.png" alt=""></td></a>
+                    <td class="tdImgs"><a href = "/atualizaStatusObra?status=Cancelado&obra_id=${obras.obra_id}"><img id = "imgCancelar" src="../imgs/cancelar (1).png" alt=""></a></td>
+                    <td class="tdImgs"><a href = "/atualizaStatusObra?status=Em andamento&obra_id=${obras.obra_id}"><img id = "imgAtivar" src="../imgs/contrato.png" alt=""></a></td>
+                    </tr>`
+
+                }
+            })
+            
+        
+            
+        })
+    
+}
+
+// let statusFiltro = trocaStatus()
 
 fetch('/cookiesAdmin')
     .then((response) => {
@@ -19,32 +86,9 @@ fetch('/cookiesAdmin')
         console.log(id)
     })
 
-fetch('/obras')
-    .then((response) => {
-        return response.json();
-    })
-    .then((data) => {
-        obras = data;
-        obras.map(function (obras) {
-            document.getElementById("tabela").innerHTML +=
-            `<tr>
-                <th scope="row">${obras.obra_id}</th>
-                <td>${obras.nome}</td>
-                <td>${obras.endereco}</td>
-                <td class="tdImgs"><a href = "adminServicos.html?obra_id=${obras.obra_id}" id = "servicos"><img id="imgServicos" src="../imgs/servico.png" alt=""></a></td>
-                <td class="tdImgs"><a href = "editarObra.html?obra_id=${obras.obra_id}"><img src="../imgs/editar.png" alt=""></td></a>
-                <td class="tdImgs"><a onclick = "concluiObra(${obras.obra_id})"><img id = "imgConcluir" src="../imgs/verifica (1).png" alt=""></a></td>
-            </tr>`
-        })
-    })
-
-    function concluiObra(obra_id){
-
-        fetch(`/atualizaStatusObra?status=Concluido&obra_id=${obra_id}`)
-        
+getStatusObra();
 
 
-    }
 
 
 

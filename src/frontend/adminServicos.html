@@ -13,7 +13,7 @@
     <title>Home - Admin</title>
 </head>
 
-<body>
+<body onload="getStatusServico()">
     
     <!-- A lógica do código é baseada em diversas div's sucessivas com container, row e col, a fim de organizar a disposição dos elementos na página -->
     
@@ -28,19 +28,17 @@
                     <img class="col-2" src="../imgs/lupa (1).png" alt="">
                 </div>
             </div>
-            <!-- <div class="offset-1 col-1" id="ordenar">
+            <div class="offset-1 col-2" id="filtro">
                 <div class="row align-items-center">
-                    <img class="offset-2 col-3" src="../imgs/ordenar.png" alt="">
-                    <p class="offset-1 col-6">Ordenar</p>
+                    <select class="col-7" name="filtroStatus" id="filtroStatus">
+                        <option value="Em andamento">Em andamento</option>
+                        <option value="Canceladas">Cancelado</option>
+                        <option value="Concluidas">Concluido</option>
+                    </select>
+                    <button class="offset-1 col-4" id="botaoFiltrar" onclick="getStatusServico()">Filtrar</button>
                 </div>
             </div>
-            <div class="offset-1 col-1" id="filtro">
-                <div class="row align-items-center">
-                    <img class="offset-2 col-3" src="../imgs/simbolo-de-ferramenta-preenchido-com-filtro.png" alt="">
-                    <p class="offset-1 col-6">Filtrar</p>
-                </div>
-            </div> -->
-            <div class="offset-5 col-2 align-items-center" id="adiciona_obra">
+            <div class="offset-2 col-2 align-items-center" id="adiciona_obra">
                 <button class="rounded-5" id="botao_adiciona_obra" onclick="redirecionaAdicionaServico()">
                     <div class="row align-items-center" id="botao_adiciona_margin">
                         <img class="col-3" src="../imgs/mais (1).png" alt="">
@@ -60,8 +58,8 @@
                     <th scope="col">Tipo</th>
                     <th scope="col">Empreiteiro</th>
                     <th scope="col">Editar</th>
-                    <th scope="col">Cancelar</th>
-                    <th scope="col">Concluir</th>
+                    <th scope="col" id="Cancelar">Cancelar</th>
+                    <th scope="col" id="Concluir">Concluir</th>
                     
                 </tr>
             </thead>

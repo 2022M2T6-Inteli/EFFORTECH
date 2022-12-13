@@ -39,6 +39,34 @@ app.get('/obras', (req, res) => {
     db.close(); // Fecha o banco
 });
 
+app.get('/obrasStatus', (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    var sql = "SELECT * FROM obras WHERE status='" + req.query.statusObra + "'";
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close(); // Fecha o banco
+});
+
+app.get('/servicosStatus', (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    var sql = "SELECT * FROM servicos WHERE status='" + req.query.statusServico + "' AND obra_id='" + req.query.obra_id + "'";
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close(); // Fecha o banco
+});
+
 app.get('/obraId', (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -458,7 +486,7 @@ app.get('/atualizaStatusServico', urlencodedParser, (req, res) => {
     db.close(); // Fecha o banco
 });
 
-app.post('/atualizaStatusObra', urlencodedParser, (req, res) => {
+app.get('/atualizaStatusObra', urlencodedParser, (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
     sql = "UPDATE obras SET status='" + req.query.status + "' WHERE obra_id='" + req.query.obra_id + "'";

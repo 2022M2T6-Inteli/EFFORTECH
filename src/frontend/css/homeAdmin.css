@@ -76,6 +76,14 @@ p {
     margin-top: 2%;
 }
 
+#botaoFiltrar {
+    border: none;
+    border-radius: 5%;
+    padding: 0%;
+    background-color: #FFB719;
+    color: rgb(0, 0, 0);
+}
+
 #botao_adiciona_obra {
     background-color: #00D38D;
     width: 100%;
