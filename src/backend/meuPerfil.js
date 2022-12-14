@@ -6,6 +6,8 @@ let url = window.location.href;
 let cookies;
 let id;
 let n_obras = 0;
+let notaMedia = 0;
+let notaFinal = 0;
 let urlFeedbacks;
 
 fetch('/cookies')
@@ -28,6 +30,12 @@ fetch('/cookies')
                 document.getElementById("catalogo_obras").innerHTML = ''
                 let feedbacks = data;
                 feedbacks.map(function(feedback){
+                    notaMedia += feedback.nota
+                    n_obras += 1
+                    notaFinal = defineNota(notaMedia, n_obras)
+                    console.log(notaMedia)
+                    console.log(n_obras)
+                    console.log(notaFinal)
                     fetch(`/servicosId?servico_id=${feedback.servico_id.toString()}`)
                         .then((response) => {
                             return response.json();
@@ -43,37 +51,50 @@ fetch('/cookies')
                                         let obra = data;
                                         obra.map(function(obra){
                                             adiciona_card(obra.nome, servico.tipo, feedback.nota);
-                                            adiciona_card(obra.nome, servico.tipo, feedback.nota);
-                                            adiciona_card(obra.nome, servico.tipo, feedback.nota);
-                                            adiciona_card(obra.nome, servico.tipo, feedback.nota);
-                                            adiciona_card(obra.nome, servico.tipo, feedback.nota);
+                                            // adiciona_card(obra.nome, servico.tipo, feedback.nota);
+                                            // adiciona_card(obra.nome, servico.tipo, feedback.nota);
+                                            // adiciona_card(obra.nome, servico.tipo, feedback.nota);
+                                            // adiciona_card(obra.nome, servico.tipo, feedback.nota);
                                         })
                                     })
+                                    fetch('/usuario')
+                                        .then((response) => {
+                                            return response.json();
+                                        })
+                                        .then((data) => {
+                                            perfis = data;
+                                            perfis.map(function (perfis) {
+                                                if(perfis.usuario_id == id) {
+                                                    perfil = perfis
+                                                }
+                                            })
+                                            
+                                            document.getElementById("nome_do_empreiteiro").innerHTML = `<h2>${perfil.nomeFantasia}</h2>`
+                                            document.getElementById("nome_da_empreiteira").innerHTML = `<p>${perfil.contato2}</p>`
+                                            document.getElementById("nota").innerHTML = `<p>Nota: ${notaFinal.toFixed(2)}</p>`
+                                            document.getElementById("CPF").innerHTML = `<p>CNPJ: ${perfil.cnpj}</p>`
+                                            document.getElementById("RG").innerHTML = `<p>Email: ${perfil.email}</p>`
+                                    
+                                        })
                             })
                         })
                 })
             })
     })
-//fetch responsável por fazer com que a página possa acessar todos os usuários do banco de dados e puxe as informações a serem exibidar no "cabeçalho"
-fetch('/usuario')
-    .then((response) => {
-        return response.json();
-    })
-    .then((data) => {
-        perfis = data;
-        perfis.map(function (perfis) {
-            if(perfis.usuario_id == id) {
-                perfil = perfis
-            }
-        })
-        
-        document.getElementById("nome_do_empreiteiro").innerHTML = `<h2>${perfil.nomeFantasia}</h2>`
-        document.getElementById("nome_da_empreiteira").innerHTML = `<p>${perfil.nomeFantasia}</p>`
-        document.getElementById("nota").innerHTML = `<p>${perfil.usuario_id}</p>`
-        document.getElementById("CPF").innerHTML = `<p>${perfil.cnpj}</p>`
-        document.getElementById("RG").innerHTML = `<p>${perfil.cnpj}</p>`
 
-    })
+function defineNota(notaMedia, n_obras){
+    let notaFinal
+    if(n_obras == 0){
+        notaFinal = 0
+    }
+    else {
+        notaFinal = notaMedia/n_obras;
+    }
+    console.log(notaFinal);
+    return notaFinal
+}
+
+//fetch responsável por fazer com que a página possa acessar todos os usuários do banco de dados e puxe as informações a serem exibidar no "cabeçalho"
 
 // função criada para testes
 function adiciona_card(obra, tipo, nota) {
@@ -85,7 +106,7 @@ function adiciona_card(obra, tipo, nota) {
     }
 
     else {
-        document.getElementById((n_obras-1)/2).innerHTML += '<div class="card_servicos offset-2 col-4"><div class="row"><img class="img_obra" src="../imgs/obra-mrv-campo-grande-ms-881485.jpg" alt=""></div><div class="container informacoes_card"><div class="row"><h3>' + `${obra}` + ' - ' + `${tipo}` + '</h3></div><div class="row informacoes_baixo"><div class="container"><div class="row"><div class="col-6 feedback"><a href=""><img class="icon_feedback" src="../imgs/feedback-do-cliente.png" alt="feedback"></a></div><!-- <div class="offset-1 col-1"><hr id="vertical"></div> --><div class="col-6 nota_servico"><p>Nota: ' + `${nota}` + ',00</p></div></div></div></div></div></div>';
+        document.getElementById((n_obras-1)/2).innerHTML += '<div class="card_servicos offset-2 col-4"><div class="row"><img class="img_obra" src="../imgs/obra-mrv-campo-grande-ms-881485.jpg" alt=""></div><div class="container informacoes_card"><div class="row"><h3>' + `${obra}` + ' - ' + `${tipo}` + '</h3></div><div class="row informacoes_baixo"><div class="container"><div class="row"><div class="col-6 feedback"><a href=""><img class="icon_feedback" src="../imgs/feedback-do-cliente.png" alt="feedback"></a></div><!-- <div class="offset-1 col-1"><hr id="vertical"></div> --><div class="col-6 nota_servico"><p>Nota: ' + `${nota}` + '.00</p></div></div></div></div></div></div>';
         n_obras = n_obras + 1;
 
     };
