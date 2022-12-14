@@ -11,14 +11,14 @@ const { query } = require('express');
 // }
 
 const sqlite3 = require('sqlite3').verbose();
-const DBPATH = '../data/Projeto.db'; // dois pontos barra sobe um nível + o nome da pasta entra nela
+const DBPATH = 'data/Projeto.db'; // dois pontos barra sobe um nível + o nome da pasta entra nela
 
 const hostname = '127.0.0.1';
 const port = 1234;
 const app = express();
 
 /* Colocar toda a parte estática no frontend */
-app.use(express.static(".."));
+app.use(express.static("./"));
 
 /* Definição dos endpoints das OBRAS*/
 /******** CRUD ************/
