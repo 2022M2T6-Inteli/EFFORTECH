@@ -245,7 +245,21 @@ app.get('/feedback', (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
     var db = new sqlite3.Database(DBPATH); // Abre o banco
-    var sql = 'SELECT * FROM usuarios';
+    var sql = 'SELECT * FROM feedbacks';
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close(); // Fecha o banco
+});
+
+app.get('/feedbackId', (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    var sql = `SELECT * FROM feedbacks WHERE usuario_id =${req.query.usuario_id}`;
     db.all(sql, [], (err, rows) => {
         if (err) {
             throw err;
