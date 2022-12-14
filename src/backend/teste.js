@@ -15,6 +15,7 @@ fetch('/cookies')
     })
     .then((data) => {
         cookies = data;
+        console.log(cookies)
         if (cookies === "deslogado"){
             window.location.href = 'login.html';
         }
