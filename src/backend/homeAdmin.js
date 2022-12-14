@@ -11,19 +11,52 @@ function getStatusObra() {
     const statusObra = select.options[select.selectedIndex].text;
     statusFiltro = statusObra
     console.log(statusFiltro)
-    document.getElementById("tabela").innerHTML = ''
-
+    // document.getElementById("tabela").innerHTML = ''
+    
+    
+    
     // window.location.href = '/frontend/homeAdmin.html'
     fetch(`/obrasStatus?statusObra=${statusFiltro}`)
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-            obras = data;
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        obras = data;
+        const elemento1 = document.getElementById("elemento1");
+        const elemento2 = document.getElementById("elemento2");
+        
+        if(statusFiltro == 'Em andamento') {
+            elemento1.textContent = "Cancelar"
+            elemento2.textContent = "Concluir"
+            // document.getElementById("tabelaHead").innerHTML += `<th scope="col" class="flexivel">Cancelar</th>
+            // <th scope="col" class="flexivel">Concluir</th>`
+            
+        }
+        else if (statusFiltro == 'Cancelado') {
+            elemento1.textContent = "Reativar"
+            elemento2.textContent = "Concluir"
+            // document.getElementById("tabelaHead").innerHTML += `<th scope="col" class="flexivel">Reativar</th>
+            // <th scope="col" class="flexivel">Concluir</th>`
+            
+        }
+        else {
+
+            elemento1.textContent = "Cancelar"
+            elemento2.textContent = "Reativar"
+            // document.getElementById("tabelaHead").innerHTML += `<th scope="col" class="flexivel">Cancelar</th>
+            // <th scope="col" class="flexivel">Reativar</th>`
+        }
+        
+        document.getElementById("tabelaBody").innerHTML = ""
+        
+        // document.getElementById("tabelaHead").innerHTML += `<th scope="col" class="flexivel">Reativar</th>
+        // <th scope="col" class="flexivel">Concluir</th>`
             obras.map(function (obras) {
 
+
                 if(statusFiltro == 'Em andamento'){
-                    document.getElementById("tabela").innerHTML +=
+
+                    document.getElementById("tabelaBody").innerHTML +=
                     `<tr>
                     <th scope="row">${obras.obra_id}</th>
                     <td>${obras.nome}</td>
@@ -35,8 +68,8 @@ function getStatusObra() {
                     </tr>`
                 }
                 else if (statusFiltro == 'Cancelado') {
-                    document.getElementById("Cancelar").text = 'Reativar'
-                    document.getElementById("tabela").innerHTML +=
+                    
+                    document.getElementById("tabelaBody").innerHTML +=
                     `<tr>
                     <th scope="row">${obras.obra_id}</th>
                     <td>${obras.nome}</td>
@@ -48,8 +81,9 @@ function getStatusObra() {
                     </tr>`
                 }
                 else {
-                    document.getElementById("Concluir").value = 'Reativar'
-                    document.getElementById("tabela").innerHTML +=
+
+                    
+                    document.getElementById("tabelaBody").innerHTML +=
                     `<tr>
                     <th scope="row">${obras.obra_id}</th>
                     <td>${obras.nome}</td>

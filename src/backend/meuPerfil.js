@@ -42,16 +42,16 @@ fetch('/usuario')
     })
 
 
-// fetch('/obras')
-//     .then((response) => {
-//         return response.json();
-//     })
-//     .then((data) => {
-//         obras = data;
-//         obras.map
-//     })
+fetch('/obras')
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        obras = data;
+        obras.map
+    })
 
-//função criada para testes
+// função criada para testes
 function adiciona_card() {
 
 
