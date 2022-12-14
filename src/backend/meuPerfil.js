@@ -28,14 +28,32 @@ fetch('/cookies')
                 document.getElementById("catalogo_obras").innerHTML = ''
                 let feedbacks = data;
                 feedbacks.map(function(feedback){
-                    adiciona_card(feedback.servico_id, feedback.nota);
-                    adiciona_card(feedback.servico_id, feedback.nota);
-                    adiciona_card(feedback.servico_id, feedback.nota);
-                    adiciona_card(feedback.servico_id, feedback.nota);
-                    adiciona_card(feedback.servico_id, feedback.nota);
+                    fetch(`/servicosId?servico_id=${feedback.servico_id.toString()}`)
+                        .then((response) => {
+                            return response.json();
+                        })
+                        .then((data) => {
+                            let servico = data;
+                            servico.map(function(servico){
+                                fetch(`/obraId?obra_id=${servico.obra_id.toString()}`)
+                                    .then((response) => {
+                                        return response.json();
+                                    })
+                                    .then((data) => {
+                                        let obra = data;
+                                        obra.map(function(obra){
+                                            adiciona_card(obra.nome, servico.tipo, feedback.nota);
+                                            adiciona_card(obra.nome, servico.tipo, feedback.nota);
+                                            adiciona_card(obra.nome, servico.tipo, feedback.nota);
+                                            adiciona_card(obra.nome, servico.tipo, feedback.nota);
+                                            adiciona_card(obra.nome, servico.tipo, feedback.nota);
+                                        })
+                                    })
+                            })
+                        })
                 })
             })
-        })
+    })
 //fetch responsável por fazer com que a página possa acessar todos os usuários do banco de dados e puxe as informações a serem exibidar no "cabeçalho"
 fetch('/usuario')
     .then((response) => {
@@ -58,16 +76,16 @@ fetch('/usuario')
     })
 
 // função criada para testes
-function adiciona_card(tipo, nota) {
+function adiciona_card(obra, tipo, nota) {
 
     
     if( n_obras % 2 == 0){
-        document.getElementById("catalogo_obras").innerHTML += '<div class="row linha_obras" id="' + n_obras/2 + '"><div class="card_servicos offset-1 col-4"><div class="row"><img class="img_obra" src="../imgs/obra-mrv-campo-grande-ms-881485.jpg" alt=""></div><div class="container informacoes_card"><div class="row"><h3>' + `${tipo}` + '</h3></div><div class="row informacoes_baixo"><div class="container"><div class="row"><div class="col-6 feedback"><a href=""><img class="icon_feedback" src="../imgs/feedback-do-cliente.png" alt="feedback"></a></div><!-- <div class="offset-1 col-1"><hr id="vertical"></div> --><div class="col-6 nota_servico"><p>Nota: ' + `${nota}` + ',00</p></div></div></div></div></div></div></div>';
+        document.getElementById("catalogo_obras").innerHTML += '<div class="row linha_obras" id="' + n_obras/2 + '"><div class="card_servicos offset-1 col-4"><div class="row"><img class="img_obra" src="../imgs/obra-mrv-campo-grande-ms-881485.jpg" alt=""></div><div class="container informacoes_card"><div class="row"><h3>' + `${obra}` + ' - ' + `${tipo}` + '</h3></div><div class="row informacoes_baixo"><div class="container"><div class="row"><div class="col-6 feedback"><a href=""><img class="icon_feedback" src="../imgs/feedback-do-cliente.png" alt="feedback"></a></div><!-- <div class="offset-1 col-1"><hr id="vertical"></div> --><div class="col-6 nota_servico"><p>Nota: ' + `${nota}` + ',00</p></div></div></div></div></div></div></div>';
         n_obras = n_obras + 1;
     }
 
     else {
-        document.getElementById((n_obras-1)/2).innerHTML += '<div class="card_servicos offset-2 col-4"><div class="row"><img class="img_obra" src="../imgs/obra-mrv-campo-grande-ms-881485.jpg" alt=""></div><div class="container informacoes_card"><div class="row"><h3>' + `${tipo}` + '</h3></div><div class="row informacoes_baixo"><div class="container"><div class="row"><div class="col-6 feedback"><a href=""><img class="icon_feedback" src="../imgs/feedback-do-cliente.png" alt="feedback"></a></div><!-- <div class="offset-1 col-1"><hr id="vertical"></div> --><div class="col-6 nota_servico"><p>Nota: ' + `${nota}` + ',00</p></div></div></div></div></div></div>';
+        document.getElementById((n_obras-1)/2).innerHTML += '<div class="card_servicos offset-2 col-4"><div class="row"><img class="img_obra" src="../imgs/obra-mrv-campo-grande-ms-881485.jpg" alt=""></div><div class="container informacoes_card"><div class="row"><h3>' + `${obra}` + ' - ' + `${tipo}` + '</h3></div><div class="row informacoes_baixo"><div class="container"><div class="row"><div class="col-6 feedback"><a href=""><img class="icon_feedback" src="../imgs/feedback-do-cliente.png" alt="feedback"></a></div><!-- <div class="offset-1 col-1"><hr id="vertical"></div> --><div class="col-6 nota_servico"><p>Nota: ' + `${nota}` + ',00</p></div></div></div></div></div></div>';
         n_obras = n_obras + 1;
 
     };
