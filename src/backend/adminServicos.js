@@ -41,7 +41,35 @@ function getStatusServico() {
         })
         .then((data) => {
             servicos = data;
-            let saidaModal = '';
+
+
+
+            const elemento1 = document.getElementById("elemento1");
+            const elemento2 = document.getElementById("elemento2");
+            
+            if(statusFiltro == 'Em andamento') {
+                elemento1.textContent = "Cancelar"
+                elemento2.textContent = "Concluir"
+                // document.getElementById("tabelaHead").innerHTML += `<th scope="col" class="flexivel">Cancelar</th>
+                // <th scope="col" class="flexivel">Concluir</th>`
+                
+            }
+            else if (statusFiltro == 'Cancelado') {
+                elemento1.textContent = "Reativar"
+                elemento2.textContent = "Concluir"
+                // document.getElementById("tabelaHead").innerHTML += `<th scope="col" class="flexivel">Reativar</th>
+                // <th scope="col" class="flexivel">Concluir</th>`
+                
+            }
+            else {
+
+                elemento1.textContent = "Cancelar"
+                elemento2.textContent = "Reativar"
+                // document.getElementById("tabelaHead").innerHTML += `<th scope="col" class="flexivel">Cancelar</th>
+                // <th scope="col" class="flexivel">Reativar</th>`
+            }
+
+
             servicos.map(function (servicos) {
                 if(statusFiltro == 'Em andamento'){
                     document.getElementById("tabelaServicos").innerHTML +=
