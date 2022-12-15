@@ -69,7 +69,7 @@ function mudarNav(){
 
 
     
-    console.log(deslogado)
+
 }
 
 const menu=document.getElementById("menuNavbarGrande");

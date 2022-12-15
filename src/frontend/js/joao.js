@@ -28,7 +28,7 @@ const item5DropDown=document.querySelector('.item5DropDown');
 // 1 = deslogado, 2=logado
 
 
-let deslogado = 1;
+
 
 fetch('/cookies')
         .then((response) => {
@@ -38,52 +38,69 @@ fetch('/cookies')
             let cookies = data;
             console.log(cookies)
             if (cookies === "deslogado"){
-                deslogado = 2;
+                deslogado = 3;
             }
             mudarNav();
         })
 
 
 
+
+
 function mudarNav(){
-//   ao clicar serão inseridos uma classe que mudarão o CSS dos elementos
-    //menuNavbar.classList.toggle('logado');
-    //loginNavbar.classList.toggle('logado');
-    //registrarNavbar.classList.toggle('logado');
+  
 
-    // executa esse codigo se estiver deslogado
-    if (deslogado===1){
+    //  Navbar quando a o usuario estiver deslogado
+    if (deslogado==1){
+
         item1DropDown.innerText="Home";
-        item1DropDown.href="home.html";
+        item1DropDown.href="home.html"
         item2DropDown.innerText="Obras";
-        item2DropDown.href="obras.html";
+        item2DropDown.href="obras.html"
         item3DropDown.innerText="Perfil";
-        item3DropDown.href="meuPerfil.html";
+        item3DropDown.href="meuPerfil.html"
         item4DropDown.innerText="Como funciona";
-        item4DropDown.href="comoFunciona.html";
-        item5DropDown.innerText="Deslogar-se";
-        item5DropDown.href="#";
-        item5DropDown.onclick=logout();
-        item5DropDown.dataset.bsToggle="modal";
-        item5DropDown.dataset.bsTarget="#modalLogout";
+        item4DropDown.href="comoFunciona.html"
+        item5DropDown.classList.add('sumir');
 
-        menuNavbar.classList.toggle('logado');
-        loginNavbar.classList.toggle('logado');
-        registrarNavbar.classList.toggle('logado');
+
+    // Navbar Quando o Empreiteiro Estiver Logado 
+    } else if(deslogado==2){
+        menuNavbar.classList.add('logado');
+        loginNavbar.classList.add('logado');
+        registrarNavbar.classList.add('logado');
         
-            // executa esse codigo se estiver logado
-    } else{
-        item1DropDown.innerText="Home";
-        item1DropDown.href="home.html";
-        item2DropDown.innerText="Obras";
-        item2DropDown.href="obras.html";
-        item3DropDown.innerText="Como funciona";
-        item3DropDown.href="comoFunciona.html";
-        item4DropDown.innerText="Registrar-se";
-        item4DropDown.href="cadastro.html";
-        item5DropDown.innerText="Login";
-        item5DropDown.href="login.html";
+        item1DropDown.innerText="Obras";
+        item1DropDown.href="obras.html"
+        item2DropDown.innerText="Home";
+        item4DropDown.href="home.html"
+        item2DropDown.innerText="Como funciona";
+        item4DropDown.href="comoFunciona.html"
+        item4DropDown.innerText="Contato Wpp";
+        item4DropDown.href="wpp.html"
+        item5DropDown.innerText="Sair";
+        item4DropDown.href="home.html"
+        item5DropDown.classList.remove('sumir');
+      
+    
+        // Navbar Admin
+    } else if(deslogado==3){
+        menuNavbar.classList.add('logado');
+        loginNavbar.classList.add('logado');
+        registrarNavbar.classList.add('logado');
+
+        item1DropDown.innerText="Item1Admin";
+        item2DropDown.innerText="Item2Admin";
+        item3DropDown.innerText="Item3Admin";
+        item4DropDown.innerText="Item4Admin";
+        item5DropDown.innerText="Sair";
+        item5DropDown.classList.remove('sumir');
     }
+
+
+
+    
+
 }
 
 const menu=document.getElementById("menuNavbarGrande");
