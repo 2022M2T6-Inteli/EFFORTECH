@@ -1,5 +1,6 @@
 body {
     background-color: white;
+    overflow-x: hidden;
 }
 
 #retangulo_maior {
@@ -105,7 +106,8 @@ p.col-8 {
 }
 
 table {
-    margin-left: 3%;
+    /* margin-left: 3%; */
+    padding-left: 5px;
 }
 
 thead {
