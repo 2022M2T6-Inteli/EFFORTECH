@@ -19,7 +19,7 @@ let current = 1;
 slidePage.style.marginLeft = "0%";
 
 // Define as alterações que ocorrem quando o botão da primeira página é clicado
-nextBtnFirst.addEventListener("click", function(){
+nextBtnFirst.addEventListener("click", function () {
   slidePage.style.marginLeft = "-25%";
   bullet[current - 1].classList.add("active");
   progressCheck[current - 1].classList.add("active");
@@ -27,7 +27,7 @@ nextBtnFirst.addEventListener("click", function(){
   current += 1;
 });
 // Define as alterações que ocorrem quando o botão da segunda página é clicado
-nextBtnSec.addEventListener("click", function(){
+nextBtnSec.addEventListener("click", function () {
   slidePage.style.marginLeft = "-50%";
   bullet[current - 1].classList.add("active");
   progressCheck[current - 1].classList.add("active");
@@ -35,7 +35,7 @@ nextBtnSec.addEventListener("click", function(){
   current += 1;
 });
 // Define as alterações que ocorrem quando o botão da 3a página é clicado
-nextBtnThird.addEventListener("click", function(){
+nextBtnThird.addEventListener("click", function () {
   slidePage.style.marginLeft = "-75%";
   bullet[current - 1].classList.add("active");
   progressCheck[current - 1].classList.add("active");
@@ -43,20 +43,20 @@ nextBtnThird.addEventListener("click", function(){
   current += 1;
 });
 // Define as alterações que ocorrem quando o botão de enviar é clicado
-submitBtn.addEventListener("click", function(){
+submitBtn.addEventListener("click", function () {
   bullet[current - 1].classList.add("active");
   progressCheck[current - 1].classList.add("active");
   progressText[current - 1].classList.add("active");
   current += 1;
-  setTimeout(function(){
+  setTimeout(function () {
     alert("Your Form Successfully Signed up");
     location.reload();
-  },800);
+  }, 800);
   window.location.href = "/insereUsuario"
 });
 
 // Define as alterações que ocorrem quando o botão de voltar da 2a página é clicado
-prevBtnSec.addEventListener("click", function(){
+prevBtnSec.addEventListener("click", function () {
   slidePage.style.marginLeft = "0%";
   bullet[current - 2].classList.remove("active");
   progressCheck[current - 2].classList.remove("active");
@@ -64,7 +64,7 @@ prevBtnSec.addEventListener("click", function(){
   current -= 1;
 });
 // Define as alterações que ocorrem quando o botão de voltar da 3a página é clicado
-prevBtnThird.addEventListener("click", function(){
+prevBtnThird.addEventListener("click", function () {
   slidePage.style.marginLeft = "-25%";
   bullet[current - 2].classList.remove("active");
   progressCheck[current - 2].classList.remove("active");
@@ -72,7 +72,7 @@ prevBtnThird.addEventListener("click", function(){
   current -= 1;
 });
 // Define as alterações que ocorrem quando o botão de voltar da 4a página é clicado
-prevBtnFourth.addEventListener("click", function(){
+prevBtnFourth.addEventListener("click", function () {
   slidePage.style.marginLeft = "-50%";
   bullet[current - 2].classList.remove("active");
   progressCheck[current - 2].classList.remove("active");
