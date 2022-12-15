@@ -102,8 +102,8 @@ function getStatusServico() {
                     <td>${servicos.tipo}</td>
                     <td>${servicos.descricao}</td>
                     <td class="tdImgs"><a href = "editarservico.html?servico_id=${servicos.servico_id}"><img src="../imgs/editar.png" alt=""></td></a>
-                    <td class="tdImgs"><a href = "/atualizaStatusservico?status=Cancelado&servico_id=${servicos.servico_id}"><img id = "imgCancelar" src="../imgs/cancelar (1).png" alt=""></a></td>
-                    <td class="tdImgs"><a href = "/atualizaStatusservico?status=Em andamento&servico_id=${servicos.servico_id}"><img id = "imgAtivar" src="../imgs/contrato.png" alt=""></a></td>
+                    <td class="tdImgs"><a href = "/atualizaStatusServico?status=Cancelado&servico_id=${servicos.servico_id}"><img id = "imgCancelar" src="../imgs/cancelar (1).png" alt=""></a></td>
+                    <td class="tdImgs"><a href = "/atualizaStatusServico?status=Em andamento&servico_id=${servicos.servico_id}"><img id = "imgAtivar" src="../imgs/contrato.png" alt=""></a></td>
                     </tr>`
 
                 }
