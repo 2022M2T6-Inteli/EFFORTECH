@@ -46,6 +46,7 @@
 
     <div class="container">
       <header>Cadastro</header>
+      <button class="btnCancelar">Pagina Inicial</button>
       <!-- Aqui está a barra de progresso -->
       <div class="progress-bar">
         <!-- Aqui está a primeira etapa, empreiteira -->
@@ -96,12 +97,12 @@
               <input id="cnpj" type="text" name="cnpj">
             </div>
             <div class="field">
-              <button type="button" class="firstNext next">Próximo</button>
+              <button type="button" onclick="yuriCria()" class="firstNext next">Próximo</button>
             </div>
           </div>
 
           <!-- Página de contato -->
-          <div class="page">
+          <div id="page1" class="page">
             <div class="title">Informações de contato</div>
             <div class="field">
               <div class="label">Seu Nome Completo</div>
@@ -112,7 +113,7 @@
               <input id="telEmpresa" type="text" name="contato">
             </div>
             <div class="field btns">
-              <button class="prev-1 prev">Anterior</button>
+              
               <button type="button" class="next-1 next">Próximo</button>
             </div>
           </div>
@@ -149,7 +150,7 @@
               <input type="password" name="senha">
             </div>
             <div class="field btns">
-              <button class="prev-3 prev">Anterior</button>
+              
               <button type="submit" class="submit">Enviar</button>
             </div>
           </div>
@@ -203,7 +204,7 @@
       })
     </script>
 
-    <script src="js/joao.js"></script>
+    <!-- <script src="js/joao.js"></script> -->
     <script src="js/scriptCadastro.js"></script>
     
   </body> 
