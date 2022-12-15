@@ -2,6 +2,7 @@
 //todo esse arquivo tem uma lógica responsável por fazer com que a tela de cadastro seja animada com javascript
 
 // Inicializa variávies
+
 const slidePage = document.querySelector(".slide-page");
 const nextBtnFirst = document.querySelector(".firstNext");
 
@@ -68,3 +69,11 @@ prevBtnThird.addEventListener("click", function () {
 prevBtnFourth.addEventListener("click", function () {
   console.log("deu");
 });
+
+
+function sairDoCadastro(){
+  var res=confirm("Você esta saindo do cadastro","Deseja Mesmo Sair? Voce voltara para a pagina inicial!");
+  if (res){
+    window.location.href="./home.html"
+  }
+}

@@ -99,12 +99,22 @@ form .page .field select{
   font-size: 17px;
   font-weight: 500;
 }
-.btnCancelar{
-  background-color: lightcoral;
-  color:rgb(24, 23, 23);
-  padding:3%;
-  border-radius: 6px;
-  
+.btnSair{
+  align-items: center;
+  background-color:none;
+  appearance: none;
+  outline:none;
+  border:none;
+  background: none;
+  margin-left: 90%;
+  margin-bottom: 10%;
+  border:solid rgb(46, 44, 44);
+  border-radius: 100%;
+  border-width: 1px;
+}
+.btnSair span{
+color:red;
+size:120%;
 }
 /* Estiliza os botões */
 form .page .field button{
