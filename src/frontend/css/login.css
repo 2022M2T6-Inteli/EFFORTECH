@@ -73,7 +73,8 @@ body{
     align-items: center;
     flex-direction: column;
     padding: 30px 35px;
-    background-color: seagreen;
+    /* background: linear-gradient(180deg, seagreen 100%, white 0%); */
+    background-image: linear-gradient( rgba(0, 107, 63, 0.9), rgb(41, 161, 105));
     border-radius: 20px;
     box-shadow: aliceblue
 } 
@@ -115,6 +116,13 @@ body{
     margin-bottom: 10px;
 }
 /* Estiliza o botão de login */
+
+.text-danger {
+    background-color: aliceblue; 
+    padding: 15px;
+    border-radius: 5px;
+}
+
 .botaoLogin{
     width: 60%;
     padding: 16px 0px;

@@ -24,7 +24,7 @@ function validaLogin(){
                         window.location.href = '/login?admin_id=' + `${admin.admin_id}`
                     }
                     else{
-                        document.getElementById("erro").innerHTML = `<p class = "text-danger">Email ou senha incorretos.</p>`
+                        document.getElementById("erro").innerHTML = `<p class = "text-danger"><strong>Email ou senha incorretos.</strong></p>`
                     }
                 }
                 else{
