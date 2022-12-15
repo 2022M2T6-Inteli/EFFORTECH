@@ -4,6 +4,8 @@ const mobileMenu=document.querySelector('.mobileMenu');
 const wpp=document.querySelector('.wpp');
 const filtro=document.querySelector("#filtro");
 
+
+// Aciona o menu dropdown quando a NavBar estiver em celular
 btnDropDown.addEventListener('click',()=>{
     dropDownIcon.innerText=dropDownIcon.innerText=== 'menu'
     ? 'close'
@@ -73,48 +75,51 @@ function mudarNav(){
 const menu=document.getElementById("menuNavbarGrande");
 
 
-
+// Abrir menu DropDown quando tiver Navbar
 function abrirMenu(){
     mobileMenu.classList.toggle('is-open');
 
 }
 
+// Abrir a Div que vai redirecionar para o Wpp
 function aparecer(){
     $("#wpp").slideDown("slow");
 }
 
-
+// Aqui vão ser os numeros de Wpp dos responsaveis de cada regiao!
+// Use as duas primeiras variaveis de exemplo
 let ac ="11993416930"
 let al ="32999392807"
-let ap ="Numero AC"
-let am ="Numero AC"
-let ba ="Numero AC"
-let ce ="Numero AC"
-let df ="Numero AC"
-let es ="Numero AC"
-let go ="Numero AC"
-let ma ="Numero AC"
-let mt ="Numero AC"
-let ms ="Numero AC"
-let mg ="Numero AC"
-let pa ="Numero AC"
-let pb ="Numero AC"
-let pr ="Numero AC"
-let pe ="Numero AC"
-let pi ="Numero AC"
-let rj ="Numero AC"
-let rn ="Numero AC"
-let rs ="Numero AC"
-let ro ="Numero AC"
-let rr ="Numero AC"
-let sc ="Numero AC"
-let sp ="11960616272"
-let se ="Numero AC"
-let to ="Numero AC"
+let ap ="Numero ap"
+let am ="Numero am"
+let ba ="Numero ba"
+let ce ="Numero ce"
+let df ="Numero df"
+let es ="Numero es"
+let go ="Numero go"
+let ma ="Numero ma"
+let mt ="Numero mt"
+let ms ="Numero ms"
+let mg ="Numero mg"
+let pa ="Numero pa"
+let pb ="Numero pb"
+let pr ="Numero pr"
+let pe ="Numero pe"
+let pi ="Numero pi"
+let rj ="Numero rj"
+let rn ="Numero rn"
+let rs ="Numero rs"
+let ro ="Numero ro"
+let rr ="Numero rr"
+let sc ="Numero rs"
+let sp ="Numero sp"
+let se ="Numero se"
+let to ="11994759615"
 
-
+// esse eh o caminho que vai direcionar para a pagina Wpp
 const caminho="https://wa.me/"
  
+// Função para abrir o Wpp
 function abrirwpp(){
     let estado=filtro.options[filtro.selectedIndex].value;
     console.log
@@ -134,70 +139,158 @@ function abrirwpp(){
         aba.focus();
     }   
     if (estado=="AP"){
-        console.log("este vai ser o wpp de " + ap);
+        url=(caminho+ap)
+
+        const aba=window.open(url,'_blank');
+
+        aba.focus();
     }   
     if (estado=="AM"){
-        console.log("este vai ser o wpp de " + am);
+        url=(caminho+am)
+
+        const aba=window.open(url,'_blank');
+
+        aba.focus();
     }   
     if (estado=="BA"){
-        console.log("este vai ser o wpp de " + ba);
+        url=(caminho+ba)
+
+        const aba=window.open(url,'_blank');
+
+        aba.focus();
     }   
     if (estado=="DF"){
-        console.log("este vai ser o wpp de " + df);
+        url=(caminho+df)
+
+        const aba=window.open(url,'_blank');
+
+        aba.focus();
     }   
     if (estado=="ES"){
-        console.log("este vai ser o wpp de " + es);
+        url=(caminho+es)
+
+        const aba=window.open(url,'_blank');
+
+        aba.focus();
     }   
     if (estado=="GO"){
-        console.log("este vai ser o wpp de " + go);
+        url=(caminho+go)
+
+        const aba=window.open(url,'_blank');
+
+        aba.focus();
     }   
     if (estado=="MA"){
-        console.log("este vai ser o wpp de " + ma);
+        url=(caminho+ma)
+
+        const aba=window.open(url,'_blank');
+
+        aba.focus();
     }   
     if (estado=="MT"){
-        console.log("este vai ser o wpp de " + mt);
+        url=(caminho+mt)
+
+        const aba=window.open(url,'_blank');
+
+        aba.focus();
     }   
     if (estado=="MG"){
-        console.log("este vai ser o wpp de " + mg);
+        url=(caminho+mg)
+
+        const aba=window.open(url,'_blank');
+
+        aba.focus();
     }  
     if (estado=="PA"){
-        console.log("este vai ser o wpp de " + pa);
+        url=(caminho+pa)
+
+        const aba=window.open(url,'_blank');
+
+        aba.focus();
     }   
     if (estado=="PB"){
-        console.log("este vai ser o wpp de " + pb);
+        url=(caminho+pb)
+
+        const aba=window.open(url,'_blank');
+
+        aba.focus();
     }   
     if (estado=="PR"){
-        console.log("este vai ser o wpp de " + pr);
+        url=(caminho+pr)
+
+        const aba=window.open(url,'_blank');
+
+        aba.focus();
     }   
     if (estado=="PE"){
-        console.log("este vai ser o wpp de " + pe);
+        url=(caminho+pe)
+
+        const aba=window.open(url,'_blank');
+
+        aba.focus();
     }  
     if (estado=="RJ"){
-        console.log("este vai ser o wpp de " + rj);
+        url=(caminho+rj)
+
+        const aba=window.open(url,'_blank');
+
+        aba.focus();
     }   
     if (estado=="RN"){
-        console.log("este vai ser o wpp de " + rn);
+        url=(caminho+rn)
+
+        const aba=window.open(url,'_blank');
+
+        aba.focus();
     }   
     if (estado=="RS"){
-        console.log("este vai ser o wpp de " + rs);
+        url=(caminho+rs)
+
+        const aba=window.open(url,'_blank');
+
+        aba.focus();
     }   
     if (estado=="RO"){
-        console.log("este vai ser o wpp de " + ro);
+        url=(caminho+ro)
+
+        const aba=window.open(url,'_blank');
+
+        aba.focus();
     }  
     if (estado=="RR"){
-        console.log("este vai ser o wpp de " + rr);
+        url=(caminho+rr)
+
+        const aba=window.open(url,'_blank');
+
+        aba.focus();
     }   
     if (estado=="SC"){
-        console.log("este vai ser o wpp de " + sc);
+        url=(caminho+sc)
+
+        const aba=window.open(url,'_blank');
+
+        aba.focus();
     }   
     if (estado=="SP"){
-        console.log("este vai ser o wpp de " + sp);
+        url=(caminho+sp)
+
+        const aba=window.open(url,'_blank');
+
+        aba.focus();
     }   
     if (estado=="SE"){
-        console.log("este vai ser o wpp de " + se);
+        url=(caminho+se)
+
+        const aba=window.open(url,'_blank');
+
+        aba.focus();
     }   
     if (estado=="TO"){
-        console.log("este vai ser o wpp de " + to);
+        url=(caminho+to)
+
+        const aba=window.open(url,'_blank');
+
+        aba.focus();
     }   
 
 }

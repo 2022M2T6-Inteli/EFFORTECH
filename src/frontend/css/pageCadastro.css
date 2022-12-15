@@ -54,6 +54,7 @@ body{
 /* Define a transição de etapa para a outra */
 .form-outer form .page{
   width: 25%;
+
   transition: margin-left 0.3s ease-in-out;
 }
 
@@ -83,11 +84,12 @@ form .page .field .label{
 /* Estiliza os inputs */
 form .page .field input{
   height: 100%;
-  width: 100%;
+  width: 60%;
   border: 1px solid lightgrey;
   border-radius: 5px;
   padding-left: 15px;
   font-size: 18px;
+  
 }
 
 /* Estiliza os selects */
@@ -97,10 +99,26 @@ form .page .field select{
   font-size: 17px;
   font-weight: 500;
 }
-
+.btnSair{
+  align-items: center;
+  background-color:none;
+  appearance: none;
+  outline:none;
+  border:none;
+  background: none;
+  margin-left: 90%;
+  margin-bottom: 10%;
+  border:solid rgb(46, 44, 44);
+  border-radius: 100%;
+  border-width: 1px;
+}
+.btnSair span{
+color:red;
+size:120%;
+}
 /* Estiliza os botões */
 form .page .field button{
-  width: 100%;
+  width: 60%;
   height: calc(100% + 5px);
   border: none;
   background: #00cc00;
@@ -209,4 +227,9 @@ form .page .btns button.next{
 .progress-bar .step .check.active{
   display: block;
   color: #fff;
+}
+
+.page.slide-page.sumido{
+
+  margin-left: 50%;
 }

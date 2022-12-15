@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/pageCadastro.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     <script src=""></script>
   </head>
   <body>
@@ -45,7 +46,11 @@
 
 
     <div class="container">
+      <button class="btnSair" onclick="sairDoCadastro()"> 
+        <span class="material-icons">close</span>
+    </button>
       <header>Cadastro</header>
+
       <!-- Aqui está a barra de progresso -->
       <div class="progress-bar">
         <!-- Aqui está a primeira etapa, empreiteira -->
@@ -96,12 +101,12 @@
               <input id="cnpj" type="text" name="cnpj">
             </div>
             <div class="field">
-              <button type="button" class="firstNext next">Próximo</button>
+              <button type="button" onclick="yuriCria()" class="firstNext next">Próximo</button>
             </div>
           </div>
 
           <!-- Página de contato -->
-          <div class="page">
+          <div id="page1" class="page">
             <div class="title">Informações de contato</div>
             <div class="field">
               <div class="label">Seu Nome Completo</div>
@@ -112,7 +117,7 @@
               <input id="telEmpresa" type="text" name="contato">
             </div>
             <div class="field btns">
-              <button class="prev-1 prev">Anterior</button>
+              
               <button type="button" class="next-1 next">Próximo</button>
             </div>
           </div>
@@ -149,7 +154,7 @@
               <input type="password" name="senha">
             </div>
             <div class="field btns">
-              <button class="prev-3 prev">Anterior</button>
+              
               <button type="submit" class="submit">Enviar</button>
             </div>
           </div>
@@ -203,7 +208,7 @@
       })
     </script>
 
-    <script src="js/joao.js"></script>
+    <!-- <script src="js/joao.js"></script> -->
     <script src="js/scriptCadastro.js"></script>
     
   </body> 

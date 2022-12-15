@@ -100,6 +100,7 @@ function voltarHome(){
     window.location.href = "home.html";
 }
 
+
 function logout(){
     document.getElementById("modalLogout").setAttribute('aria-hidden', 'true');
 }
