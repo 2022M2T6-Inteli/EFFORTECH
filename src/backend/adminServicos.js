@@ -42,6 +42,9 @@ function getStatusServico() {
         .then((data) => {
             servicos = data;
 
+            const lista = document.getElementById("servicosComStatus");
+            let saidaOpcoes ='';
+
             const elemento1 = document.getElementById("elemento1");
             const elemento2 = document.getElementById("elemento2");
 
@@ -70,6 +73,9 @@ function getStatusServico() {
             document.getElementById("tabelaServicos").innerHTML = ''
 
             servicos.map(function (servicos) {
+
+                saidaOpcoes += '<option value="'+ `${servicos.tipo}` + '"></option>'
+                
                 if (statusFiltro == 'Em andamento') {
                     document.getElementById("tabelaServicos").innerHTML +=
                         `<tr>
@@ -112,7 +118,7 @@ function getStatusServico() {
                 }
             })
 
-
+            lista.innerHTML = saidaOpcoes;
 
         })
 
@@ -155,3 +161,63 @@ fetch('/cookies')
 // }
 
 // console.log(idObra)
+
+function filtroPorPesquisa(){
+    const inputPesquisa = document.getElementById("inputPesquisa").value;
+    fetch(`/servicos`)
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        servicos = data;
+        servicos.map(function(servicos){
+            if (servicos.obra_id === +obra_id){
+                
+                if (servicos.tipo === inputPesquisa){
+                    if(statusFiltro == 'Em andamento'){
+                        if (statusFiltro == 'Em andamento') {
+                            document.getElementById("tabelaServicos").innerHTML =
+                                `<tr>
+                            <th scope="row">${servicos.servico_id}</th>
+                            <td>${servicos.tipo}</td>
+                            <td>${servicos.descricao}</td>
+                            <td><a href = "kanban.html?servico_id=${servicos.servico_id}" id = "servicoKanban">Kanban</a></td>
+                            <td class="tdImgs"><a href = "editarservico.html?servico_id=${servicos.servico_id}"><img src="../imgs/editar.png" alt=""></td></a>
+                            <td class="tdImgs"><a href = "/atualizaStatusServico?status=Cancelado&servico_id=${servicos.servico_id}"><img id = "imgCancelar" src="../imgs/cancelar (1).png" alt=""></a></td>
+                            <td class="tdImgs"><a href="#" data-bs-toggle="modal" data-bs-target="#modal${servicos.servico_id}"><img id = "imgConcluir" src="../imgs/verifica (1).png" alt=""></a></td>
+                            </tr>`
+        
+                            saidaModal += '<div class="modal" id="modal' + `${servicos.servico_id}` + '" tab-index="-1" aria-labelledby="tituloModal' + `${servicos.servico_id}` + '" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="tituloModal' + `${servicos.servico_id}` + '">' + `${servicos.tipo}` + '</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><form id="insereFeedback" method="post" action="/insereFeedback">Nota:<input class="m-2" type="number" name="nota"><textarea name="comentario" rows="8" cols="48" placeholder="Digite seu comentário aqui"></textarea><input type="hidden" name="servico_id" value="' + `${servicos.servico_id}` + '">ID:<input type="number" class="m-2" name="usuario_id"></form></div><div class="modal-footer"><button type="submit" form="insereFeedback" class="btn btn-primary">Enviar</button></div></div></div></div>'
+                            document.getElementById("entradaModal").innerHTML = saidaModal
+                        }
+                        else if (statusFiltro == 'Cancelado') {
+                            document.getElementById("tabelaServicos").innerHTML =
+                                `<tr>
+                            <th scope="row">${servicos.servico_id}</th>
+                            <td>${servicos.tipo}</td>
+                            <td>${servicos.descricao}</td>
+                            <td><a href = "kanban.html?servico_id=${servicos.servico_id}" id = "servicoKanban">Kanban</a></td>
+                            <td class="tdImgs"><a href = "editarservico.html?servico_id=${servicos.servico_id}"><img src="../imgs/editar.png" alt=""></td></a>
+                            <td class="tdImgs"><a href = "/atualizaStatusServico?status=Em andamento&servico_id=${servicos.servico_id}"><img id = "imgAtivar" src="../imgs/contrato.png" alt=""></a></td>
+                            <td class="tdImgs"><a href = "/atualizaStatusServico?status=Concluido&servico_id=${servicos.servico_id}"><img id = "imgConcluir" src="../imgs/verifica (1).png" alt=""></a></td>
+                            </tr>`
+                        }
+                        else {
+                            document.getElementById("tabelaServicos").innerHTML =
+                                `<tr>
+                            <th scope="row">${servicos.servico_id}</th>
+                            <td>${servicos.tipo}</td>
+                            <td>${servicos.descricao}</td>
+                            <td><a href = "kanban.html?servico_id=${servicos.servico_id}" id = "servicoKanban">Kanban</a></td>
+                            <td class="tdImgs"><a href = "editarservico.html?servico_id=${servicos.servico_id}"><img src="../imgs/editar.png" alt=""></td></a>
+                            <td class="tdImgs"><a href = "/atualizaStatusServico?status=Cancelado&servico_id=${servicos.servico_id}"><img id = "imgCancelar" src="../imgs/cancelar (1).png" alt=""></a></td>
+                            <td class="tdImgs"><a href = "/atualizaStatusServico?status=Em andamento&servico_id=${servicos.servico_id}"><img id = "imgAtivar" src="../imgs/contrato.png" alt=""></a></td>
+                            </tr>`
+        
+                        }
+                    }
+                }
+            }
+        })
+    })
+}
