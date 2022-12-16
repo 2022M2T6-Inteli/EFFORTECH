@@ -94,14 +94,14 @@
             <div class="title">Informação básica:</div>
             <div class="field">
               <div class="label">Nome Fantasia</div>
-              <input type="text" name="nome">
+              <input id="nome1Etapa" type="text" name="nome">
             </div>
             <div class="field">
               <div   class="label">CNPJ</div>
               <input id="cnpj" type="text" name="cnpj">
             </div>
             <div class="field">
-              <button type="button" onclick="yuriCria()" class="firstNext next">Próximo</button>
+              <button type="button" onclick="verificar1Etapa()" class="firstNext next">Próximo</button>
             </div>
           </div>
 
@@ -110,7 +110,7 @@
             <div class="title">Informações de contato</div>
             <div class="field">
               <div class="label">Seu Nome Completo</div>
-              <input type="text" name="nome_empreiteiro">
+              <input id="nomeCompleto" type="text" name="nome_empreiteiro">
             </div>
             <div class="field">
               <div  class="label">Número de telefone</div>
@@ -118,7 +118,7 @@
             </div>
             <div class="field btns">
               
-              <button type="button" class="next-1 next">Próximo</button>
+              <button type="button" onclick="verificar2Etapa()" class="next-1 next">Próximo</button>
             </div>
           </div>
           
@@ -147,15 +147,15 @@
             <div class="title">Detalhes de login:</div>
             <div class="field">
               <div class="label">Email</div>
-              <input type="text" name="email">
+              <input id="email" type="text" name="email">
             </div>
             <div class="field">
               <div class="label">Senha</div>
-              <input type="password" name="senha">
+              <input id="senha" type="password" name="senha">
             </div>
             <div class="field btns">
               
-              <button type="submit" class="submit">Enviar</button>
+              <button type="button" onclick="verificar3Etapa() "class="submit">Enviar</button>
             </div>
           </div>
         </form>
