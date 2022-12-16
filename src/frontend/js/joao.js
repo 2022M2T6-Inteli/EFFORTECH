@@ -23,6 +23,8 @@ const item2DropDown=document.querySelector('.item2DropDown');
 const item3DropDown=document.querySelector('.item3DropDown');
 const item4DropDown=document.querySelector('.item4DropDown');
 const item5DropDown=document.querySelector('.item5DropDown');
+const item6DropDown=document.querySelector('.item6DropDown');
+const item7DropDown=document.querySelector('.item7DropDown');
 
 
 // variavel para ver se o cliente esta logado ou deslogado
@@ -79,15 +81,20 @@ function mudarNav(){
         loginNavbar.classList.remove('logado');
         registrarNavbar.classList.remove('logado');
 
-        item1DropDown.innerText="Home";
-        item1DropDown.href="home.html"
-        item2DropDown.innerText="Obras";
-        item2DropDown.href="obras.html"
-        item3DropDown.innerText="Perfil";
-        item3DropDown.href="meuPerfil.html"
+        item1DropDown.innerText="Login";
+        item1DropDown.href="login.html"
+        item2DropDown.innerText="Cadastrar-se";
+        item2DropDown.href="cadastro.html"
+        item3DropDown.innerText="Home";
+        item3DropDown.href="home.html"
+        item4DropDown.innerText="Obras";
+        item4DropDown.href="obras.html"
+        item5DropDown.classList.remove('sumir');
         item4DropDown.innerText="Como funciona";
         item4DropDown.href="comoFunciona.html"
-        item5DropDown.classList.add('sumir');
+        item6DropDown.classList.remove('sumir');
+        item6DropDown.innerText="Entre em contato conosco";
+        item6DropDown.href="wpp.html"
 
 
     // Navbar Quando o Empreiteiro Estiver Logado 
@@ -96,16 +103,16 @@ function mudarNav(){
         loginNavbar.classList.add('logado');
         registrarNavbar.classList.add('logado');
         
-        item1DropDown.innerText="Obras";
+        item1DropDown.innerText="home";
         item1DropDown.href="obras.html"
-        item2DropDown.innerText="Home";
+        item2DropDown.innerText="obras";
         item4DropDown.href="home.html"
-        item2DropDown.innerText="Como funciona";
-        item4DropDown.href="comoFunciona.html"
-        item4DropDown.innerText="Contato Wpp";
+        item2DropDown.innerText="Meu Perfil";
+        item4DropDown.href="meuPerfil.html"
+        item4DropDown.innerText="Entre em contato conosco";
         item4DropDown.href="wpp.html"
         item5DropDown.innerText="Sair";
-        item4DropDown.href="home.html"
+        item5DropDown.href="home.html"
         item5DropDown.classList.remove('sumir');
       
     
