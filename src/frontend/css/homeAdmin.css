@@ -81,6 +81,7 @@ select {
 }
 
 #botaoFiltrar {
+    transition: 3s;
     border: none;
     border-radius: 5%;
     margin-left: 5px;
@@ -88,6 +89,7 @@ select {
     color: rgb(0, 0, 0);
     font-size: 15px;
     padding: 10px;
+
 }
 
 #botao_adiciona_obra {
