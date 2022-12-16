@@ -14,7 +14,7 @@ body{
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  overflow: hidden;
+
   background-image: linear-gradient(to bottom, rgba(0, 107, 63, 0.9), rgba(7, 157, 86, 1));;
 }
 
