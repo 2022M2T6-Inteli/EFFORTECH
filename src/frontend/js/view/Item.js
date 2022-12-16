@@ -2,35 +2,6 @@ import DropZone from "./DropZone.js";
 import KanbanAPI from "../api/KanbanAPI.js";
 import { response } from "express";
 
-let parametroURL = new URLSearchParams(window.location.search)
-let servico_id = parametroURL.get('servico_id')
-
-console.log(servico_id);
-
-fetch('/candidaturasServicoId?servico_id=' + servico_id)
-    .then((response) => {
-        return response.json();
-    })
-    .then((data) => {
-        candidaturas = data;
-        candidaturas.map(function (candidaturas) {
-            fetch('/usuarioId?usuario_id=' + candidaturas.usuario_id)
-                .then((response) => {
-                    return response.json();
-                })
-                .then((data) => {
-                    usuario = data;
-                    usuario.map(function (usuario) {
-                        KanbanAPI.insertItem(0, usuario.nomeFantasia, candidaturas.proposta, usuario.contato1)
-                        
-                    })
-                })
-            })
-    })
-    KanbanAPI.getItems(id).forEach(item => {
-        this.renderItem(item);
-    });   
-
 export default class Item {
     constructor(id, nome, proposta, num) {
         const bottomDropZone = DropZone.createDropZone();

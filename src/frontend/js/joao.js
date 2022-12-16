@@ -1,9 +1,9 @@
-
+window.onload=mudarNav();
 // variaveis para definir os objetos que serão usados no codigo
 const btnDropDown = document.querySelector('.btnDropDown');
 const dropDownIcon = btnDropDown.querySelector('span');
 const mobileMenu = document.querySelector('.mobileMenu');
-let deslogado = 1;
+
 
 // função para abrir o menu dropdown ao clicar no logo no menu responsivo do celular
 btnDropDown.addEventListener('click',()=>{
@@ -24,56 +24,98 @@ const item3DropDown=document.querySelector('.item3DropDown');
 const item4DropDown=document.querySelector('.item4DropDown');
 const item5DropDown=document.querySelector('.item5DropDown');
 const item6DropDown=document.querySelector('.item6DropDown');
-const item7DropDown=document.querySelector('.item7DropDown');
+
 
 
 // variavel para ver se o cliente esta logado ou deslogado
 // 1 = deslogado, 2=logado
 
-fetch('/cookies')
-    .then((response) => {
-        return response.json();
-    })
-    .then((data) => {
-        let cookies = String(data);
-        console.log(cookies)
-        if (cookies.includes("deslogado")){
-            deslogado = 1;
-        }
-        else if (cookies.includes("empreiteiro")) {
-            deslogado = 2;
+// fetch('/cookies')
+//     .then((response) => {
+//         return response.json();
+//     })
+//     .then((data) => {
+//         let cookies = String(data);
+//         console.log(cookies)
+//         if (cookies.includes("deslogado")){
+//             deslogado = 1;
+//         }
+//         else if (cookies.includes("empreiteiro")) {
+//             deslogado = 2;
 
-        }            
-        mudarNav();
-    })
+//         }            
+//         mudarNav();
+//     })
 
 
-fetch('/cookiesAdmin')
-    .then((response) => {
-        return response.json();
-    })
-    .then((data) => {
-        let cookiesAdmin = String(data);
-        console.log(cookiesAdmin)
-        if (cookiesAdmin.includes("deslogado")){
-            deslogado = 1;
-        }
-        else {
-            deslogado = 3;
-            console.log(deslogado);
-        }
-        mudarNav()
-    })
-    console.log(deslogado);
+
+
+
+// fetch('/cookiesAdmin')
+//     .then((response) => {
+//         return response.json();
+//     })
+//     .then((data) => {
+//         let cookiesAdmin = String(data);
+//         console.log(cookiesAdmin)
+//         if (cookiesAdmin.includes("deslogado")){
+//             deslogado = 1;
+//         }
+//         else {
+//             deslogado = 3;
+//             console.log(deslogado);
+//         }
+//         mudarNav()
+//     })
+  
     
 
 
 
 
 
-function mudarNav(){
-    console.log(deslogado)
+async function mudarNav(){
 
+    let deslogado=0;
+    let admin=1;
+    let empreiteiro=1;
+
+    fetch('/cookiesAdmin')
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        let cookiesAdmin = String(data);
+        console.log(cookiesAdmin);
+        if (cookiesAdmin.includes("deslogado")){
+            deslogado = 0;
+        }
+        else {
+            admin=3;
+
+        }
+        
+    })
+    fetch('/cookies')
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        let cookies = String(data);
+        console.log(cookies);
+        if (cookies.includes("deslogado")){
+            deslogado = 0;
+        }
+        else if (cookies.includes("empreiteiro")) {
+            empreiteiro = 2;
+
+        }
+
+    console.log(admin + " " + empreiteiro);
+
+    })
+
+    await sleep(1);
     //  Navbar quando a o usuario estiver deslogado
     if (deslogado==1){
 
@@ -95,10 +137,10 @@ function mudarNav(){
         item6DropDown.classList.remove('sumir');
         item6DropDown.innerText="Entre em contato conosco";
         item6DropDown.href="wpp.html"
-
+        console.log(deslogado + " " +"Deslogado" + " " + admin + " " +empreiteiro);
 
     // Navbar Quando o Empreiteiro Estiver Logado 
-    } else if(deslogado==2){
+    } else if(empreiteiro==2){
         menuNavbar.classList.add('logado');
         loginNavbar.classList.add('logado');
         registrarNavbar.classList.add('logado');
@@ -120,14 +162,14 @@ function mudarNav(){
         item5DropDown.href="home.html"
 
         item6DropDown.classList.add('sumir');
+        
 
-
-
+        console.log(deslogado + " " +"Deslogado" + " " + admin + " " +empreiteiro);
   
       
     
         // Navbar Admin
-    } else if(deslogado==3){
+    } else if(admin==3){
         menuNavbar.classList.add('logado');
         loginNavbar.classList.add('logado');
         registrarNavbar.classList.add('logado');
@@ -138,11 +180,13 @@ function mudarNav(){
         item4DropDown.innerText="Item4Admin";
         item5DropDown.innerText="Sair";
         item5DropDown.classList.remove('sumir');
+
+        console.log(deslogado + " " +"Deslogado" + " " + admin + " " +empreiteiro);
     }
 
 
-
-    
+    console.log("fim");
+ 
 
 }
 
@@ -168,4 +212,8 @@ function logout(){
 
 function removeCookie() {
     location.href = '../logout?cookie='
+}
+
+async function sleep(seconds){
+    return new Promise((resolve)=>setTimeout(resolve,seconds*100));
 }
