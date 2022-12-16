@@ -1,8 +1,38 @@
 import DropZone from "./DropZone.js";
 import KanbanAPI from "../api/KanbanAPI.js";
+import { response } from "express";
+
+let parametroURL = new URLSearchParams(window.location.search)
+let servico_id = parametroURL.get('servico_id')
+
+console.log(servico_id);
+
+fetch('/candidaturasServicoId?servico_id=' + servico_id)
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        candidaturas = data;
+        candidaturas.map(function (candidaturas) {
+            fetch('/usuarioId?usuario_id=' + candidaturas.usuario_id)
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data) => {
+                    usuario = data;
+                    usuario.map(function (usuario) {
+                        KanbanAPI.insertItem(0, usuario.nomeFantasia, candidaturas.proposta, usuario.contato1)
+                        
+                    })
+                })
+            })
+    })
+    KanbanAPI.getItems(id).forEach(item => {
+        this.renderItem(item);
+    });   
 
 export default class Item {
-    constructor(id, content) {
+    constructor(id, nome, proposta, num) {
         const bottomDropZone = DropZone.createDropZone();
 
         this.elements = {};
@@ -10,6 +40,9 @@ export default class Item {
         this.elements.input = this.elements.root.querySelector(".kanban__item-input");
 
         this.elements.root.dataset.id = id;
+        this.elements.root.dataset.nome = nome;
+        this.elements.root.dataset.proposta = proposta;
+        this.elements.root.dataset.num = num;
         this.elements.input.textContent = content;
         this.content = content;
         this.elements.root.appendChild(bottomDropZone);
@@ -31,6 +64,10 @@ export default class Item {
         this.elements.input.addEventListener("blur", onBlur);
         this.elements.root.addEventListener("dblclick", () => {
             const check = confirm("Are you sure you want to delete this item?");
+
+
+            //logica de cria é aqui de puxar nome e proposta para o servico
+
 
             if (check) {
                 KanbanAPI.deleteItem(id);
@@ -60,4 +97,6 @@ export default class Item {
 			</div>
 		`).children[0];
     }
+
 }
+
