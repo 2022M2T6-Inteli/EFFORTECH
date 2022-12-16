@@ -168,3 +168,18 @@ body{
 
 }
 
+@media (max-width:940px){
+
+    .cardLogin{
+        width:80%;
+    }
+    }
+
+
+    @media (max-width:700px){
+
+        .cardLogin{
+            width:110%;
+            margin-right: 20px;
+        }
+        }
