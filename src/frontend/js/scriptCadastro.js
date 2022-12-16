@@ -2,15 +2,9 @@
 //todo esse arquivo tem uma lógica responsável por fazer com que a tela de cadastro seja animada com javascript
 
 // Inicializa variávies
-
 const slidePage = document.querySelector(".slide-page");
 const nextBtnFirst = document.querySelector(".firstNext");
-
 const nextBtnSec = document.querySelector(".next-1");
-
-
-
-
 const progressText = [...document.querySelectorAll(".step p")];
 const progressCheck = [...document.querySelectorAll(".step .check")];
 const bullet = [...document.querySelectorAll(".step .bullet")];
@@ -28,6 +22,7 @@ function irPara2Pagina(){
   current += 1;
   
 };
+
 // Define as alterações que ocorrem quando o botão da segunda página é clicado
 function irPara3Pagina(){
   slidePage.style.marginLeft = "-50%";
@@ -36,7 +31,9 @@ function irPara3Pagina(){
   progressText[current - 1].classList.add("active");
   current += 1;
 };
-// Define as alterações que ocorrem quando o botão da 3a página é clicado
+
+
+// Envia o formulario
 
 function concluir(){
   bullet[current - 1].classList.add("active");
@@ -52,7 +49,7 @@ function concluir(){
 
 
 
-
+// Sai do cadastro
 function sairDoCadastro(){
   var res=confirm("Deseja mesmo sair? Você voltará para a página inicial! ");
   if (res){
@@ -60,6 +57,7 @@ function sairDoCadastro(){
   }
 }
 
+// verifica se os valores da primeira pagina inseridos estao certos
 function verificar1Etapa(){
   let nome=document.getElementById("nome1Etapa").value;
   let cnpj=document.getElementById("cnpj").value;
@@ -90,6 +88,8 @@ function verificar1Etapa(){
   
 }
 
+
+// verifica se os valores da segunda pagina inseridos estao certos
 function verificar2Etapa(){
 
   let nomeCompleto=document.getElementById("nomeCompleto").value;
@@ -123,6 +123,8 @@ function verificar2Etapa(){
 
 }
 
+
+// verifica se os valores da terceira pagina inseridos estao certos
 function verificar3Etapa(){
 
   let email=document.getElementById("email").value;
