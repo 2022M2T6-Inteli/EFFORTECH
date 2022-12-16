@@ -75,12 +75,11 @@ const item6DropDown=document.querySelector('.item6DropDown');
 
 
 async function mudarNav(){
-    // Declara as variaveis para saber se a navbar vai se deslogada ou não
+
     let deslogado=0;
     let admin=1;
     let empreiteiro=1;
 
-    // Verifica se tem algum cookie de Administrador
     fetch('/cookiesAdmin')
     .then((response) => {
         return response.json();
@@ -97,7 +96,6 @@ async function mudarNav(){
         }
         
     })
-    // Verifica se tem algum cookie de empreiteiro
     fetch('/cookies')
     .then((response) => {
         return response.json();
@@ -113,12 +111,11 @@ async function mudarNav(){
 
         }
 
-
+    console.log(admin + " " + empreiteiro);
 
     })
 
     await sleep(1);
-
     //  Navbar quando a o usuario estiver deslogado
     if (deslogado==1){
 
@@ -140,8 +137,7 @@ async function mudarNav(){
         item6DropDown.classList.remove('sumir');
         item6DropDown.innerText="Entre em contato conosco";
         item6DropDown.href="wpp.html"
-
-
+        console.log(deslogado + " " +"Deslogado" + " " + admin + " " +empreiteiro);
 
     // Navbar Quando o Empreiteiro Estiver Logado 
     } else if(empreiteiro==2){
@@ -163,12 +159,12 @@ async function mudarNav(){
 
         item5DropDown.classList.remove('sumir');
         item5DropDown.innerText="Sair";
-        item5DropDown.href="home.html"
+        item5DropDown.href="/logout"
 
         item6DropDown.classList.add('sumir');
         
 
-
+        console.log(deslogado + " " +"Deslogado" + " " + admin + " " +empreiteiro);
   
       
     
@@ -178,21 +174,20 @@ async function mudarNav(){
         loginNavbar.classList.add('logado');
         registrarNavbar.classList.add('logado');
 
-        item1DropDown.innerText="Home";
-        item1DropDown.innerText="Home";
-
-
+        item1DropDown.innerText="Item1Admin";
         item2DropDown.innerText="Item2Admin";
         item3DropDown.innerText="Item3Admin";
         item4DropDown.innerText="Item4Admin";
         item5DropDown.innerText="Sair";
+        item5DropDown.href="/logout"
+
         item5DropDown.classList.remove('sumir');
 
-
+        console.log(deslogado + " " +"Deslogado" + " " + admin + " " +empreiteiro);
     }
 
 
-
+    console.log("fim");
  
 
 }

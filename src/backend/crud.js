@@ -585,16 +585,10 @@ app.get('/login', urlencodedParser, (req, res) => {
 app.get('/logout', urlencodedParser, (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.clearCookie(`${req.query.cookie}`);
+    res.clearCookie(req.headers.cookie);
     res.redirect("../frontend/home.html");
 });
 
-app.get('/logoutAdmin', urlencodedParser, (req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.clearCookie();
-    res.redirect("../frontend/home.html");
-});
 
 app.get('/cookies', urlencodedParser, (req, res) => {
     res.statusCode = 200;
