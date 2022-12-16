@@ -172,6 +172,20 @@ app.get('/usuario', (req, res) => {
     db.close(); // Fecha o banco
 });
 
+app.get('/usuarioId', (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    var sql = 'SELECT * FROM usuarios WHERE usuario_id=' + req.query.usuario_id;
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close(); // Fecha o banco
+});
+
 // Insere um registro (é o C do CRUD - Create)
 app.post('/insereUsuario', urlencodedParser, (req, res) => {
     res.statusCode = 200;
@@ -608,4 +622,18 @@ app.get('/cookiesAdmin', urlencodedParser, (req, res) => {
     } else{
         res.json("deslogado");
     }
+});
+
+app.get('/candidaturasServicoId', (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    var sql = 'SELECT * FROM candidaturas WHERE servico_id=' + req.query.servico_id;
+    db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        res.json(rows);
+    });
+    db.close(); // Fecha o banco
 });
