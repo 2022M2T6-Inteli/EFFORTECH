@@ -3,6 +3,7 @@
 const btnDropDown = document.querySelector('.btnDropDown');
 const dropDownIcon = btnDropDown.querySelector('span');
 const mobileMenu = document.querySelector('.mobileMenu');
+let deslogado = 1;
 
 // função para abrir o menu dropdown ao clicar no logo no menu responsivo do celular
 btnDropDown.addEventListener('click',()=>{
@@ -27,31 +28,56 @@ const item5DropDown=document.querySelector('.item5DropDown');
 // variavel para ver se o cliente esta logado ou deslogado
 // 1 = deslogado, 2=logado
 
-
-
-
 fetch('/cookies')
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-            let cookies = data;
-            console.log(cookies)
-            if (cookies === "deslogado"){
-                deslogado = 3;
-            }
-            mudarNav();
-        })
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        let cookies = String(data);
+        console.log(cookies)
+        if (cookies.includes("deslogado")){
+            deslogado = 1;
+        }
+        else if (cookies.includes("empreiteiro")) {
+            deslogado = 2;
+
+        }            
+        mudarNav();
+    })
+
+
+fetch('/cookiesAdmin')
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        let cookiesAdmin = String(data);
+        console.log(cookiesAdmin)
+        if (cookiesAdmin.includes("deslogado")){
+            deslogado = 1;
+        }
+        else {
+            deslogado = 3;
+            console.log(deslogado);
+        }
+        mudarNav()
+    })
+    console.log(deslogado);
+    
 
 
 
 
 
 function mudarNav(){
-  
+    console.log(deslogado)
 
     //  Navbar quando a o usuario estiver deslogado
     if (deslogado==1){
+
+        menuNavbar.classList.remove('logado');
+        loginNavbar.classList.remove('logado');
+        registrarNavbar.classList.remove('logado');
 
         item1DropDown.innerText="Home";
         item1DropDown.href="home.html"
@@ -120,4 +146,9 @@ function voltarHome(){
 
 function logout(){
     document.getElementById("modalLogout").setAttribute('aria-hidden', 'true');
+    document.getElementById("modalLogout").setAttribute('aria-hidden', 'true');
+}
+
+function removeCookie() {
+    location.href = '../logout?cookie='
 }
