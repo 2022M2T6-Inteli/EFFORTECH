@@ -90,8 +90,8 @@ function mudarNav(){
         item4DropDown.innerText="Obras";
         item4DropDown.href="obras.html"
         item5DropDown.classList.remove('sumir');
-        item4DropDown.innerText="Como funciona";
-        item4DropDown.href="comoFunciona.html"
+        item5DropDown.innerText="Como funciona";
+        item5DropDown.href="comoFunciona.html"
         item6DropDown.classList.remove('sumir');
         item6DropDown.innerText="Entre em contato conosco";
         item6DropDown.href="wpp.html"
@@ -103,17 +103,27 @@ function mudarNav(){
         loginNavbar.classList.add('logado');
         registrarNavbar.classList.add('logado');
         
-        item1DropDown.innerText="home";
-        item1DropDown.href="obras.html"
-        item2DropDown.innerText="obras";
-        item4DropDown.href="home.html"
-        item2DropDown.innerText="Meu Perfil";
-        item4DropDown.href="meuPerfil.html"
-        item4DropDown.innerText="Entre em contato conosco";
-        item4DropDown.href="wpp.html"
+        item1DropDown.innerText="Home";
+        item1DropDown.href="home.html"
+
+        item2DropDown.innerText="Obras";
+        item2DropDown.href="obras.html"
+
+        item3DropDown.innerText="Meu Perfil";
+        item3DropDown.href="meuPerfil.html"
+
+        item4DropDown.innerText="Como funciona";
+        item4DropDown.href="comoFunciona.html"
+
+        item5DropDown.classList.remove('sumir');
         item5DropDown.innerText="Sair";
         item5DropDown.href="home.html"
-        item5DropDown.classList.remove('sumir');
+
+        item6DropDown.classList.add('sumir');
+
+
+
+  
       
     
         // Navbar Admin
