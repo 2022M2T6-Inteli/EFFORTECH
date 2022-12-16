@@ -75,9 +75,10 @@
 
         <div class="row justify-content-center align-items-center" id="primeira_linha">
             <div class="col-3 rounded-4" id="barra_de_pesquisa">
-                <input type="text" class="rounded-4" placeholder="Buscar" id="inputPesquisa">
+                <input type="text" class="rounded-4" placeholder="Buscar" id="inputPesquisa" list="obrasComStatus">
+                <datalist id="obrasComStatus"></datalist>
                 <!-- <img class="col-2" src="../imgs/lupa (1).png" alt=""> -->
-                <ion-icon name="search-outline"></ion-icon>
+                <ion-icon name="search-outline" onclick="filtroPesquisa()"></ion-icon>
             </div>
             <!-- <div class="offset-1 col-1" id="ordenar">
                 <div class="row align-items-center">
