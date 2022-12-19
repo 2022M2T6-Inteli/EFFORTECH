@@ -10,7 +10,7 @@
 
 ## Integrantes: 
 - <a href="https://www.linkedin.com/in/giuliano-bontempo-domiciano-5b5766212/">Giuliano Bontempo Domiciano</a>
-- <a href="https://www.linkedin.com/in/jos%C3%A9-vitor-alencar-161243211/">José Vitor Alencar Nunes</a>
+- <a href="https://www.linkedin.com/in/jos%C3%A9-vitor-alencar-161243211/">José Vitor Alencar Silva</a>
 - <p>João Montanha</p> 
 - <a href="https://www.linkedin.com/in/luis-miranda-137566139/">Luis Miranda</a>
 - <p>Victor Corazza</p> 
