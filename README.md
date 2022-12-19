@@ -43,10 +43,16 @@ npm start
 
 ## 🗃 Histórico de lançamentos
 
-* 0.1.1 - 18/11/2022
+* 0.0.4 - 02/12/2022
+    * Entrega final  - Artefato 5
+    * Alterações de refinação
+* 0.0.4 - 02/12/2022
+    * Entrega em andamento  - Artefato 4
+    * Entrega da integração do frontend com backend
+* 0.0.3 - 18/11/2022
     * Trabalho em andamento - Artefato 3
     * Entrega do Frontend
-* 0.1.0 - 03/11/2022
+* 0.0.2 - 03/11/2022
     * Trabalho em andamento - Artefato 2
     * Entrega do backend
 * 0.0.1 - 20/10/2022
