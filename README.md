@@ -12,7 +12,7 @@
 - <a href="https://www.linkedin.com/in/giuliano-bontempo-domiciano-5b5766212/">Giuliano Bontempo Domiciano</a>
 - <a href="https://www.linkedin.com/in/jos%C3%A9-vitor-alencar-161243211/">José Vitor Alencar Silva</a>
 - <p>João Montanha</p> 
-- <a href="https://www.linkedin.com/in/luis-miranda-137566139/">Luis Miranda</a>
+- <p>Lucas Galvão</p>
 - <p>Victor Corazza</p> 
 - <a href="https://www.linkedin.com/in/yuri-toledo-964123230/">Yuri Toledo</a>
 
@@ -43,7 +43,7 @@ npm start
 
 ## 🗃 Histórico de lançamentos
 
-* 0.0.4 - 02/12/2022
+* 0.0.5 - 02/12/2022
     * Entrega final  - Artefato 5
     * Alterações de refinação
 * 0.0.4 - 02/12/2022
@@ -61,10 +61,18 @@ npm start
 
 ## 📋 Licença/License
 
-<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/Spidus/Teste_Final_1">MODELO GIT INTELI</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.yggbrasil.com.br/vr">Inteli, Nome do integrante 1, Nome do integrante 2, Nome do integrante 3, Nome do integrante 4, Nome do integrante 5, Nome do integrante 6, Nome do integrante 7</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International</a>.</p>
+<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/Spidus/Teste_Final_1">MODELO GIT INTELI</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.yggbrasil.com.br/vr">Inteli, Giuliano Bontempo Domiciano, João Victor Cavalcante Montagna, José Vitor Alencar Silva, Lucas Oliveira de Medeiros Galvão, Victor Corazza Genioli Oliveira, Yuri Toledo.</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International</a>.</p>
 
 ## 🎓 Referências
 
 Aqui estão as referências usadas no projeto:
 
-1. <https://creativecommons.org/share-your-work/>
+1. The Capital Advisor - Notícias e Artigos sobre Investimentos. Disponível em: <https://comoinvestir.thecap.com.br/>.
+2. Jornal Contábil – 24 horas ligado em Você! Canal R7. Disponível em: <https://www.jornalcontabil.com.br/>.
+3. Relações com Investidores. Disponível em: <https://ri.mrv.com.br/ >.
+4. OTTO, M. Bootstrap. Disponível em: <https://getbootstrap.com/>.
+5. W3SCHOOLS. W3Schools Online Web Tutorials. Disponível em: <https://www.w3schools.com/>.
+6. How to Build a Kanban Board with JavaScript (No Frameworks). Disponível em: <https://www.youtube.com/watch?v=ijQ6dCughW8 >. Acesso em: 8 jun. 2022.
+7. Figma For Beginners: Explore ideas (1/4). Disponível em: <https://www.youtube.com/watch?v=dXQ7IHkTiMM>. 
+8. Criando do ZERO uma Landing Page // Com HTML & CSS - part 1. Disponível em: <https://www.youtube.com/watch?v=G4gzPVE2N0U>.  Acesso em: 19 dez. 2022.
+9. JavaScript Classes #1: The Basics - JavaScript OOP Tutorial. Disponível em: <https://www.youtube.com/watch?v=wik23D_gyCo>. Acesso em: 19 dez. 2022. 
