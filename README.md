@@ -76,3 +76,6 @@ Aqui estão as referências usadas no projeto:
 7. Figma For Beginners: Explore ideas (1/4). Disponível em: <https://www.youtube.com/watch?v=dXQ7IHkTiMM>. 
 8. Criando do ZERO uma Landing Page // Com HTML & CSS - part 1. Disponível em: <https://www.youtube.com/watch?v=G4gzPVE2N0U>.  Acesso em: 19 dez. 2022.
 9. JavaScript Classes #1: The Basics - JavaScript OOP Tutorial. Disponível em: <https://www.youtube.com/watch?v=wik23D_gyCo>. Acesso em: 19 dez. 2022. 
+
+## 🌐 Website no Code Sandbox
+<a href="https://hf87dq-1234.preview.csb.app/frontend/home.html">MRVisao</a>
