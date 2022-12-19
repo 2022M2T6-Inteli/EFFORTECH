@@ -39,7 +39,7 @@ npm start
 ```
 5. Agora você pode acessar a aplicação através do link http://localhost:1234/
 6. O servidor está online.
-7. 
+7. A página inicial é de testes. Nela você encontra os links mais importantes dela. Clique em "Home" e comece navegar pela página. Observe que ao final dela contém as informações de login de administradores, para navegar páginas restritas. 
 
 ## 🗃 Histórico de lançamentos
 
